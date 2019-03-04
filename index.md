@@ -42,14 +42,7 @@ You can find my dotfiles here: <a href="http://github.com/chris-bacon/config">do
 
 These are the technologies that I use professionally and personally:
 
-- Languages:
-   - Haskell
-   - JS: React/Node
-   - TypeScript
-   - Elm
-   - Python
-- Unix
-- Git
-- Ansible
-- AWS (EC2, S3
-- LaTeX
+{% for tech in site.technologies %}
+  - tech
+{% endfor %}
+
