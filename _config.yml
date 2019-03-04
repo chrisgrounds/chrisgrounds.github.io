@@ -3,6 +3,9 @@ theme: jekyll-theme-hacker
 title: The Abominable Land of Pure Code
 description: A rum soaked paradise
 
+sass:
+  style: :compressed
+
 defaults:
   -
     scope:
@@ -11,5 +14,8 @@ defaults:
     values:
       layout: "post"
 
-sass:
-  style: :compressed
+
+talks:
+  - Manchester Lambda Lounge:
+    - Haskell at Tracsis (Some lessons)
+    - https://docs.google.com/presentation/d/1IG-LyNSYFBU9bSRzabWlhHHRsM-7961suQqv-tcngpA/edit?usp=sharing
