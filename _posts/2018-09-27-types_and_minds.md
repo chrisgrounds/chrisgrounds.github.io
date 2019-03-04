@@ -1,5 +1,5 @@
 ---
-title: TDD + TDD = TTDD
+title: Types and Minds
 date: 27 Sep 2018
 published: true
 ---
@@ -18,7 +18,7 @@ published: true
 
 <p>Consider the type signature of a function that takes an element and returns that same element:</p>
 
-```
+```Haskell
 f :: a → a
 ```
 
@@ -26,7 +26,7 @@ f :: a → a
 
 <p>In fact, we are left in the situation where f does virtually nothing. We can make f more useful by <em>constraining</em> its input&mdash;also known as providing an ad hoc polymorphism for the function. What this means is to say that instead of allowing literally anything as input and output, we constrain the input and output to be of a certain (delimited) type. For example,</p>
 
-```
+```Haskell
 f' :: Num a => a → a
 ```
 
@@ -34,7 +34,7 @@ f' :: Num a => a → a
 
 <p>In this way we have reduced what f' knows, so to speak&mdash;that is, the domain that f' operates over – but in doing so we have increased what f' can do. Another example of this comes from the following:</p>
 
-```
+```Haskell
 f'' :: Semigroup a => a → a
 ```
 
@@ -42,7 +42,7 @@ f'' :: Semigroup a => a → a
 
 <p>Again, if we constrain f’’, like we did with f, then we can do more. </p>
 
-```
+```Haskell
 f''' :: Monoid a => a → a
 ```
 
