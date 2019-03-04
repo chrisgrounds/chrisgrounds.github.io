@@ -1,6 +1,7 @@
 ---
 title: Data Constructors Are Functions
 date: 27 Sep 2018
+published: true
 ---
 
 Thanks to <a href="https://twitter.com/Iceland_jack/status/1041409114029674500">Iceland Jack</a> for this one. This post is me turning Iceland Jack's thread into a blog post.
