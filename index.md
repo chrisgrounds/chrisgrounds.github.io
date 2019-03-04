@@ -24,7 +24,7 @@ I'm a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, forme
 ## Talks
 
 {% for talk in site.talks %}
-  {{ talk.location }}
+  aaa{{ talk.location }}
   <li>
     <a href="{{ talk.url }}">{{ talk.location }} - {{ talk.name }}</a>
   </li>
