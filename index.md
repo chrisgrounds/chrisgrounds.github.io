@@ -2,6 +2,10 @@
 
 I am a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, formerly at the <a href="https://www.bbc.co.uk">BBC</a>, interested in functional programming and software engineering best practices.
 
+{% for p in site.posts %}
+  {{ p.title }}
+{% endfor %}
+
 #### Contact
 
 Twitter: <a href="https://twitter.com/chris__bacon">twitter.com/chris__bacon</a>
