@@ -1,10 +1,15 @@
 ## Welcome
 
 I am a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, formerly at the <a href="https://www.bbc.co.uk">BBC</a>, interested in functional programming and software engineering best practices.
-
-{% for p in site.posts %}
-  {{ p.title }}
-{% endfor %}
+  
+{% if site.posts.size == 0 %}
+  <h2>No post found</h2>
+{% else %}
+  {% for p in site.posts %}
+    {{ p.title }}
+  {% endfor %}
+{% endif %}
+  
 
 #### Contact
 
