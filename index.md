@@ -6,7 +6,7 @@
 I am a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, formerly at the <a href="https://www.bbc.co.uk">BBC</a>, interested in functional programming and software engineering best practices.
   
 #{% if site.posts.size == 0 %}
-  <h2>No post found</h2>
+  No blog posts found
 #{% else %}
   #{% for p in site.posts %}
     {{ p.title }}
