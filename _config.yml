@@ -45,6 +45,9 @@ oss_projects:
   - name: Exosphere
     url: https://github.com/exosphere-lang/compiler
     description: A high level AWS CloudFormation language and compiler
+  - name: Haskell Refactor
+    url: https://github.com/chris-bacon/haskell-refactor
+    description: A lightweight vim plugin that helps you refactor Haskell code
 
 oss_patches: 
   - name: GHC
