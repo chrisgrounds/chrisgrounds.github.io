@@ -22,6 +22,14 @@ I am a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, form
   </ul>
 {% endif %}
 
+## Talks
+
+{% for talk in site.talks %}
+  <li>
+    <a href="{{ talk.url }}">{{ talk.location }} - {{ talk.name }}</a>
+  </li>
+{% endfor %}
+
 ## Open Source Contributions
 
 - GHC: <a href="https://github.com/ghc/ghc/commit/36c1431d9d2d06049190cc0888dbfaee8e2179d6">36c1431d9d2d06049190cc0888dbfaee8e2179d6</a>
