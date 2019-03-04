@@ -42,7 +42,7 @@ The answer is that <code>Just</code> is a function. In fact, all data constructo
 Now the unfortunate thing about ADTs is that it is not obvious to see that we are dealing with functions. Fortunately, if we use the syntax from Generalised Algebraic Data Types (GADT), it does become apparent. Let's rewrite `Maybe` in the syntax of GADTs.
 
 ```Haskell
-data Maybe :: Type -> Type where
+data Maybe  :: Type -> Type where
     Nothing :: Maybe a
     Just :: a -> Maybe a
 ```
