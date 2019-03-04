@@ -40,7 +40,7 @@ I'm a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, forme
   {% for oss in site.oss_projects %}
     <li>
       <a href="{{ oss.url }}">{{ oss.name }}</a>
-      {{ oss.description }}
+      <p>{{ oss.description }}</p>
     </li>
   {% endfor %}
 </ul>
