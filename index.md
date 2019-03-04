@@ -3,10 +3,9 @@
 
 {% include css.html %}
 
-
 # Welcome
 
-I am a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, formerly at the <a href="https://www.bbc.co.uk">BBC</a>, interested in functional programming and software engineering best practice and excellence.
+I'm a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, formerly at the <a href="https://www.bbc.co.uk">BBC</a>, interested in functional programming and software engineering best practice and excellence.
   
 ## Blog 
  
@@ -25,7 +24,7 @@ I am a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, form
 ## Talks
 
 {% for talk in site.talks %}
-  {{ talk }}
+  {{ talk.location }}
   <li>
     <a href="{{ talk.url }}">{{ talk.location }} - {{ talk.name }}</a>
   </li>
