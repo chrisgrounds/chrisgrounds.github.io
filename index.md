@@ -1,37 +1,32 @@
-## Welcome to GitHub Pages
+## Welcome
 
-You can use the [editor on GitHub](https://github.com/chris-bacon/chris-bacon.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+I am a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, formerly at the <a href="https://www.bbc.co.uk">BBC</a>, interested in functional programming and software engineering best practices.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+#### Contact
 
-### Markdown
+Twitter: <a href="https://twitter.com/chris__bacon">twitter.com/chris__bacon</a>
+Github: <a href="https://github.com/chris-bacon">github.com/chris-bacon</a>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+#### Open Source Projects
 
-```markdown
-Syntax highlighted code block
+- GHC: <a href="https://github.com/ghc/ghc/commit/36c1431d9d2d06049190cc0888dbfaee8e2179d6">36c1431d9d2d06049190cc0888dbfaee8e2179d6</a>
+- Vim-one: colorschemes for Vim: <a href="https://github.com/rakr/vim-one/commit/8e1118ecec916e1334694a44ef29db70fb679682">8e1118ecec916e1334694a44ef29db70fb679682</a>
+- Intero-neovim: an intero plugin for neovim: <a href="https://github.com/parsonsmatt/intero-neovim/commit/26d340ab0d6e8d40cbafaf72dac0588ae901c117">26d340ab0d6e8d40cbafaf72dac0588ae901c117</a>
 
-# Header 1
-## Header 2
-### Header 3
+#### Tech
 
-- Bulleted
-- List
+You can find my dotfiles here: <a href="http://github.com/chris-bacon/config">dotfiles</a>
 
-1. Numbered
-2. List
+These are the technologies that I use professionally and personally:
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/chris-bacon/chris-bacon.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+- Languages:
+   - Haskell
+   - JS: React/Node
+   - TypeScript
+   - Elm
+   - Python
+- Unix
+- Git
+- Ansible
+- AWS (EC2, S3
+- LaTeX
