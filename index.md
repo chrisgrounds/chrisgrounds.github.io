@@ -24,31 +24,36 @@ I'm a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, forme
 
 ## Talks
 
-{% for talk in site.talks %}
-  <li>
-    <a href="{{ talk.url }}">{{ talk.location }} - {{ talk.name }}</a>
-  </li>
-{% endfor %}
- 
+<ul>
+  {% for talk in site.talks %}
+    <li>
+      <a href="{{ talk.url }}">{{ talk.location }} - {{ talk.name }}</a>
+    </li>
+  {% endfor %}
+</ul>
 
 ## OSS
 
 ### Projects 
 
-{% for o in site.oss_projects %}
-  <li>
-    <a href="{{ o.url }}">{{ o.name }} - {{ o.commitRef }}</a>
-  </li>
-{% endfor %}
-  
+<ul>
+  {% for oss in site.oss_projects %}
+    <li>
+      <a href="{{ oss.url }}">{{ oss.name }}</a>
+      {{ oss.description }}
+    </li>
+  {% endfor %}
+</ul>
+
 ### Patches
 
-{% for o in site.oss_patches %}
-  <li>
-    <a href="{{ o.url }}">{{ o.name }} - {{ o.commitRef }}</a>
-  </li>
-{% endfor %}
-  
+<ul>
+  {% for oss in site.oss_patches %}
+    <li>
+      <a href="{{ oss.url }}">{{ oss.name }} - {{ oss.commitRef }}</a>
+    </li>
+  {% endfor %}
+</ul>
 
 ## Tech
 
@@ -56,8 +61,10 @@ You can find my dotfiles here: <a href="http://github.com/chris-bacon/config">do
 
 These are the technologies that I use professionally and personally:
 
-{% for tech in site.technologies %}
-  <li>
-    {{ tech }}
-  </li>
-{% endfor %}
+<ul>
+  {% for tech in site.technologies %}
+    <li>
+      {{ tech }}
+    </li>
+  {% endfor %}
+</ul>
