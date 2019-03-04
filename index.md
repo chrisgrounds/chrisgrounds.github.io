@@ -21,8 +21,8 @@ I am a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, form
 
 #### Contact
 
-[https://twitter.com/chris__bacon](Twitter)
-[https://github.com/chris-bacon](Github)
+[Twitter](https://twitter.com/chris__bacon)
+[Github](https://github.com/chris-bacon)
 
 #### Open Source Projects
 
