@@ -13,7 +13,7 @@ I am a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, form
   <ul>
     {% for post in site.posts %}
       <li>
-        <a href="{{ post.url }}">{{post.date}} - {{ post.title }}</a>
+        <a href="{{ post.url }}">{{ post.date | date_to_long_string  }} - {{ post.title }}</a>
       </li>
     {% endfor %}
   </ul>
