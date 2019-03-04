@@ -22,12 +22,6 @@ I am a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, form
   </ul>
 {% endif %}
 
-## Contact
-
-[Twitter](https://twitter.com/chris__bacon)
-
-[Github](https://github.com/chris-bacon)
-
 ## Open Source Projects
 
 - GHC: <a href="https://github.com/ghc/ghc/commit/36c1431d9d2d06049190cc0888dbfaee8e2179d6">36c1431d9d2d06049190cc0888dbfaee8e2179d6</a>
