@@ -1,5 +1,5 @@
 ---
-title: client_ssl_auth_in_10_minutes
+title: Client SSL Auth In 10 Minutes
 layout: post
 published: true
 ---
