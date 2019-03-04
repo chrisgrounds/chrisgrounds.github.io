@@ -5,6 +5,7 @@ published: true
 ---
 
 Thanks to <a href="https://twitter.com/Iceland_jack/status/1041409114029674500">Iceland Jack</a> for this one. This post is me turning Iceland Jack's thread into a blog post.
+
 To define an Algebraic Data Type (ADT) in Haskell we use the <code>data</code> keyword. Data declarations consist of two constructors, a type constructor and a data, or value, constructor.
 
 {% highlight haskell %}
