@@ -14,12 +14,12 @@ defaults:
     values:
       layout: "post"
 
-
 talks:
-  - talk1:
-    - location: Manchester Lambda Lounge:
-    - name: Haskell at Tracsis (Some lessons)
-    - url: https://docs.google.com/presentation/d/1IG-LyNSYFBU9bSRzabWlhHHRsM-7961suQqv-tcngpA/edit?usp=sharing
+  - 
+    talk1:
+      location: Manchester Lambda Lounge:
+      name: Haskell at Tracsis (Some lessons)
+      url: https://docs.google.com/presentation/d/1IG-LyNSYFBU9bSRzabWlhHHRsM-7961suQqv-tcngpA/edit?usp=sharing
 
 technologies:
   - Haskell
