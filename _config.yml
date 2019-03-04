@@ -1,4 +1,6 @@
+author: Christopher Bacon
 theme: jekyll-theme-hacker
+
 defaults:
   -
     scope:
@@ -7,4 +9,5 @@ defaults:
     values:
       layout: "post"
 
-author: Christopher Bacon
+sass:
+  style: :compressed
