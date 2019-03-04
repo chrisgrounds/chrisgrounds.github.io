@@ -31,9 +31,12 @@ I'm a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, forme
 
 ## Open Source Contributions
 
-- GHC: <a href="https://github.com/ghc/ghc/commit/36c1431d9d2d06049190cc0888dbfaee8e2179d6">36c1431d9d2d06049190cc0888dbfaee8e2179d6</a>
-- Vim-one: colorschemes for Vim: <a href="https://github.com/rakr/vim-one/commit/8e1118ecec916e1334694a44ef29db70fb679682">8e1118ecec916e1334694a44ef29db70fb679682</a>
-- Intero-neovim: an intero plugin for neovim: <a href="https://github.com/parsonsmatt/intero-neovim/commit/26d340ab0d6e8d40cbafaf72dac0588ae901c117">26d340ab0d6e8d40cbafaf72dac0588ae901c117</a>
+{% for o in site.oss %}
+  <li>
+    <a href="{{ o.url }}">{{ o.name }} - {{ o.commitRef }}</a>
+  </li>
+{% endfor %}
+
 
 ## Tech
 
