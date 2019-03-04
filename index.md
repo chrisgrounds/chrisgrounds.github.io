@@ -31,9 +31,19 @@ I'm a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, forme
 {% endfor %}
  
 
-## Open Source Contributions
+## OSS
 
-{% for o in site.oss %}
+### Projects 
+
+{% for o in site.oss_projects %}
+  <li>
+    <a href="{{ o.url }}">{{ o.name }} - {{ o.commitRef }}</a>
+  </li>
+{% endfor %}
+  
+### Patches
+
+{% for o in site.oss_patches %}
   <li>
     <a href="{{ o.url }}">{{ o.name }} - {{ o.commitRef }}</a>
   </li>
