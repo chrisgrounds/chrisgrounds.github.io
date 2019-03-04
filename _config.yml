@@ -36,9 +36,9 @@ oss:
   - name: GHC
     url: https://github.com/ghc/ghc/commit/36c1431d9d2d06049190cc0888dbfaee8e2179d6
     commitRef: 36c1431d9d2d06049190cc0888dbfaee8e2179d6
-  - name: Vim-one\: colorschemes for Vim 
+  - name: "Vim-one: colorschemes for Vim"
     url: https://github.com/rakr/vim-one/commit/8e1118ecec916e1334694a44ef29db70fb679682>
     commitRef: 8e1118ecec916e1334694a44ef29db70fb679682
-  - name: Intero-neovim\: an intero plugin for neovim
+  - name: "Intero-neovim: an intero plugin for neovim"
     url: https://github.com/parsonsmatt/intero-neovim/commit/26d340ab0d6e8d40cbafaf72dac0588ae901c117
     commitRef: 26d340ab0d6e8d40cbafaf72dac0588ae901c117
