@@ -42,5 +42,7 @@ You can find my dotfiles here: <a href="http://github.com/chris-bacon/config">do
 These are the technologies that I use professionally and personally:
 
 {% for tech in site.technologies %}
-  - {{ tech }}
+  <li>
+    {{ tech }}
+  </li>
 {% endfor %}
