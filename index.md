@@ -45,4 +45,3 @@ These are the technologies that I use professionally and personally:
 {% for tech in site.technologies %}
   - {{ tech }}
 {% endfor %}
-
