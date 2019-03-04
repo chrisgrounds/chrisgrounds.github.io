@@ -18,6 +18,15 @@ talks:
   - location: Manchester Lambda Lounge
     name: Haskell at Tracsis (Some lessons)
     url: https://docs.google.com/presentation/d/1IG-LyNSYFBU9bSRzabWlhHHRsM-7961suQqv-tcngpA/edit?usp=sharing
+  - location: Tracsis
+    name: Pair Programming
+    url: https://docs.google.com/presentation/d/1smd0OJ6coV8jYMA0tJx897ut-hSQs0_BQkRm-55Oer4/edit?usp=sharing
+  - location: Manchester Lambda Lounge
+    name: Using Monoids to Build UI
+    url: https://docs.google.com/presentation/d/1y6y9VqRxBNUngF9t4qi_9n7cRA8m5eL5R0X8TG3DWBY/edit?usp=sharing
+  - location: BBC
+    name: "Haskell: Programming Purity"
+    url: https://docs.google.com/presentation/d/1Al3J9S6MlOy_1X9wfaTqpxofZ6NGjDgZwmzjHYLuA9s/edit?usp=sharing
 
 technologies:
   - Haskell
