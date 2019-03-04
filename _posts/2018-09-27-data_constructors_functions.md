@@ -16,25 +16,25 @@ type constructor      data constructor
 
 Both constructors may have zero or more arguments. The example above has zero arguments, and so is called a nullary constructor. The Bool type is an example of a nullary datatype:
 
-```Haskell
+{% highlight haskell %}
 data Bool = True | False
-```
+{% endhighlight %}
 
 Here is the syntax for a non-nullary data type.
 
-```Haskell
+{% highlight haskell %}
 data MyType a b c       =     Something a b c
               ^                           ^
       constructor args            constructor args
-```
+{% endhighlight %}
 
 It is the same as the nullary one, except that the type- and data constructors have parameters following them. An example of a non-nullary datatype would be the Maybe type. The type constructor <code>Maybe</code> has one argument <code>a</code>, and the <code>Just</code> data constructor has one argument also.
 
-```Haskell
+{% highlight haskell %}
 data Maybe a        =  Nothing | Just a
            ^                          ^
        arg to Maybe               arg to Just
-```
+{% endhighlight %}
 
 Now what is not apparent from this syntax is what exactly a non-nullary data constructor is: what exactly is <code>Just</code> and how does it work?
 
@@ -42,10 +42,10 @@ The answer is that <code>Just</code> is a function. In fact, all data constructo
 
 Now the unfortunate thing about ADTs is that it is not obvious to see that we are dealing with functions. Fortunately, if we use the syntax from Generalised Algebraic Data Types (GADT), it does become apparent. Let's rewrite `Maybe` in the syntax of GADTs.
 
-```Haskell
+{% highlight haskell %}
 data Maybe :: Type -> Type where
     Nothing :: Maybe a
     Just    :: a -> Maybe a
-```
+{% endhighlight %}
 
 This says that the type `Maybe` is also a function from a Type to a Type, which makes sense because `Maybe` is polymorphic on some type `a`. The `Nothing` constructor straightforwardly returns a `Maybe a`. And `Just` is a function from `a` to `Maybe a`.
