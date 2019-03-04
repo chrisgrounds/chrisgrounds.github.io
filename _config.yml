@@ -2,7 +2,7 @@ theme: jekyll-theme-hacker
 defaults:
   -
     scope:
-      path:         ""
-      type:         "posts"
+      path: ""
+      type: "posts"
     values:
-      layout:       "post"
+      layout: "post"
