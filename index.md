@@ -1,11 +1,11 @@
 ---
 ---
 
-## Welcome
+# Welcome
 
 I am a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, formerly at the <a href="https://www.bbc.co.uk">BBC</a>, interested in functional programming and software engineering best practices.
   
-### Blog 
+## Blog 
  
 {% if site.posts.size == 0 %}
   No blog posts found
@@ -19,19 +19,19 @@ I am a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, form
   </ul>
 {% endif %}
 
-#### Contact
+## Contact
 
 [Twitter](https://twitter.com/chris__bacon)
 
 [Github](https://github.com/chris-bacon)
 
-#### Open Source Projects
+## Open Source Projects
 
 - GHC: <a href="https://github.com/ghc/ghc/commit/36c1431d9d2d06049190cc0888dbfaee8e2179d6">36c1431d9d2d06049190cc0888dbfaee8e2179d6</a>
 - Vim-one: colorschemes for Vim: <a href="https://github.com/rakr/vim-one/commit/8e1118ecec916e1334694a44ef29db70fb679682">8e1118ecec916e1334694a44ef29db70fb679682</a>
 - Intero-neovim: an intero plugin for neovim: <a href="https://github.com/parsonsmatt/intero-neovim/commit/26d340ab0d6e8d40cbafaf72dac0588ae901c117">26d340ab0d6e8d40cbafaf72dac0588ae901c117</a>
 
-#### Tech
+## Tech
 
 You can find my dotfiles here: <a href="http://github.com/chris-bacon/config">dotfiles</a>
 
