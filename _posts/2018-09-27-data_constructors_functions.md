@@ -42,9 +42,9 @@ The answer is that <code>Just</code> is a function. In fact, all data constructo
 Now the unfortunate thing about ADTs is that it is not obvious to see that we are dealing with functions. Fortunately, if we use the syntax from Generalised Algebraic Data Types (GADT), it does become apparent. Let's rewrite `Maybe` in the syntax of GADTs.
 
 ```Haskell
-data Maybe  :: Type -> Type where
+data Maybe :: Type -> Type where
     Nothing :: Maybe a
-    Just :: a -> Maybe a
+    Just    :: a -> Maybe a
 ```
 
-This says that the type `Maybe` is also a function from a Type to a Type, which makes sense because `Maybe` is polymorphic on some type <code>a</code>. The <code>Nothing</code> constructor straightforwardly returns a `Maybe a`. And `Just` is a function from `a` to `Maybe a`.
+This says that the type `Maybe` is also a function from a Type to a Type, which makes sense because `Maybe` is polymorphic on some type `a`. The `Nothing` constructor straightforwardly returns a `Maybe a`. And `Just` is a function from `a` to `Maybe a`.
