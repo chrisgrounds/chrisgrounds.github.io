@@ -1,6 +1,6 @@
 author: Christopher Bacon
 theme: jekyll-theme-hacker
-base_url: ""
+baseurl: ""
 
 defaults:
   -
