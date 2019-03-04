@@ -20,7 +20,7 @@ I'm a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, forme
     {% endfor %}
   </ul>
 {% endif %}
-&nbsp; 
+ 
 
 ## Talks
 
@@ -29,7 +29,7 @@ I'm a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, forme
     <a href="{{ talk.url }}">{{ talk.location }} - {{ talk.name }}</a>
   </li>
 {% endfor %}
-&nbsp; 
+ 
 
 ## Open Source Contributions
 
@@ -38,7 +38,7 @@ I'm a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, forme
     <a href="{{ o.url }}">{{ o.name }} - {{ o.commitRef }}</a>
   </li>
 {% endfor %}
-&nbsp; 
+  
 
 ## Tech
 
