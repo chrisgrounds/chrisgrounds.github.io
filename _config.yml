@@ -41,7 +41,12 @@ technologies:
   - AWS
   - LaTeX
 
-oss: 
+oss_projects:
+  - name: Exosphere
+    url: https://github.com/exosphere-lang/compiler
+    description: A high level AWS CloudFormation language and compiler
+
+oss_patches: 
   - name: GHC
     url: https://github.com/ghc/ghc/commit/36c1431d9d2d06049190cc0888dbfaee8e2179d6
     commitRef: 36c1431d9d2d06049190cc0888dbfaee8e2179d6
