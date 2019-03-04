@@ -17,5 +17,5 @@ defaults:
 
 talks:
   - Manchester Lambda Lounge:
-    - Haskell at Tracsis (Some lessons)
-    - https://docs.google.com/presentation/d/1IG-LyNSYFBU9bSRzabWlhHHRsM-7961suQqv-tcngpA/edit?usp=sharing
+    - name: Haskell at Tracsis (Some lessons)
+    - url: https://docs.google.com/presentation/d/1IG-LyNSYFBU9bSRzabWlhHHRsM-7961suQqv-tcngpA/edit?usp=sharing
