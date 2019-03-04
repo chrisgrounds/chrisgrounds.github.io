@@ -1,6 +1,7 @@
 ---
 title: client_ssl_auth_in_10_minutes
 layout: post
+published: true
 ---
 
 ### Generate CA root private key
