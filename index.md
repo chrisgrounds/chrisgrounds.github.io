@@ -30,29 +30,6 @@ I'm a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, forme
   {% endfor %}
 </ul>
 
-## OSS
-
-### Projects 
-
-<ul>
-  {% for oss in site.oss_projects %}
-    <li>
-      <a href="{{ oss.url }}">{{ oss.name }}</a>
-      <p>{{ oss.description }}</p>
-    </li>
-  {% endfor %}
-</ul>
-
-### Patches
-
-<ul>
-  {% for oss in site.oss_patches %}
-    <li>
-      <a href="{{ oss.url }}">{{ oss.name }} - {{ oss.commitRef }}</a>
-    </li>
-  {% endfor %}
-</ul>
-
 ## Tech
 
 You can find my dotfiles here: <a href="http://github.com/chris-bacon/config">dotfiles</a>
