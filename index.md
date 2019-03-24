@@ -29,17 +29,3 @@ I'm a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, forme
     </li>
   {% endfor %}
 </ul>
-
-## Tech
-
-You can find my dotfiles here: <a href="http://github.com/chris-bacon/config">dotfiles</a>
-
-These are the technologies that I use professionally and personally:
-
-<ul>
-  {% for tech in site.technologies %}
-    <li>
-      {{ tech }}
-    </li>
-  {% endfor %}
-</ul>
