@@ -72,3 +72,8 @@ cards:
     thumbnail: https://kandl-genres.files.bbci.co.uk/kandl-genres/1233-1/images/meta-images/bbc_blocks.png
     summary: Junior Software Engineer, in the Newsround team, working with React and the BBC's proprietary serverless platform to build a high-performing new website. 
     techs: Node/React, TypeScript, Elm, TDD and Unit Testing (Jest), CI/CD, Serverless
+    
+  - title: AGE PARTNERSHIP/TML
+    thumbnail: https://www.editingedge.co.uk/wp-content/uploads/Age-Partnership.jpg
+    summary: A backend web developer, writing new software, maintaining existing code, and responding to and solving a wide variety of software and infrastructure-related problems. 
+    techs: PHP, Python, Apache, Ansible, Git, JavaScript, Unit Testing
