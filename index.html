@@ -13,7 +13,7 @@
     <header class="header">
       <div class="container flex">
         <div class="header-content">
-          <h1>{{ site.description }}</h1>
+          <h1 class="page-header">{{ site.description }}</h1>
           {% include contact.html %}
         </div>
       </div>
@@ -77,8 +77,12 @@ ul li {
   margin-bottom: 32px;
   background-color: #4d75b7;
   color: white;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+  
+.page-header {
+  font-size: 4em;
 }
 
 .header-content {}
