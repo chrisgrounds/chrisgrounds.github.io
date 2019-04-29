@@ -10,18 +10,20 @@
   </head>
     
   <body>
-    <header>
-      <div class="container">
-        <a href="/"><h1>{{ site.title }}</h1></a>
-        <h2>{{ site.description }}</h2>
-        {% include contact.html %}
+    <header class="header">
+      <div class="container flex">
+        <div class="header-content">
+          <a href="/"><h1>{{ site.title }}</h1></a>
+          <h2>{{ site.description }}</h2>
+          {% include contact.html %}
+        </div>
       </div>
     </header>
 
     <section id="main_content">
 
     <div class="container">  
-      <h1>Welcome</h1>
+      <h1>Portfolio</h1>
     </div>
     <div class="container">  
       {% if site.cards.size == 0 %}
@@ -66,7 +68,16 @@ ul li {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 16px;
 }
+  
+.header {
+  width: 100vw;
+  margin-bottom: 32px;
+}
 
+.header-content {
+  background-color: #4d75b7;
+}
+  
 .card {
   height: 100%;
   background-color: white;
