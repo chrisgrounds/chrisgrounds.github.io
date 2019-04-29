@@ -28,14 +28,18 @@
         <div class="flex grid">
           {% for card in site.cards %}
               <div class="card">
-                  <img class="card-img" src="{{ card.thumbnail }}"></a>
-                  <div class="card-content">
-                    <h3 class="card-content-title">{{card.title}}</h3>
-                    <div class="card-content-body">
-                      <p>{{card.summary}}</p>
-                      <p><b>Techs:</b> {{card.techs}}</p>
-                    </div>
+                <img class="card-img" src="{{ card.thumbnail }}"></a>
+                {% if card.type == "job" %}
+                  <div class="card-content-for-job">
+                {% else %}
+                  <div class="card-content-for-hobby">
+                {% endif %}
+                  <h3 class="card-content-title">{{card.title}}</h3>
+                  <div class="card-content-body">
+                    <p>{{card.summary}}</p>
+                    <p><b>Techs:</b> {{card.techs}}</p>
                   </div>
+                </div>
               </div>
           {% endfor %}
         </div>
@@ -108,9 +112,15 @@ ul li {
   height: 50%;
 }
 
-.card-content {
+.card-content-for-job {
   padding: 16px;
   background-color: #4d75b7;
+  height: 50%;
+}
+ 
+.card-content-for-hobby {
+  padding: 16px;
+  background-color: #89120c;
   height: 50%;
 }
   
