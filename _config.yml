@@ -1,7 +1,9 @@
 author: Christopher Bacon
 theme: jekyll-theme-hacker
-title: The Abominable Land of Pure Code
-description: A rum soaked paradise
+title: Chris Grounds
+description: Software Engineer at Tracsis
+
+baseurl: chris-bacon.github.io
 
 sass:
   style: :compressed
