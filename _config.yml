@@ -65,8 +65,8 @@ oss_patches:
 cards:
   - title: TRACSIS
     thumbnail: https://tracsistraffic.com/wp/wp-content/themes/tracsis-master/images/Tracsisplc.png
-    summary: test test test
+    summary: Software Engineer at Tracsis working on the resource management system in TRACS Enterprise. 
 
   - title: BBC
     thumbnail: https://kandl-genres.files.bbci.co.uk/kandl-genres/1233-1/images/meta-images/bbc_blocks.png
-    summary: test test test
+    summary: Junior Software Engineer, in the Newsround team, working with React and the BBC's proprietary serverless platform to build a high-performing new website. 
