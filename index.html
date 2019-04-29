@@ -1,19 +1,14 @@
 ---
 ---
-
-    
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="{{ "/assets/css/main.css " | prepend: site.baseurl }}">
     <link rel="icon" href="https://github.com/chris-bacon/chris-bacon.co.uk/blob/master/images/favicon.ico" type="image/x-icon">
-
-    {% seo %}
   </head>
+    
   <body>
     <header>
       <div class="container">
@@ -25,30 +20,33 @@
 
     <section id="main_content">
 
-<div class="container">  
-  <h1>Welcome</h1>
-  I'm a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, formerly at the <a href="https://www.bbc.co.uk">BBC</a>, interested in functional programming and software engineering best practice and excellence.
- </div>
-<div class="container">  
-  {% if site.cards.size == 0 %}
-    No portfolio found
-  {% else %}
-    <div class="flex grid">
-      {% for card in site.cards %}
-          <div class="card">
-              <img class="card-img" src="{{ card.thumbnail }}"></a>
-              <div class="card-content">
-                <h3>{{card.title}}</h3>
-                <p>{{card.summary}}</p>
-              </div>
-          </div>
-      {% endfor %}
+    <div class="container">  
+      <h1>Welcome</h1>
+      <p>I'm a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, formerly at the <a href="https://www.bbc.co.uk">BBC</a>, interested in functional programming and software engineering best practice and excellence.</p>
     </div>
-  {% endif %}
- </div>
-    
-    <style>
-      
+    <div class="container">  
+      {% if site.cards.size == 0 %}
+        No portfolio found
+      {% else %}
+        <div class="flex grid">
+          {% for card in site.cards %}
+              <div class="card">
+                  <img class="card-img" src="{{ card.thumbnail }}"></a>
+                  <div class="card-content">
+                    <h3>{{card.title}}</h3>
+                    <p>{{card.summary}}</p>
+                  </div>
+              </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+     </div>
+     
+    </section>
+  </body>
+</html>
+
+<style>
 a {
   text-decoration: none;
 }
@@ -87,9 +85,4 @@ ul li {
 .card-content {
   padding: 16px; 
 }
-    </style>
-
-    </section>
-    
-  </body>
-</html>
+</style>
