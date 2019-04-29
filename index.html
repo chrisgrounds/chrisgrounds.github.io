@@ -37,7 +37,10 @@
                   <h3 class="card-content-title">{{card.title}}</h3>
                   <div class="card-content-body">
                     <p>{{card.summary}}</p>
-                    <p><b>Techs:</b> {{card.techs}}</p>
+                    {% if card.techs %}
+                      <p><b>Techs:</b> {{card.techs}}</p>
+                    {% else %}
+                    {% endif %}
                   </div>
                 </div>
               </div>
