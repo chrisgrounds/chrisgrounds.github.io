@@ -16,6 +16,10 @@ I'm a Software Engineer at <a href="https://www.tracsis.com/">Tracsis</a>, forme
     {% for card in site.cards %}
         <div class="card">
             <img src="{{ card.thumbnail }}"></a>
+            <div>
+              <h3>{{card.title}}</h3>
+              <p>{{card.summary}}</p>
+            </div>
         </div>
     {% endfor %}
   </div>
