@@ -64,7 +64,7 @@ oss_patches:
 
 cards:
   - title: HTTP-PROXY-LAMBDA
-    thumbnail: https://github.com/chris-bacon/http-proxy-lambda/blob/master/proxy_screenshot.PNG
+    thumbnail: https://github.com/chris-bacon/http-proxy-lambda/blob/master/proxy_screenshot.PNG?raw=true
     summary: A Serverless, CORS-enabled, HTTP Proxy using Haskell and AWS Lambda
     type: hobby
     
