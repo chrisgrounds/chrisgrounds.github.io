@@ -118,7 +118,8 @@ ul li {
   border: 1px solid rgba(0, 0, 0, .2);
   box-sizing: border-box;
   transition: box-shadow .2s ease-in-out;
-  display: block;
+  display: flex;
+  flex-flow: column;
 }
   
 .card:hover {
@@ -134,13 +135,13 @@ ul li {
 .card-content-for-job {
   padding: 16px;
   background-color: #4d75b7;
-  height: 40%;
+  flex-grow: 1;
 }
  
 .card-content-for-hobby {
   padding: 16px;
   background-color: #89120c;
-  height: 40%;
+  flex-grow: 1;
 }
   
 .card-content-title {
