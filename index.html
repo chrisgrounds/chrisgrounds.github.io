@@ -30,9 +30,9 @@
               <div class="card">
                 <img class="card-img" src="{{ card.thumbnail }}"></a>
                 {% if card.type == "job" %}
-                  <div class="card content-for-job">
+                  <div class="card-content for-job">
                 {% else %}
-                  <div class="card content-for-hobby">
+                  <div class="card-content for-hobby">
                 {% endif %}
                   <h3 class="card-content-title">{{card.title}}</h3>
                   <div class="card-content-body">
@@ -132,16 +132,16 @@ ul li {
   height: 50%;
 }
 
-.card {
+.card-content {
   padding: 16px;
   flex-grow: 1;
 }
  
-.content-for-job {
+.for-job {
   background-color: #4d75b7;  
 }
   
-.content-for-hobby {
+.for-hobby {
   background-color: #89120c;
 }
   
