@@ -8,3 +8,16 @@ a {
 ul li {
   list-style-image: none;
 }
+
+container {
+  width: 1200px;
+  max-width: 1200px;
+  margin: auto;
+  overflow: visible;
+}
+
+grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 16px;
+}
