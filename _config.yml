@@ -63,6 +63,10 @@ oss_patches:
     commitRef: 26d340ab0d6e8d40cbafaf72dac0588ae901c117
 
 cards:
+  - title: HTTP-PROXY-LAMBDA
+    thumbnail: https://github.com/chris-bacon/http-proxy-lambda/blob/master/proxy_screenshot.PNG
+    summary: A Serverless, CORS-enabled, HTTP Proxy using Haskell and AWS Lambda
+    
   - title: TRACSIS
     thumbnail: https://tracsistraffic.com/wp/wp-content/themes/tracsis-master/images/Tracsisplc.png
     summary: Software Engineer developing the resource management system in TRACS Enterprise.
