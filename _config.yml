@@ -59,3 +59,8 @@ oss_patches:
   - name: "Intero-neovim: an intero plugin for neovim"
     url: https://github.com/parsonsmatt/intero-neovim/commit/26d340ab0d6e8d40cbafaf72dac0588ae901c117
     commitRef: 26d340ab0d6e8d40cbafaf72dac0588ae901c117
+
+cards:
+  - title: BBC
+    thumbnail: https://kandl-genres.files.bbci.co.uk/kandl-genres/1233-1/images/meta-images/bbc_blocks.png
+    summary: test test test
