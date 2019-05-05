@@ -62,6 +62,9 @@ oss_patches:
     url: https://github.com/parsonsmatt/intero-neovim/commit/26d340ab0d6e8d40cbafaf72dac0588ae901c117
     commitRef: 26d340ab0d6e8d40cbafaf72dac0588ae901c117
 
+job_colour: 4d75b7
+hobby_colour: 89120c
+
 cards:
   - title: HTTP-PROXY-LAMBDA
     thumbnail: https://github.com/chris-bacon/http-proxy-lambda/blob/master/proxy_screenshot.PNG?raw=true
