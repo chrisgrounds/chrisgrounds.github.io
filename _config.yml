@@ -81,7 +81,7 @@ cards:
   - title: BBC
     thumbnail: https://kandl-genres.files.bbci.co.uk/kandl-genres/1233-1/images/meta-images/bbc_blocks.png
     summary: Junior Software Engineer, in the Newsround team, working with the BBC's proprietary serverless platform to build a high-performing new website. 
-    techs: Node/React, TypeScript, Elm, TDD and Unit Testing (Jest), CI/CD, Serverless
+    techs: Node/React, TypeScript, Elm, TDD and Unit Testing, CI/CD, Serverless
     type: job
     
   - title: AGE PARTNERSHIP/TML
