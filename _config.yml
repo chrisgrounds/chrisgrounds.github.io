@@ -67,6 +67,7 @@ cards:
     thumbnail: https://github.com/chris-bacon/http-proxy-lambda/blob/master/proxy_screenshot.PNG?raw=true
     summary: A Serverless, CORS-enabled, HTTP Proxy using Haskell and AWS Lambda
     type: hobby
+    link: https://github.com/chris-bacon/http-proxy-lambda
     
   - title: TRACSIS
     thumbnail: https://tracsistraffic.com/wp/wp-content/themes/tracsis-master/images/Tracsisplc.png
