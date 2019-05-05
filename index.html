@@ -29,7 +29,7 @@
           {% for card in site.cards %}
               <div class="card">
                 {% if card.link %}
-                  <a href={{card.link}}><img class="card-img" src="{{ card.thumbnail }}"></a>
+                  <a class="card-img" href={{card.link}}><img src="{{ card.thumbnail }}"></a>
                 {% else %}
                   <img class="card-img" src="{{ card.thumbnail }}">
                 {% endif %}
