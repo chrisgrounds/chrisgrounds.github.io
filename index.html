@@ -29,7 +29,9 @@
           {% for card in site.cards %}
               <div class="card">
                 {% if card.link %}
-                  <a class="card-img" href={{card.link}}><img src="{{ card.thumbnail }}"></a>
+                  <a class="card-img-container" href={{card.link}}>
+                    <img class="card-img" src="{{ card.thumbnail }}">
+                  </a>
                 {% else %}
                   <img class="card-img" src="{{ card.thumbnail }}">
                 {% endif %}
@@ -130,10 +132,15 @@ ul li {
   box-shadow: 0 0 12px rgba(0, 0, 0, .2), 0 0 2px rgba(0, 0, 0, .1);
 }
 
-.card-img {
+.card-img-container {
   width: 100%;
-  object-fit: contain;
   height: 50%;
+}
+  
+.card-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .card-content {
