@@ -77,15 +77,18 @@ cards:
     summary: Software Engineer developing the resource management system in TRACS Enterprise.
     techs: Haskell, AWS, CI/CD, Jenkins, JavaScript, TDD, E2E Testing
     type: job
+    link: https://tracsis.com/
 
   - title: BBC
     thumbnail: https://kandl-genres.files.bbci.co.uk/kandl-genres/1233-1/images/meta-images/bbc_blocks.png
     summary: Junior Software Engineer, in the Newsround team, working with the BBC's proprietary serverless platform to build a high-performing new website. 
     techs: Node/React, TypeScript, Elm, TDD and Unit Testing, CI/CD, Serverless
     type: job
+    link: https://https://bbc.co.uk
     
   - title: AGE PARTNERSHIP/TML
     thumbnail: https://www.editingedge.co.uk/wp-content/uploads/Age-Partnership.jpg
     summary: A backend web developer, writing new software, maintaining existing code, and responding to and solving a wide variety of software and infrastructure-related problems. 
     techs: PHP, Python, Apache, Ansible, Git, JavaScript, Unit Testing
     type: job
+    link: https://www.agepartnership.co.uk/
