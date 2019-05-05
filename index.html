@@ -28,13 +28,9 @@
         <div class="flex grid">
           {% for card in site.cards %}
               <div class="card">
-                {% if card.link %}
-                  <a class="card-img-container" href={{card.link}}>
-                    <img class="card-img" src="{{ card.thumbnail }}">
-                  </a>
-                {% else %}
+                <a class="card-img-container" href={{card.link}}>
                   <img class="card-img" src="{{ card.thumbnail }}">
-                {% endif %}
+                </a>
                 {% if card.type == "job" %}
                   <div class="card-content for-job">
                 {% else %}
