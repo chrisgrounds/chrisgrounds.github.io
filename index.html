@@ -56,6 +56,13 @@
 </html>
 
 <style>
+:root {
+  --primary-color: #60daaa;
+  --text-color: #60daaa;
+  --transition-duration-0-25: 0.25s;
+  --transition-delay: 0.25s;
+}
+
 body {
   margin: 0;
 }
@@ -121,14 +128,13 @@ ul li {
   border: 1px solid rgba(0, 0, 0, .2);
   transition: box-shadow .2s ease-in-out;
   
-  transition-property: box-shadow, border-right, border-bottom, border-left, border-top;
-  transition-duration: .2s, 1s, 3s, 1s, 3s;
+  transition-property: box-shadow;
+  transition-duration: .2s;
   transition-timing-function: ease-in-out;
 }
   
 .card:hover {
   box-shadow: 0 0 12px rgba(0, 0, 0, .2), 0 0 2px rgba(0, 0, 0, .1);
-  border: red 1px solid;
 }
 
 .card-img-container {
@@ -163,4 +169,77 @@ ul li {
   color: white;
   line-height: 1.5;
 }
+  
+  
+.element__animate {
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  margin: 1em;
+  padding: 1em 2em;
+
+  /* box-shadow: inset 0 0 0 2px #f45e61; */
+  color: #f45e61;
+  font-size: inherit;
+  font-weight: 700;
+
+  /* Required, since we're setting absolute on pseudo-elements */
+  position: relative;
+  vertical-align: middle;
+  box-shadow: 0 0 12px rgba(0, 0, 0, .2), 0 0 2px rgba(0, 0, 0, .1)
+}
+
+.element__animate::before, .element__animate::after {
+  box-sizing: inherit;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+ 
+.element__animate--star-wars {
+  transition: color var(--transition-duration-0-25);
+}
+
+.element__animate--star-wars::before, .element__animate--star-wars::after {
+  border: 2px solid transparent;
+  width: 0;
+  height: 0;
+}
+
+.element__animate--star-wars::before {
+  top: 0;
+  left: 0;
+}
+
+.element__animate--star-wars::after {
+  bottom: 0;
+  right: 0;
+}
+
+.element__animate--star-wars:hover {
+  color: var(--text-color);
+}
+
+.element__animate--star-wars:hover::before, .element__animate--star-wars:hover::after {
+  width: 100%;
+  height: 100%;
+}
+
+.element__animate--star-wars:hover::before {
+  border-top-color: var(--primary-color);
+  border-right-color: var(--primary-color);
+  transition:
+    width var(--transition-duration-0-25) ease-out,
+    height var(--transition-duration-0-25) ease-out var(--transition-delay);
+}
+
+.element__animate--star-wars:hover::after {
+  border-bottom-color: var(--primary-color);
+  border-left-color: var(--primary-color);
+  transition:
+    width var(--transition-duration-0-25) ease-out,
+    height var(--transition-duration-0-25) ease-out var(--transition-delay);
+}
+  
 </style>
