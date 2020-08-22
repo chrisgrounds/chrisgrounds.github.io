@@ -203,9 +203,15 @@ ul li {
 }
 
 @keyframes xAxis {
+  0% {
+    background-color: #fff;
+  }
   50% {
     animation-timing-function: cubic-bezier(0.3, 0.27, 0.07, 1.64);
     transform: translateX(100px);
+  }
+  100% {
+    background-color: gold;
   }
 }
 </style>
