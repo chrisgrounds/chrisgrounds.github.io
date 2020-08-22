@@ -74,6 +74,7 @@
 
 body {
   margin: 0;
+  overflow: hidden;
 }
 
 a {
@@ -146,6 +147,8 @@ ul li {
   padding: 1rem;
   font-size: 3rem;
   z-index: 1000;
+  animation: whisper 4s infinite linear reverse;
+  animation-delay: 2s;
 }
   
 @media (min-width: 900px) {
@@ -210,6 +213,15 @@ ul li {
   margin: auto;
   background: gold;
   animation: line 1s linear both;
+}
+  
+@keyframes whisper {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 60%
+  }
 }
 
 @keyframes line {
