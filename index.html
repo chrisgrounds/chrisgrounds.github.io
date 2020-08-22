@@ -13,9 +13,8 @@
   <body>
     <section class="header">
       <div class="header__title">{{ site.description }}</div>
-      <div class="header__container">
-        {% include contact.html %}
-      </div>
+      {% include contact.html %}
+      <div class="moving-dot-1" />
     </section>
 
     <section id="main_content">
@@ -173,5 +172,34 @@ ul li {
 .card-content-body {
   color: white;
   line-height: 1.5;
-} 
+}
+
+.moving-dot-1 {
+  padding: 300px;
+  animation: xAxis 2.5s infinite cubic-bezier(0.02, 0.01, 0.21, 1);
+}
+
+.moving-dot-1::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #fff;
+  animation: yAxis 2.5s infinite cubic-bezier(0.3, 0.27, 0.07, 1.64);
+}
+
+@keyframes yAxis {
+  50% {
+    animation-timing-function: cubic-bezier(0.02, 0.01, 0.21, 1);
+    transform: translateY(-100px);
+  }
+}
+
+@keyframes xAxis {
+  50% {
+    animation-timing-function: cubic-bezier(0.3, 0.27, 0.07, 1.64);
+    transform: translateX(100px);
+  }
+}
 </style>
