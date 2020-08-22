@@ -12,7 +12,7 @@
     
   <body>
     <section class="header">
-      <h1 class="header__title">{{ site.description }}</h1>
+      <div class="header__title">{{ site.description }}</div>
       <div class="header__container">
         {% include contact.html %}
       </div>
@@ -110,10 +110,11 @@ ul li {
 }
   
 .header {
+  display: flex;
   width: 100vw;
   height: 100vh;
   margin-bottom: 32px;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(3,3,52,1) 33%, rgba(2,69,116,1) 66%, rgba(13,98,115,1) 100%);
+  background: #0e1111;
   padding-top: 32px;
   padding-bottom: 32px;
 }
