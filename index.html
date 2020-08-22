@@ -11,12 +11,12 @@
   </head>
     
   <body>
-    <header class="header">
+    <section class="header">
       <div class="header__container">
         <h1 class="page-header">{{ site.description }}</h1>
         {% include contact.html %}
       </div>
-    </header>
+    </section>
 
     <section id="main_content">
 
@@ -81,7 +81,7 @@ ul li {
   
 .header__container {
   display: flex;
-  width: 1200px;
+  width: 1024px;
   max-width: 1200px;
   margin: auto;
   overflow: visible;
@@ -111,9 +111,9 @@ ul li {
   
 .header {
   width: 100vw;
+  height: 100vh;
   margin-bottom: 32px;
-  background-color: black;
-  color: white;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(3,3,52,1) 33%, rgba(2,69,116,1) 66%, rgba(13,98,115,1) 100%);
   padding-top: 32px;
   padding-bottom: 32px;
 }
