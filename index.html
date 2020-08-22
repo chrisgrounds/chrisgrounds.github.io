@@ -190,9 +190,15 @@ ul li {
 }
 
 @keyframes yAxis {
+  0% {
+    background-color: #fff;
+  }
   50% {
     animation-timing-function: cubic-bezier(0.02, 0.01, 0.21, 1);
     transform: translateY(-100px);
+  }
+  100% {
+    background-color: gold;
   }
 }
 
