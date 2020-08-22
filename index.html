@@ -13,10 +13,8 @@
   <body>
     <header class="header">
       <div class="header__container">
-        <div class="header-content">
-          <p class="page-header">{{ site.description }}</p>
-          {% include contact.html %}
-        </div>
+        <h1 class="page-header">{{ site.description }}</h1>
+        {% include contact.html %}
       </div>
     </header>
 
@@ -124,9 +122,8 @@ ul li {
   font-size: 4em;
   margin: auto;
   padding-bottom: 2rem;
+  font-weight: 100;
 }
-
-.header-content {}
   
 .card {
   display: grid;
