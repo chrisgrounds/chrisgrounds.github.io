@@ -145,6 +145,7 @@ ul li {
   margin: 0;
   padding: 1rem;
   font-size: 3rem;
+  z-index: 1000;
 }
   
 @media (min-width: 900px) {
@@ -204,7 +205,7 @@ ul li {
 }
 
 .line {
-  width: 90%;
+  width: 80%;
   height: 0.2rem;
   margin: auto;
   background: gold;
@@ -222,9 +223,15 @@ ul li {
   
 .moving-dot-1 {
   position: absolute;
-  top: 40%;
+  top: 80%;
   left: 20%;
   animation: xAxis 2.5s infinite cubic-bezier(0.02, 0.01, 0.21, 1);
+}
+  
+@media (min-width: 900px) {
+  .moving-dot-1 {
+    top: 40%;
+  }
 }
 
 .moving-dot-1::after {
