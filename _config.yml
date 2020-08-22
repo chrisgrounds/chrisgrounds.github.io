@@ -1,9 +1,9 @@
 author: Christopher Bacon
 theme: jekyll-theme-hacker
 title: Chris Grounds (formerly Chris Bacon)
-description: Portfolio
+description: Chris Grounds
 
-baseurl: chris-bacon.github.io
+baseurl: chrisgrounds.github.io
 
 sass:
   style: :compressed
