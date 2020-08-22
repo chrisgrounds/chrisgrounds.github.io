@@ -12,7 +12,7 @@
     
   <body>
     <section class="header">
-      <div>
+      <div class="nav">
         {% include contact.html %}
       </div>
       <div class="header__title-layout">
@@ -84,7 +84,13 @@ a {
 ul li {
   list-style-image: none;
 }
-  
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+
 .header__container {
   display: flex;
   width: 1024px;
@@ -120,7 +126,7 @@ ul li {
   width: 100vw;
   height: 100vh;
   background: #0e1111;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .header__title-layout {
@@ -137,6 +143,7 @@ ul li {
 .header__title {
   font-weight: 100;
   margin: 0;
+  padding-bottom: 1rem;
 }
 
 .card {
