@@ -12,8 +12,8 @@
     
   <body>
     <section class="header">
-      <div class="header__title">
-        <h2>{{ site.description }}</h2>
+      <div class="header__title-layout">
+        <h2 class="header__title">{{ site.description }}</h2>
         <div class="line"></div>
       </div>
       {% include contact.html %}
@@ -118,11 +118,16 @@ ul li {
   background: #0e1111;
 }
   
-.header__title {
+.header__title-layout {
   font-size: 4em;
   margin: auto;
   font-weight: 100;
   color: white;
+}
+  
+.header__title {
+  font-weight: 100;
+  margin: 0;
 }
   
 .card {
@@ -174,13 +179,13 @@ ul li {
   color: white;
   line-height: 1.5;
 }
-  
-.line {
-  width: 1rem;
-  height: 1rem;
-  background: gold;  
-}
 
+.line {
+  width: 90%;
+  height: 0.2rem;
+  margin: auto;
+  background: gold;
+}
 
 .moving-dot-1 {
   position: absolute;
