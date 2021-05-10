@@ -11,18 +11,20 @@
   </head>
     
   <body>
-    <section class="header">
-      <div class="nav">
-        {% include contact.html %}
-      </div>
-      <div class="header__title-layout">
-        <div>
-          <h2 class="header__title">{{ site.description }}</h2>
-          <div class="line"></div>
+    <div class="container">
+      <section class="header">
+        <div class="nav">
+          {% include contact.html %}
         </div>
-      </div>
-      <div class="moving-dot-1" />
-    </section>
+        <div class="header__title-layout">
+          <div>
+            <h2 class="header__title">{{ site.description }}</h2>
+            <div class="line"></div>
+          </div>
+        </div>
+        <div class="moving-dot-1" />
+      </section>
+    </div>
 
     
     <!-- 
@@ -79,6 +81,10 @@
 body {
   margin: 0;
   overflow: hidden auto;
+}
+  
+.container {
+  display: float;
 }
 
 a {
