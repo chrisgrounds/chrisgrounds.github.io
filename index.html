@@ -57,7 +57,7 @@
   </section>
 
   <section>
-    <svg class="flip" id="visual" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg"
+    <svg class="h100 flip" id="visual" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
       <path
         d="M0 199L13.7 187C27.3 175 54.7 151 82 150C109.3 149 136.7 171 163.8 189C191 207 218 221 245.2 211C272.3 201 299.7 167 327 171C354.3 175 381.7 217 409 231C436.3 245 463.7 231 491 203C518.3 175 545.7 133 573 118C600.3 103 627.7 115 654.8 126C682 137 709 147 736.2 146C763.3 145 790.7 133 818 122C845.3 111 872.7 101 886.3 96L900 91L900 0L886.3 0C872.7 0 845.3 0 818 0C790.7 0 763.3 0 736.2 0C709 0 682 0 654.8 0C627.7 0 600.3 0 573 0C545.7 0 518.3 0 491 0C463.7 0 436.3 0 409 0C381.7 0 354.3 0 327 0C299.7 0 272.3 0 245.2 0C218 0 191 0 163.8 0C136.7 0 109.3 0 82 0C54.7 0 27.3 0 13.7 0L0 0Z"
@@ -98,6 +98,10 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+  
+.h100 {
+  height: 100%;
 }
 
 .flip {
@@ -158,7 +162,7 @@ ul li {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 500px)
   gap: 1rem;
 }
 
@@ -195,55 +199,6 @@ ul li {
   }
 }
 
-.card {
-  display: grid;
-  box-sizing: border-box;
-  grid-template-rows: 250px 250px;
-  color: var(--base-color-text);
-  border: 1px solid rgba(0, 0, 0, .2);
-  transition: box-shadow .2s ease-in-out;
-  
-  transition-property: box-shadow;
-  transition-duration: .2s;
-  transition-timing-function: ease-in-out;
-}
-
-.card:hover {
-  box-shadow: 0 0 12px rgba(0, 0, 0, .2), 0 0 2px rgba(0, 0, 0, .1);
-}
-
-.card-img-container {
-  width: 100%;
-}
-
-.card-img {
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.card-content {
-  padding: 16px;
-}
- 
-.for-job {
-  background-color: #{{site.job_colour}}; 
-}
-  
-.for-hobby {
-  background-color: #{{site.hobby_colour}};
-}
-  
-.card-content-title {
-  color: white;
-}
-  
-.card-content-body {
-  color: white;
-  line-height: 1.5;
-}
 </style>
 
 <script>
