@@ -1,6 +1,6 @@
-author: Christopher Bacon
+author: Chris Grounds
 theme: jekyll-theme-hacker
-title: Chris Grounds (formerly Chris Bacon)
+title: Chris Grounds
 description: Chris Grounds
 
 baseurl: chrisgrounds.github.io
@@ -32,6 +32,7 @@ talks:
 
 technologies:
   - Haskell
+  - Rust
   - JS (React/Node)
   - TypeScript
   - Elm
