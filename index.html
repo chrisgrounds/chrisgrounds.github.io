@@ -20,24 +20,20 @@
   </header>
 
   <body>
-  <h1>Blog Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-        {% if post.excerpt %}
-          <div class="post-excerpt">
-            {{ post.excerpt }}
-            <a href="{{ post.url | prepend: site.baseurl }}">Read more</a>
-          </div>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="blog-container">
+    <h1>Blog Posts</h1>
+  
+    <ul class="post-list">
+      {% for post in site.posts %}
+        <li>
+          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <h2>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          </h2>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
   <!-- <section>
       <svg class="h100 flip" id="visual" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
@@ -171,41 +167,12 @@ ul li {
   z-index: 1000;
 }
 
+.blog-container {
+  color: #968d91;
+}
+
+@media (min-width: 900px) {
+  padding: 0 10rem;
+}
+
 </style>
-
-<script>
-    KUTE.fromTo(
-      "#path_a_1",
-      { path: "#path_a_1" },
-      { path: "#path_a_2" },
-      { repeat: 999, duration: 3000, yoyo: true }
-    ).start();
-
-    KUTE.fromTo(
-      "#path_b_1",
-      { path: "#path_b_1" },
-      { path: "#path_b_2" },
-      { repeat: 999, duration: 3000, yoyo: true }
-    ).start();
-
-    KUTE.fromTo(
-      "#path_c_1",
-      { path: "#path_c_1" },
-      { path: "#path_c_2" },
-      { repeat: 999, duration: 3000, yoyo: true }
-    ).start();
-
-    KUTE.fromTo(
-      "#path_d_1",
-      { path: "#path_d_1" },
-      { path: "#path_d_2" },
-      { repeat: 999, duration: 3000, yoyo: true }
-    ).start();
-
-    KUTE.fromTo(
-      "#path_e_1",
-      { path: "#path_e_1" },
-      { path: "#path_e_2" },
-      { repeat: 999, duration: 3000, yoyo: true }
-    ).start();
-</script>
