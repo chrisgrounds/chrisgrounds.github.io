@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="{{ "/assets/css/main.css " | prepend: site.baseurl }}">
-    <link rel="icon" href="https://github.com/chris-bacon/chris-bacon.co.uk/blob/master/images/favicon.ico" type="image/x-icon">
 
     {% seo %}
   </head>
@@ -18,10 +17,8 @@
         {% include nav.html %}
       </div>
     </header>
-
-    <section id="main_content">
+    <div class="blog-container">
       {{ content }}
-    </section>
-    
+    </div>
   </body>
 </html>
