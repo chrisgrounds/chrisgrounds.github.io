@@ -27,7 +27,7 @@
       {% for post in site.posts %}
         <li class="post-list-item">
           <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          <a class="element__animate element__animate--on-the-bottom-ltr" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </li>
       {% endfor %}
     </ul>
@@ -90,7 +90,6 @@ section {
 
 a {
   text-decoration: none;
-  color: gold !important;
 }
 
 ul li {
