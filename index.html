@@ -25,11 +25,9 @@
   
     <ul class="post-list">
       {% for post in site.posts %}
-        <li>
+        <li class="post-list-item">
           <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-          <h2>
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          </h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </li>
       {% endfor %}
     </ul>
@@ -174,5 +172,13 @@ ul li {
 @media (min-width: 900px) {
   padding: 0 10rem;
 }
+
+.post-list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+    
 
 </style>
