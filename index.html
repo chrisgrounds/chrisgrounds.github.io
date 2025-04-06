@@ -19,7 +19,25 @@
     </div>
   </header>
 
-  <body>    
+  <body>
+  <h1>Blog Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+        {% if post.excerpt %}
+          <div class="post-excerpt">
+            {{ post.excerpt }}
+            <a href="{{ post.url | prepend: site.baseurl }}">Read more</a>
+          </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
   <!-- <section>
       <svg class="h100 flip" id="visual" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
