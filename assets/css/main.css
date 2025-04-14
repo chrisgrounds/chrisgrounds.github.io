@@ -29,6 +29,11 @@ section {
   margin: 0rem !important;
 }
 
+.no-padding-sides {
+  padding-left: 0rem !important;
+  padding-right: 0rem !important;
+}
+
 .blog-container {
   margin: 0 auto;
 }
@@ -43,4 +48,17 @@ section {
 
 .blog-date {
   padding-right: 1rem;
+}
+
+.post-list-item {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .post-list-item {
+    grid-template-rows: 1fr 1fr;
+  }
 }

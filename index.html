@@ -22,7 +22,7 @@
       {% for post in site.posts %}
       <li class="post-list-item">
         <span class="blog-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <a class="element__animate element__animate--on-the-bottom-ltr no-margin"
+        <a class="element__animate element__animate--on-the-bottom-ltr no-margin no-padding-sides"
           href="https://{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
       </li>
       {% endfor %}
