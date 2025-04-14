@@ -119,6 +119,4 @@ impl BasketHistory {
 
 This suddenly feels very much like a lightweight version of event-sourcing, which we’re almost getting for free. The difference is we’re not explicitly creating events and we don’t care about processing sequentially. This all comes down to the fact our core computation is a binary associative operator, which gives us a branching structure. (Incidentally, this branching structure — think of how (1+(2+(3+4))+(4+(3+(2+1)))) is also branching — actually gives us thread-safe code that could be parallelized.)
 
-
-It’s Baskets all the way down
 Before going down too much of a rabbit-hole, let’s take stock. With just two concepts from category theory, we’ve been able to rigorously and iteratively model a very common process. We’ve done this just by thinking about how we compose base elements together in a way that respects relatively straightforward rules (namely, associativity and identity). This is just touching on the surface of what category theory has to offer us when it comes to domain modelling and building robust software. But for now, I think Gandalf would be happy knowing his Basket is a proper monoidal object.
