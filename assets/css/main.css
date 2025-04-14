@@ -39,3 +39,7 @@ section {
   align-items: center;
   padding: 0 1rem;
 }
+
+.blog-date {
+  padding-right: 1rem;
+}

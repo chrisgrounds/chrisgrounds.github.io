@@ -21,7 +21,7 @@
     <ul class="post-list">
       {% for post in site.posts %}
       <li class="post-list-item">
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <span class="blog-date">{{ post.date | date: "%b %-d, %Y" }}</span>
         <a class="element__animate element__animate--on-the-bottom-ltr no-margin"
           href="https://{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
       </li>
@@ -60,17 +60,6 @@
 
   ul li {
     list-style-image: none;
-  }
-
-  .nav {
-    display: flex;
-    flex-direction: row;
-    padding: 1rem;
-    justify-content: center;
-  }
-
-  .nav a {
-    font-size: 1.5rem;
   }
 
   .header__container {
