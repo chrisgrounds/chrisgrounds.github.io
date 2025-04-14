@@ -47,13 +47,9 @@ section {
   padding: 0 1rem;
 }
 
-.blog-date {
-  padding-right: 1rem;
-}
-
 .post-list-item {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 2fr;
   justify-content: flex-start;
   align-items: center;
 }
