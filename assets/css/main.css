@@ -83,8 +83,11 @@ h1 {
 @media (max-width: 900px) {
   .post-list-item {
     grid-template-rows: 1fr 1fr;
-    gap: 0.5rem;
     grid-template-columns: none;
     padding-top: 0rem !important;
+  }
+
+  .post-list-item:not(:first-child) {
+    margin-left: 1rem !important;
   }
 }
