@@ -67,7 +67,7 @@ h1 {
 }
 
 @media (max-width: 900px) {
-  h1 {
+  h2 {
     text-align: left;
   }
 }
