@@ -6,7 +6,7 @@ description: Chris Grounds
 baseurl: chrisgrounds.github.io
 
 sass:
-  style: :compressed
+  style: compressed
 
 defaults:
   -
