@@ -10,6 +10,7 @@ ul li {
 
 body {
   margin: 0;
+  padding: 1rem;
   overflow: hidden auto;
   background-color: #0f050a;
   display: flex;
@@ -60,5 +61,6 @@ section {
 @media (max-width: 900px) {
   .post-list-item {
     grid-template-rows: 1fr 1fr;
+    grid-template-columns: none;
   }
 }
