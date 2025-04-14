@@ -59,6 +59,7 @@ h1 {
 
 .blog-container {
   margin: 0 auto;
+  text-align: justify;
 }
 
 .nav-container {
