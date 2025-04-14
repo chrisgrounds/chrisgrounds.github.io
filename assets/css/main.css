@@ -26,6 +26,8 @@ section {
 
 h1 {
   color: #968d91;
+  text-decoration: underline;
+  text-decoration-color: rgb(50, 1, 50);
 }
 
 .no-margin {
