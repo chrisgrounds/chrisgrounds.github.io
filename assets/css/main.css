@@ -8,6 +8,25 @@ ul li {
   list-style-image: none;
 }
 
+body {
+  margin: 0;
+  overflow: hidden auto;
+  background-color: #0f050a;
+  display: flex;
+  flex-direction: column;
+}
+  
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-margin {
+  margin: 0rem !important;
+}
+
 .blog-container {
   color: #968d91;
   margin: 0 auto;
