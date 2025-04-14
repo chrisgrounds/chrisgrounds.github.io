@@ -87,7 +87,7 @@ h1 {
     padding-top: 0rem !important;
   }
 
-  .post-list-item:not(:first-child) {
+  .no-margin {
     margin-left: 1rem !important;
   }
 }
