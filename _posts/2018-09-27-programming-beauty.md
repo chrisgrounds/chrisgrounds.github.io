@@ -1,6 +1,7 @@
 ---
+layout: post
 title: Programming Beauty
-date: 27 Sep 2018
+date: 2018-09-27
 published: false
 ---
 
