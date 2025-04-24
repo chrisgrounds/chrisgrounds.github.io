@@ -1,99 +1,35 @@
-theme: minima
 title: Chris Grounds
-description: Chris Grounds
+email: your-email@example.com
+description: Thoughts, musings, and ramblings
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
-baseurl: chrisgrounds.github.io
+# Build settings
+theme: minima
+minima:
+  skin: dark
+  show_excerpts: true
+  social_links:
+    - title: GitHub
+      icon: github
+      url: "https://github.com/chrisgrounds"
 
-sass:
-  style: compressed
-
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-
-talks:
-  - location: Manchester Lambda Lounge
-    name: "Haskell at Tracsis: Some lessons"
-    url: https://docs.google.com/presentation/d/1IG-LyNSYFBU9bSRzabWlhHHRsM-7961suQqv-tcngpA/edit?usp=sharing
-  - location: Tracsis
-    name: Pair Programming
-    url: https://docs.google.com/presentation/d/1smd0OJ6coV8jYMA0tJx897ut-hSQs0_BQkRm-55Oer4/edit?usp=sharing
-  - location: Manchester Lambda Lounge
-    name: Using Monoids to Build UI
-    url: https://docs.google.com/presentation/d/1y6y9VqRxBNUngF9t4qi_9n7cRA8m5eL5R0X8TG3DWBY/edit?usp=sharing
-  - location: BBC
-    name: "Haskell: Programming Purity"
-    url: https://docs.google.com/presentation/d/1Al3J9S6MlOy_1X9wfaTqpxofZ6NGjDgZwmzjHYLuA9s/edit?usp=sharing
-
-technologies:
-  - Haskell
-  - Rust
-  - JS (React/Node)
-  - TypeScript
-  - Elm
-  - Python
-  - Bash
-  - Unix
-  - Git
-  - Ansible
-  - AWS
-  - LaTeX
-
-oss_projects:
-  - name: Exosphere
-    url: https://github.com/exosphere-lang/compiler
-    description: A high level AWS CloudFormation language and compiler
-  - name: Haskell Refactor
-    url: https://github.com/chrisgrounds/haskell-refactor
-    description: A lightweight vim plugin that helps you refactor Haskell code
-
-oss_patches: 
-  - name: GHC
-    url: https://github.com/ghc/ghc/commit/36c1431d9d2d06049190cc0888dbfaee8e2179d6
-    commitRef: 36c1431d9d2d06049190cc0888dbfaee8e2179d6
-  - name: "Vim-one: colorschemes for Vim"
-    url: https://github.com/rakr/vim-one/commit/8e1118ecec916e1334694a44ef29db70fb679682>
-    commitRef: 8e1118ecec916e1334694a44ef29db70fb679682
-  - name: "Intero-neovim: an intero plugin for neovim"
-    url: https://github.com/parsonsmatt/intero-neovim/commit/26d340ab0d6e8d40cbafaf72dac0588ae901c117
-    commitRef: 26d340ab0d6e8d40cbafaf72dac0588ae901c117
-
-job_colour: 4d75b7
-hobby_colour: 89120c
-
-cards:
-  - title: Hover prototypes
-    summary: Hover-state prototypes
-    type: hobby
-    link: https://jo74al06z4.execute-api.eu-west-2.amazonaws.com/default
-
-  - title: HTTP-PROXY-LAMBDA
-    thumbnail: https://github.com/chris-bacon/http-proxy-lambda/blob/master/proxy_screenshot.PNG?raw=true
-    summary: A Serverless, CORS-enabled, HTTP Proxy using Haskell and AWS Lambda
-    type: hobby
-    link: https://github.com/chris-bacon/http-proxy-lambda
-    
-  - title: TRACSIS
-    thumbnail: https://tracsistraffic.com/wp/wp-content/themes/tracsis-master/images/Tracsisplc.png
-    summary: Software Engineer developing the resource management system in TRACS Enterprise.
-    techs: Haskell, AWS, CI/CD, Jenkins, JavaScript, TDD, E2E Testing
-    type: job
-    link: https://tracsis.com/
-
-  - title: BBC
-    thumbnail: https://kandl-genres.files.bbci.co.uk/kandl-genres/1233-1/images/meta-images/bbc_blocks.png
-    summary: Junior Software Engineer, in the Newsround team, working with the BBC's proprietary serverless platform to build a high-performing new website. 
-    techs: Node/React, TypeScript, Elm, TDD and Unit Testing, CI/CD, Serverless
-    type: job
-    link: https://bbc.co.uk/newsround
-    
-  - title: AGE PARTNERSHIP/TML
-    thumbnail: https://www.editingedge.co.uk/wp-content/uploads/Age-Partnership.jpg
-    summary: A backend web developer, writing new software, maintaining existing code, and responding to and solving a wide variety of software and infrastructure-related problems. 
-    techs: PHP, Python, Apache, Ansible, Git, JavaScript, Unit Testing
-    type: job
-    link: https://www.agepartnership.co.uk/
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
