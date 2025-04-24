@@ -6,6 +6,8 @@ published: true
 tags: ["types", "domain modelling", "fp"]
 ---
 
+# Work In Progress
+
 One way of thinking about software is to imagine that programs are made up of structure, content, and transformations. Content is stuff like strings, numbers, and just general values of things. You can think of content as domain objects. Structure is non-valueful stuff that contains content - for example things like lists, arrays, futures, streams, results, etc. And transformations are functions.
 
 In what follows, let's denote content with lowercase letters like `a`, `b`, etc, and as the list is the canonical example of structure, so let's steal its syntax to denote structure. So we will denote structure by wrapping content in a set of brackets `[]`. (For example, a list of strings would be denoted as `[a]`.) Finally, we will denote functions with arrows `->`, such that `a -> b` is a function which takes an `a` and returns a `b`. 

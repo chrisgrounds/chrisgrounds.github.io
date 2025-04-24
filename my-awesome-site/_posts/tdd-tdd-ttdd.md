@@ -1,4 +1,5 @@
 ---
+layout: post
 title: TDD + TDD = TTDD
 date: 27 Sep 2018
 published: true

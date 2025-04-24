@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Haskell Through Example: ReaderT"
 date: 04 Mar 2019
 published: true

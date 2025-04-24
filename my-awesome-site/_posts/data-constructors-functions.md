@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Data Constructors Are Functions
 date: 27 Sep 2018
 published: true
