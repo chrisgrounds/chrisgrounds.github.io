@@ -6,7 +6,7 @@ published: true
 tags: ["tdd", "testing"]
 ---
 
-I've seen lots of arguments, good and bad, for and against Test Driven Development. And this topic has recently come up again on LinkedIn after Jason Gorman<sub>[1]</sub> brought up a 2015 study<sub>[2]</sub> showing only 1.7% of developers actually practice TDD (I'm not surprised based on my anecdotal experience). In any case, both sides of the TDD divide love a good strawman. So I want here to present the best argument I can think of against TDD. And I do this as someone who loves writing tests, and thinks there is much value in a test-first approach to testing.
+I've seen lots of arguments, good and bad, for and against Test Driven Development. And this topic has recently come up again on LinkedIn after Jason Gorman<sup>[1]</sup> brought up a 2015 study<sup>[2]</sup> showing only 1.7% of developers actually practice TDD (I'm not surprised based on my anecdotal experience). In any case, both sides of the TDD divide love a good strawman. So I want here to present the best argument I can think of against TDD. And I do this as someone who loves writing tests, and thinks there is much value in a test-first approach to testing.
 
 ## The Argument
 
