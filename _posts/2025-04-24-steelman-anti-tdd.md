@@ -10,6 +10,12 @@ I've seen lots of arguments, good and bad, for and against Test Driven Developme
 
 ## The Argument
 
+### The Short Version
+
+The short version of the argument goes like this: the promise of TDD is better software design and safer (bug-free) software. Both of these things are better achieved through Type-Driven-Development. Does this mean we shouldn't practice TDD? To the extent we want these things, yes, we should instead practice TyDD.
+
+### The Long Version
+
 To begin with let's think about what the purpose of a test is. There are various reasons to write tests but one of the main pillars as far as TDD is concerned is to drive the design of software. I think as far as it drives good design, this is a very good and powerful reason to use TDD. Now another pillar is that the test-first approach leads to good bug-free software that meets user requirements. It's along this axis the steelman argument will proceed.
 
 For take what a test is: a single execution environment that verifies behaviour non-exhaustively. This point is completely banal - you write one test, then another, then another, until you are satisfied you have captured the intent of the code. Writing numerous iterations of similar tests is required because single tests do not exhaustively verify behaviour. A test that checks that your function adds up two monetary amounts correctly will only ever check it for, let's say, two integers. Of course, this is where the red-green-refactor cycle comes in, and where TDD proponents will say you should write more tests. But unless your range of possible inputs is practically enumerable in some way, you will never be able to write enough tests. There will always be potential edge cases. If you wanted guarantees about your function, which takes two i64s and returns a new i64, for all cases then you would need to write 3.4 * 10^<sup>38</sup> unit tests.
