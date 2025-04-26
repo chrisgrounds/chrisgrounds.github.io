@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Two Types of TDD"
-date: 2025-04-24
+date: 2025-04-26
 published: true
 tags: ["tdd", "testing"]
 ---
