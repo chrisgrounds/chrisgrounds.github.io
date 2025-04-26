@@ -32,6 +32,8 @@ calculateEbitda = undefined
 
 Then once the code is compiling you can begin to implement your functions, adding tests where appropriate. Providing the code continues to compile and any tests you add pass, you should have very high confidence that the code will do what you expect and that you have met your user requirements and correctly modelled your domain.
 
+Of course, throughout the development process and after you will constantly be asking of each other - *is this the right kind of abstraction*, *do we really need this to be a monad?*, etc. TyDD is and should be incredibly collaborative.
+
 ### Types are tests
 
 On the subject of tests, you can think of types as being exhaustive test-cases, or of tests as being specific instances of types. Generally, more type-heavy language communities like to focus more of their attention to property-based testing than less-expressive languages. This is because property-based testing lets us focus on testing properties rather than specific examples, which should be handled by the type-system as much as possible.
