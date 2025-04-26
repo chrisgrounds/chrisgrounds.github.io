@@ -12,7 +12,7 @@ Test Driven Development has gotten a large amount of attention over the years, p
 
 The flow of Test Driven Development is very well understood at this point. You start by writing the most basic test you can, which will of course fail because you've written no code yet. Then you write the most basic code you can to pass the test. You continue adding tests and writing code to pass them until your requirements are satisfied.
 
-This works well as a design method because it forces you to think about your code's API and how other people will interface with it, and it naturally leads to a full test suite that gives you confidence in your code. 
+This works well as a design method because it forces you to think about your code's API and how other people will interface with it, and it naturally leads to a full test suite that gives you confidence in your code. But it's important to remember that the core pillar of TDD is that it is a design-tool.
 
 ## The second TDD, aka TyDD
 
@@ -29,7 +29,7 @@ calculateEbitda :: IncomeStream -> ExpensesStream -> Ebitda
 calculateEbitda = undefined
 ```
 
-Then once the code is compiling you can begin to implement your functions, adding tests where appropriate. Providing the code continues to compile and any tests you add pass, you should have very high confidence that the code will do what you expect and that you have met your user requirements and correctly modelled your domain.
+Then once the code is compiling you can begin to implement your functions, adding tests where appropriate. In fact, at this stage you can even go through TDD's *Red-Green-Refactor* flow for each function. The only difference is that you are not *designing* your code through the tests because it has already been designed. But there is still much value in the *Red-Green-Refactor* flow. Providing the code continues to compile and any tests you add pass, you should have very high confidence that the code will do what you expect and that you have met your user requirements and correctly modelled your domain.
 
 Of course, throughout the development process and after you will constantly be asking of each other - *is this the right kind of abstraction*, *do we really need this to be a monad?*, etc. TyDD is and should be incredibly collaborative.
 
