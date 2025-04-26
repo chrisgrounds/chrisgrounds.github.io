@@ -25,7 +25,6 @@ In one of the earliest articles on TyDD I can find, Tomas Petricek<sup>[1]</sup>
 The next step is to translate your business logic into functions that only have type-signatures. You won't implement the functions, you will simply assert through the type system that they take and return the expected data types. 
 
 ```haskell
-```haskell
 calculateEbitda :: IncomeStream -> ExpensesStream -> Ebitda
 calculateEbitda = undefined
 ```
