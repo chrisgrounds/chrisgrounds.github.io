@@ -58,7 +58,6 @@ User -> UserId
 Who knows? And to be honest, who cares? We are done thinking about implementations here, let's delegate that job to the LLM:
 
 ```
-
 If we define:
 
 data User = User { userId :: UserId, ... }
