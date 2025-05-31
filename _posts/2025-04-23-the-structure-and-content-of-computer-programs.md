@@ -2,7 +2,7 @@
 layout: post
 title: "The Structure and Content of Computer Programs"
 date: 2025-04-23
-published: true
+published: false
 tags: ["types", "domain modelling", "fp"]
 ---
 
