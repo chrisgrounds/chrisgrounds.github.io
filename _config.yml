@@ -4,15 +4,8 @@ description: Thoughts, musings, and ramblings
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
+remote_theme: "mmistakes/so-simple-theme@3.2.0"
 # Build settings
-theme: minima
-minima:
-  skin: dark
-  show_excerpts: true
-  social_links:
-    - title: GitHub
-      icon: github
-      url: "https://github.com/chrisgrounds"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
