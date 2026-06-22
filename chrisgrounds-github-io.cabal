@@ -1,0 +1,16 @@
+cabal-version:      3.0
+name:               chrisgrounds-github-io
+version:            0.1.0.0
+build-type:         Simple
+
+executable site
+  main-is:          site.hs
+  build-depends:
+      base >=4.14 && <5
+    , filepath >=1.4 && <1.6
+    , hakyll >=4.16.7 && <4.18
+    , pandoc-types >=1.22 && <1.24
+    , text >=1.2 && <2.2
+  default-language: GHC2021
+  ghc-options:      -Wall -threaded -rtsopts -with-rtsopts=-N
+

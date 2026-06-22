@@ -1,0 +1,32 @@
+---
+title: Writing
+---
+
+<section class="hero">
+  <p class="eyebrow">Software · Types · FP</p>
+  <h1>Notes on building safer and better software</h1>
+  <p class="hero__lede">
+    Functional programming, type-driven design, testing, and whatever else interests me
+  </p>
+</section>
+
+<section class="post-index" aria-labelledby="writing-heading">
+  <div class="section-heading">
+    <h2 id="writing-heading">Latest writing</h2>
+    <a class="quiet-link" href="/feed.xml">RSS</a>
+  </div>
+
+  <div class="post-list">
+    $for(posts)$
+      <article class="post-card">
+        <div class="post-card__meta">
+          <time datetime="$date$">$date$</time>
+          $if(tags)$<span aria-hidden="true">/</span><span>$tags$</span>$endif$
+        </div>
+        <h3><a href="$url$">$title$</a></h3>
+        <a class="post-card__arrow" href="$url$" aria-label="Read $title$">Read article <span aria-hidden="true">→</span></a>
+      </article>
+    $endfor$
+  </div>
+</section>
+

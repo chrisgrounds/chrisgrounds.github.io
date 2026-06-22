@@ -1,0 +1,19 @@
+<article class="article">
+  <header class="article__header">
+    <p class="eyebrow">Essay</p>
+    <h1>$title$</h1>
+    <div class="article__meta">
+      <time datetime="$date$">$date$</time>
+      $if(tags)$<span aria-hidden="true">/</span><span>$tags$</span>$endif$
+    </div>
+  </header>
+
+  <div class="prose">
+    $body$
+  </div>
+
+  <footer class="article__footer">
+    <a href="/">← All writing</a>
+  </footer>
+</article>
+

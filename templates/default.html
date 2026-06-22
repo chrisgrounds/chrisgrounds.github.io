@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0c10">
+  <meta name="description" content="$siteDescription$">
+  <title>$if(title)$$title$ · $endif$$siteTitle$</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="alternate" type="application/rss+xml" title="$siteTitle$ RSS" href="/feed.xml">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <a class="site-mark" href="/" aria-label="$siteTitle$ home">
+      <span class="site-mark__glyph" aria-hidden="true">λ</span>
+      <span>$siteTitle$</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="/">Writing</a>
+      <a href="/about/">About</a>
+      <a href="https://github.com/chrisgrounds">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="content" class="site-main">
+    $body$
+  </main>
+
+  <footer class="site-footer">
+    <p>Written by Chris Grounds.</p>
+    <p>Typeset in HTML. Built with <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</p>
+  </footer>
+</body>
+</html>
+

@@ -1,0 +1,17 @@
+<section class="archive">
+  <header class="archive__header">
+    <p class="eyebrow">Archive</p>
+    <h1>$title$</h1>
+  </header>
+
+  <div class="post-list">
+    $for(posts)$
+      <article class="post-card">
+        <div class="post-card__meta"><time datetime="$date$">$date$</time></div>
+        <h2><a href="$url$">$title$</a></h2>
+        <a class="post-card__arrow" href="$url$">Read article <span aria-hidden="true">→</span></a>
+      </article>
+    $endfor$
+  </div>
+</section>
+
