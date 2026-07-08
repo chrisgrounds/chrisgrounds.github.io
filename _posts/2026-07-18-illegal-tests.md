@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Illegal Tests"
+title: "Impossible Tests"
 date: 2026-06-08
 published: true
 tags: ["fp", "types", "tests", "haskell"]
@@ -26,6 +26,6 @@ struct Nonempty<T> {
 }
 ```
 
-Now in order to create a `Nonempty Author` we literally cannot give it nothing or an empty list. Encoded in the very definition of this type is the fact we must give it `head` which is our polymorphic type-parameter. By virtue of the fact we can construct something of type `Nonempty` we have proven that we do not have an empty list of authors.
+Now in order to create a `Nonempty Author` we literally cannot give it an empty list. Encoded in the very definition of this type is the fact we must give it `head` which is a value of some type. By virtue of the fact we can construct something of type `Nonempty` we have proven that we do not have an empty list of authors.
 
-This makes our tests not only redundant, but impossible to construct in the first place - impossible because it really is impossible to create the negative, red test-case. And these are the best kinds of tests, in my view. You can't write them because the thing to test is impossible to construct.
+Our tests not only redundant, but impossible to construct in the first place - impossible because it really is impossible to create the negative, red test-case. And these are the best kinds of tests, in my view. You can't write them because the thing to test is impossible to construct.
