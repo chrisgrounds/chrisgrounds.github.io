@@ -28,10 +28,7 @@ body {
   margin: 0;
   min-width: 20rem;
   color: var(--text);
-  background:
-    radial-gradient(circle at 82% 0%, rgba(73, 143, 112, 0.13), transparent 28rem),
-    radial-gradient(circle at 12% 28%, rgba(80, 93, 145, 0.08), transparent 24rem),
-    var(--bg);
+  background: var(--bg);
   font-size: 1rem;
   line-height: 1.7;
 }
