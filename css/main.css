@@ -123,7 +123,7 @@ a:hover {
 
 .hero {
   max-width: 59rem;
-  padding: clamp(5rem, 12vw, 9rem) 0 clamp(4rem, 9vw, 7rem);
+  padding: clamp(4rem, 9vw, 7rem) 0;
 }
 
 .eyebrow {
@@ -239,7 +239,7 @@ a:hover {
 }
 
 .article__header {
-  padding-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .article__header h1,
@@ -253,7 +253,7 @@ a:hover {
 }
 
 .prose {
-  padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  padding-top: clamp(1.5rem, 4vw, 2.5rem);
   font-family: Iowan Old Style, Baskerville, "Times New Roman", serif;
   font-size: clamp(1.1rem, 2vw, 1.25rem);
   line-height: 1.8;
@@ -265,14 +265,6 @@ a:hover {
 
 .article--page {
   padding: clamp(3rem, 7vw, 5rem) 0;
-}
-
-.article--page .article__header {
-  padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
-}
-
-.article--page .prose {
-  padding-top: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .article--page .prose h2 {
