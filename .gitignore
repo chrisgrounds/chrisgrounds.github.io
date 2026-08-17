@@ -6,3 +6,4 @@ vendor
 
 _cache
 dist-newstyle
+cabal.project.local

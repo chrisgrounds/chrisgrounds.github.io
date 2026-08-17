@@ -50,15 +50,15 @@ main = hakyll $ do
         route $ constRoute "about/index.html"
         compile $
             pandocCompiler
-                >>= loadAndApplyTemplate "templates/page.html" (constField "eyebrow" "Profile" <> siteContext)
+                >>= loadAndApplyTemplate "templates/page.html" siteContext
                 >>= loadAndApplyTemplate "templates/default.html" siteContext
                 >>= relativizeUrls
 
-    match "content.markdown" $ do
-        route $ constRoute "content/index.html"
+    match "inspiration.markdown" $ do
+        route $ constRoute "inspiration/index.html"
         compile $
             pandocCompiler
-                >>= loadAndApplyTemplate "templates/page.html" (constField "eyebrow" "Inspiration" <> siteContext)
+                >>= loadAndApplyTemplate "templates/inspiration.html" siteContext
                 >>= loadAndApplyTemplate "templates/default.html" siteContext
                 >>= relativizeUrls
 

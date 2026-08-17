@@ -262,6 +262,22 @@ a:hover {
   font-size: clamp(1.25rem, 2.4vw, 1.55rem);
 }
 
+.article--page {
+  padding: clamp(3rem, 7vw, 5rem) 0;
+}
+
+.article--page .article__header {
+  padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.article--page .prose {
+  padding-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.article--page .prose h2 {
+  margin-top: 1.5em;
+}
+
 .prose h1,
 .prose h2,
 .prose h3,
@@ -306,6 +322,24 @@ a:hover {
 .prose ol,
 .prose blockquote {
   margin: 0 0 1.45em;
+}
+
+.prose p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.prose .item-anchor {
+  margin-right: 0.35em;
+  color: var(--muted);
+  text-decoration: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  scroll-margin-top: 2rem;
+}
+
+.prose .item-anchor:hover {
+  color: var(--accent);
 }
 
 .prose blockquote {
