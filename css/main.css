@@ -240,7 +240,6 @@ a:hover {
 
 .article__header {
   padding-bottom: clamp(2.5rem, 6vw, 4.5rem);
-  border-bottom: 1px solid var(--line);
 }
 
 .article__header h1,
