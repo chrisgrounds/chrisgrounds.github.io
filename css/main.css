@@ -8,11 +8,41 @@
   --line: #252b35;
   --accent: #9ee7c4;
   --accent-strong: #c4f5de;
+  --accent-underline: rgba(158, 231, 196, 0.45);
+  --quote: #c3c7ce;
   --code: #0d1117;
   --max-width: 72rem;
   --reading-width: 46rem;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-synthesis: none;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f7f6f2;
+  --surface: #ffffff;
+  --surface-raised: #eeece4;
+  --text: #14171c;
+  --muted: #5b6270;
+  --line: #e3e1d8;
+  --accent: #0f7a52;
+  --accent-strong: #0b5c3d;
+  --accent-underline: rgba(15, 122, 82, 0.35);
+  --quote: #4b5160;
+}
+
+:root[data-theme="unicorn"] {
+  color-scheme: light;
+  --bg: linear-gradient(160deg, #ffe4f3 0%, #e6ecff 45%, #e3fff1 100%);
+  --surface: #fff0fa;
+  --surface-raised: #ffe3f5;
+  --text: #2a1454;
+  --muted: #6f5d86;
+  --line: #f0d9ec;
+  --accent: #b23aad;
+  --accent-strong: #6b21a8;
+  --accent-underline: rgba(178, 58, 173, 0.35);
+  --quote: #6b5b8c;
 }
 
 * {
@@ -21,21 +51,22 @@
 
 html {
   background: var(--bg);
+  min-height: 100%;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   min-width: 20rem;
+  min-height: 100vh;
   color: var(--text);
-  background: var(--bg);
   font-size: 1rem;
   line-height: 1.7;
 }
 
 a {
   color: inherit;
-  text-decoration-color: rgba(158, 231, 196, 0.45);
+  text-decoration-color: var(--accent-underline);
   text-underline-offset: 0.2em;
   transition: color 160ms ease, text-decoration-color 160ms ease;
 }
@@ -115,6 +146,43 @@ a:hover {
 .icon-link {
   display: inline-flex;
   align-items: center;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.theme-toggle:hover {
+  color: var(--text);
+}
+
+.theme-toggle__icon--sun,
+.theme-toggle__icon--rainbow {
+  display: none;
+}
+
+:root[data-theme="light"] .theme-toggle__icon--sun {
+  display: block;
+}
+
+:root[data-theme="light"] .theme-toggle__icon--moon {
+  display: none;
+}
+
+:root[data-theme="unicorn"] .theme-toggle__icon--rainbow {
+  display: block;
+}
+
+:root[data-theme="unicorn"] .theme-toggle__icon--moon {
+  display: none;
 }
 
 .site-main {
@@ -337,7 +405,7 @@ a:hover {
 .prose blockquote {
   margin-left: 0;
   padding: 0.25rem 0 0.25rem 1.5rem;
-  color: #c3c7ce;
+  color: var(--quote);
   border-left: 2px solid var(--accent);
   font-style: italic;
 }
@@ -454,6 +522,18 @@ a:hover {
   background: var(--accent-strong);
 }
 
+:root[data-theme="unicorn"] .skip-link,
+:root[data-theme="unicorn"] .site-mark__glyph,
+:root[data-theme="unicorn"] .button {
+  color: #1a1033;
+  background: linear-gradient(135deg, #ff5da2, #ffd166, #6ee7b7, #60a5fa, #a78bfa);
+}
+
+:root[data-theme="unicorn"] .button:hover {
+  color: #1a1033;
+  background: linear-gradient(135deg, #a78bfa, #60a5fa, #6ee7b7, #ffd166, #ff5da2);
+}
+
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -477,7 +557,7 @@ a:hover {
     gap: 1rem;
   }
 
-  .site-header nav a:last-child {
+  .nav-github {
     display: none;
   }
 
