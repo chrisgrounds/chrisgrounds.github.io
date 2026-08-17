@@ -112,6 +112,11 @@ a:hover {
   color: var(--text);
 }
 
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+}
+
 .site-main {
   min-height: calc(100vh - 15rem);
 }
@@ -124,7 +129,6 @@ a:hover {
 .eyebrow {
   margin: 0 0 1.2rem;
   color: var(--accent);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -171,7 +175,6 @@ a:hover {
 
 .quiet-link {
   color: var(--muted);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.75rem;
 }
 
@@ -193,7 +196,6 @@ a:hover {
   flex-wrap: wrap;
   gap: 0.45rem;
   color: var(--muted);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.72rem;
   line-height: 1.6;
   text-transform: uppercase;
@@ -333,7 +335,6 @@ a:hover {
   margin-right: 0.35em;
   color: var(--muted);
   text-decoration: none;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.85em;
   scroll-margin-top: 2rem;
 }
