@@ -124,8 +124,18 @@
         command.run();
       }
 
+      var paletteDialogEl = null;
+      function getPaletteDialog() {
+        if (!paletteDialogEl) paletteDialogEl = document.getElementById("command-palette");
+        return paletteDialogEl;
+      }
+      function isPaletteOpen() {
+        var dialog = getPaletteDialog();
+        return !!(dialog && dialog.open);
+      }
+
       function openPalette() {
-        var dialog = document.getElementById("command-palette");
+        var dialog = getPaletteDialog();
         var input = document.getElementById("command-palette-input");
         if (!dialog || !input) return;
         input.value = "";
@@ -135,15 +145,14 @@
       }
 
       function closePalette() {
-        var dialog = document.getElementById("command-palette");
+        var dialog = getPaletteDialog();
         if (dialog && dialog.open) dialog.close();
       }
 
       document.addEventListener("keydown", function (event) {
         if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
           event.preventDefault();
-          var dialog = document.getElementById("command-palette");
-          if (dialog && dialog.open) closePalette();
+          if (isPaletteOpen()) closePalette();
           else openPalette();
         }
       });
@@ -153,7 +162,7 @@
       });
 
       document.addEventListener("click", function (event) {
-        var dialog = document.getElementById("command-palette");
+        var dialog = getPaletteDialog();
         if (dialog && event.target === dialog) dialog.close();
       });
 
@@ -177,18 +186,15 @@
 
       var konamiOverlay = null;
 
-      function buildKonamiOverlay() {
-        var overlay = document.createElement("div");
-        overlay.className = "konami-progress";
-        overlay.setAttribute("aria-hidden", "true");
-        document.body.appendChild(overlay);
-        return overlay;
-      }
-
       // Only renders the keys typed so far — never the keys still to come,
       // so the overlay can't be used to read off the rest of the sequence.
       function updateKonamiOverlay(progress) {
-        if (!konamiOverlay) konamiOverlay = buildKonamiOverlay();
+        if (!konamiOverlay) {
+          konamiOverlay = document.createElement("div");
+          konamiOverlay.className = "konami-progress";
+          konamiOverlay.setAttribute("aria-hidden", "true");
+          document.body.appendChild(konamiOverlay);
+        }
         konamiOverlay.innerHTML = "";
         for (var i = 0; i < progress; i++) {
           var glyph = document.createElement("span");
@@ -200,14 +206,16 @@
       }
 
       document.addEventListener("keydown", function (event) {
-        var dialog = document.getElementById("command-palette");
-        if (dialog && dialog.open) return;
+        if (isPaletteOpen()) return;
         var active = document.activeElement;
         if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA" || active.isContentEditable)) return;
 
         var key = event.key.toLowerCase();
-        konamiProgress = key === KONAMI[konamiProgress] ? konamiProgress + 1 : (key === KONAMI[0] ? 1 : 0);
-        updateKonamiOverlay(konamiProgress);
+        var nextProgress = key === KONAMI[konamiProgress] ? konamiProgress + 1 : (key === KONAMI[0] ? 1 : 0);
+        if (nextProgress !== konamiProgress) {
+          konamiProgress = nextProgress;
+          updateKonamiOverlay(konamiProgress);
+        }
 
         clearTimeout(konamiResetTimer);
         if (konamiProgress > 0) {
@@ -268,6 +276,7 @@
           canvas.style.width = window.innerWidth + "px";
           canvas.style.height = window.innerHeight + "px";
           ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          needsRedraw = true;
         }
         resize();
         window.addEventListener("resize", resize);
@@ -316,25 +325,31 @@
         var progressDepth = 1;
         var lastStep = null;
         var holdStart = null;
+        var needsRedraw = true;
         var STEP_MS = 130;
         var HOLD_MS = 1600;
         var FADE_MS = 700;
 
+        function drawTree(depth) {
+          ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+          drawBranch(window.innerWidth / 2, window.innerHeight * 0.86, window.innerHeight * 0.16, Math.PI / 2, depth, 1);
+        }
+
         function frame(ts) {
           if (lastStep === null) lastStep = ts;
-          ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
           if (progressDepth <= maxDepth) {
             if (ts - lastStep > STEP_MS) {
               progressDepth += 1;
               lastStep = ts;
+              needsRedraw = true;
             }
-            drawBranch(window.innerWidth / 2, window.innerHeight * 0.86, window.innerHeight * 0.16, Math.PI / 2, progressDepth, 1);
+            if (needsRedraw) { drawTree(progressDepth); needsRedraw = false; }
             requestAnimationFrame(frame);
             return;
           }
 
-          drawBranch(window.innerWidth / 2, window.innerHeight * 0.86, window.innerHeight * 0.16, Math.PI / 2, maxDepth, 1);
+          if (needsRedraw) { drawTree(maxDepth); needsRedraw = false; }
 
           if (holdStart === null) holdStart = ts;
           if (ts - holdStart < HOLD_MS) {
