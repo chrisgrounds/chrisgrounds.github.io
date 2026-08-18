@@ -167,6 +167,191 @@
         else if (event.key === "ArrowUp") { event.preventDefault(); moveActive(-1); }
         else if (event.key === "Enter") { event.preventDefault(); runCommand(activeIndex); }
       });
+
+      // A secret: ↑ ↑ ↓ ↓ ← → ← → grows a lambda tree and blooms unicorn mode.
+      var KONAMI = ["arrowup", "arrowup", "arrowdown", "arrowdown", "arrowleft", "arrowright", "arrowleft", "arrowright"];
+      var KONAMI_GLYPHS = { arrowup: "↑", arrowdown: "↓", arrowleft: "←", arrowright: "→" };
+      var konamiProgress = 0;
+      var konamiResetTimer = null;
+      var eggActive = false;
+
+      var konamiOverlay = null;
+
+      function buildKonamiOverlay() {
+        var overlay = document.createElement("div");
+        overlay.className = "konami-progress";
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.appendChild(overlay);
+        return overlay;
+      }
+
+      // Only renders the keys typed so far — never the keys still to come,
+      // so the overlay can't be used to read off the rest of the sequence.
+      function updateKonamiOverlay(progress) {
+        if (!konamiOverlay) konamiOverlay = buildKonamiOverlay();
+        konamiOverlay.innerHTML = "";
+        for (var i = 0; i < progress; i++) {
+          var glyph = document.createElement("span");
+          glyph.className = "konami-progress__glyph is-filled";
+          glyph.textContent = KONAMI_GLYPHS[KONAMI[i]] || "?";
+          konamiOverlay.appendChild(glyph);
+        }
+        konamiOverlay.classList.toggle("is-visible", progress > 0);
+      }
+
+      document.addEventListener("keydown", function (event) {
+        var dialog = document.getElementById("command-palette");
+        if (dialog && dialog.open) return;
+        var active = document.activeElement;
+        if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA" || active.isContentEditable)) return;
+
+        var key = event.key.toLowerCase();
+        konamiProgress = key === KONAMI[konamiProgress] ? konamiProgress + 1 : (key === KONAMI[0] ? 1 : 0);
+        updateKonamiOverlay(konamiProgress);
+
+        clearTimeout(konamiResetTimer);
+        if (konamiProgress > 0) {
+          konamiResetTimer = setTimeout(function () {
+            konamiProgress = 0;
+            updateKonamiOverlay(0);
+          }, 1200);
+        }
+
+        if (konamiProgress === KONAMI.length) {
+          konamiProgress = 0;
+          updateKonamiOverlay(0);
+          triggerEasterEgg();
+        }
+      });
+
+      function triggerEasterEgg() {
+        if (eggActive) return;
+        eggActive = true;
+        setTheme("unicorn");
+        showToast("🦄 the λ-tree blooms");
+
+        var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduceMotion) { eggActive = false; return; }
+        growLambdaTree(function () { eggActive = false; });
+      }
+
+      function showToast(text) {
+        var toast = document.createElement("div");
+        toast.className = "easter-egg-toast";
+        toast.setAttribute("role", "status");
+        toast.setAttribute("aria-live", "polite");
+        toast.textContent = text;
+        document.body.appendChild(toast);
+
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { toast.classList.add("is-visible"); });
+        });
+
+        setTimeout(function () {
+          toast.classList.remove("is-visible");
+          setTimeout(function () { toast.remove(); }, 350);
+        }, 2400);
+      }
+
+      // Same fractal all day (seeded by today's date), a new one tomorrow.
+      function growLambdaTree(onDone) {
+        var canvas = document.createElement("canvas");
+        canvas.className = "easter-egg-canvas";
+        canvas.setAttribute("aria-hidden", "true");
+        document.body.appendChild(canvas);
+        var ctx = canvas.getContext("2d");
+
+        function resize() {
+          var dpr = window.devicePixelRatio || 1;
+          canvas.width = window.innerWidth * dpr;
+          canvas.height = window.innerHeight * dpr;
+          canvas.style.width = window.innerWidth + "px";
+          canvas.style.height = window.innerHeight + "px";
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+        resize();
+        window.addEventListener("resize", resize);
+
+        var now = new Date();
+        var startOfYear = new Date(now.getFullYear(), 0, 0);
+        var dayOfYear = Math.floor((now - startOfYear) / 86400000);
+        var seed = now.getFullYear() * 1000 + dayOfYear;
+
+        function nodeRandom(pathSeed) {
+          var x = Math.imul(pathSeed ^ seed, 2654435761);
+          x = (x ^ (x >>> 15)) >>> 0;
+          return x / 4294967296;
+        }
+
+        var COLORS = ["#ff5da2", "#ffd166", "#6ee7b7", "#60a5fa", "#a78bfa"];
+        var colorOffset = seed % COLORS.length;
+        var spread = 0.5 + nodeRandom(1) * 0.5;
+        var maxDepth = 9;
+
+        function drawBranch(x, y, len, angle, depth, pathSeed) {
+          if (len < 4 || depth <= 0) return;
+          var x2 = x + Math.cos(angle) * len;
+          var y2 = y - Math.sin(angle) * len;
+
+          ctx.strokeStyle = COLORS[(colorOffset + (maxDepth - depth)) % COLORS.length];
+          ctx.lineWidth = Math.max(1, depth * 0.6);
+          ctx.beginPath();
+          ctx.moveTo(x, y);
+          ctx.lineTo(x2, y2);
+          ctx.stroke();
+
+          if (depth === 1) {
+            ctx.fillStyle = COLORS[(colorOffset + 2) % COLORS.length];
+            ctx.font = Math.max(10, len) + "px Georgia, serif";
+            ctx.fillText("λ", x2 - 4, y2 + 4);
+            return;
+          }
+
+          var varianceL = (nodeRandom(pathSeed * 2 + 1) - 0.5) * spread;
+          var varianceR = (nodeRandom(pathSeed * 2 + 2) - 0.5) * spread;
+          drawBranch(x2, y2, len * 0.72, angle - 0.42 + varianceL, depth - 1, pathSeed * 2 + 1);
+          drawBranch(x2, y2, len * 0.72, angle + 0.42 + varianceR, depth - 1, pathSeed * 2 + 2);
+        }
+
+        var progressDepth = 1;
+        var lastStep = null;
+        var holdStart = null;
+        var STEP_MS = 130;
+        var HOLD_MS = 1600;
+        var FADE_MS = 700;
+
+        function frame(ts) {
+          if (lastStep === null) lastStep = ts;
+          ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+          if (progressDepth <= maxDepth) {
+            if (ts - lastStep > STEP_MS) {
+              progressDepth += 1;
+              lastStep = ts;
+            }
+            drawBranch(window.innerWidth / 2, window.innerHeight * 0.86, window.innerHeight * 0.16, Math.PI / 2, progressDepth, 1);
+            requestAnimationFrame(frame);
+            return;
+          }
+
+          drawBranch(window.innerWidth / 2, window.innerHeight * 0.86, window.innerHeight * 0.16, Math.PI / 2, maxDepth, 1);
+
+          if (holdStart === null) holdStart = ts;
+          if (ts - holdStart < HOLD_MS) {
+            requestAnimationFrame(frame);
+            return;
+          }
+
+          canvas.classList.add("is-fading");
+          setTimeout(function () {
+            window.removeEventListener("resize", resize);
+            canvas.remove();
+            if (onDone) onDone();
+          }, FADE_MS);
+        }
+
+        requestAnimationFrame(frame);
+      }
     })();
   </script>
 </head>
