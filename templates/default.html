@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-GB" data-theme="unicorn">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0a0c10">
+  <meta name="theme-color" content="#ffe4f3">
   <meta name="description" content="$siteDescription$">
   <title>$if(title)$$title$ · $endif$$siteTitle$</title>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -19,13 +19,13 @@
       function applyTheme(theme) {
         document.documentElement.setAttribute("data-theme", theme);
         var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.setAttribute("content", THEME_COLORS[theme] || THEME_COLORS.dark);
+        if (meta) meta.setAttribute("content", THEME_COLORS[theme] || THEME_COLORS.unicorn);
       }
 
       var stored = localStorage.getItem("theme");
       var initial = THEMES.indexOf(stored) !== -1
         ? stored
-        : (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        : "unicorn";
       applyTheme(initial);
 
       document.addEventListener("click", function (event) {
@@ -421,4 +421,3 @@
   </footer>
 </body>
 </html>
-
