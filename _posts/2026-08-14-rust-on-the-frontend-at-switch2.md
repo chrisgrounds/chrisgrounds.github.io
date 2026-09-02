@@ -1,10 +1,12 @@
 ---
 layout: post
-title: "Rust on the Frontend at Switch2"
+title: "[Switch2] Rust on the Frontend at Switch2"
 date: 2026-08-14
 published: true
 tags: ["rust", "frontend", "leptos"]
 ---
+
+_This blog was originally published on the Switch2 technical blog_
 
 It’s probably fair to say that when people think of Rust they typically think of it as a systems or backend programming language, and this perception has not been entirely without merit. The Rust web offering has certainly been the least well-known and least mature part of the ecosystem. However, that’s not to say it is a poor part of the ecosystem. [Leptos](https://leptos.dev/) and [Dioxus](https://dioxuslabs.com/), for example, are two very well-developed web frameworks. Dioxus, which this blog is built with, is a fully-fledged cross-platform framework that can target web, desktop, and apps from a single codebase. Leptos is a very solid and, by now mature, web framework that has similar ergonomics to JS frameworks like Solid.js. We have built - and are in active development of - three major enterprise-grade web applications, both customer and internal facing, with Leptos and found very few teething issues. Instead, the API is stable and has supported everything we’ve wanted and needed to do, with good performance and good developer ergonomics.
 
