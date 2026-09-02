@@ -57,6 +57,21 @@
         { id: "go-github", group: "Go to", label: "GitHub", run: function () { window.location.href = "https://github.com/chrisgrounds"; } }
       ]);
 
+      document.addEventListener("DOMContentLoaded", function () {
+        var articleLinks = document.querySelectorAll("#command-palette-articles a");
+        var articleCommands = Array.prototype.map.call(articleLinks, function (article, index) {
+          var url = article.getAttribute("href");
+          return {
+            id: "article-" + index,
+            group: "Article",
+            label: article.textContent.trim(),
+            run: function () { window.location.href = url; }
+          };
+        });
+        COMMANDS = COMMANDS.concat(articleCommands);
+        visible = COMMANDS;
+      });
+
       var activeIndex = 0;
       var visible = COMMANDS;
 
@@ -406,8 +421,13 @@
 
   <dialog id="command-palette" aria-label="Command palette">
     <div class="command-palette__box">
-      <input id="command-palette-input" type="text" placeholder="Switch theme or jump to a page…" autocomplete="off" spellcheck="false" aria-label="Search commands" aria-controls="command-palette-list">
+      <input id="command-palette-input" type="text" placeholder="Search articles or run a command…" autocomplete="off" spellcheck="false" aria-label="Search commands" aria-controls="command-palette-list">
       <ul id="command-palette-list" class="command-palette__list" role="listbox"></ul>
+      <div id="command-palette-articles" hidden>
+        $for(commandPosts)$
+          <a href="$url$">$title$</a>
+        $endfor$
+      </div>
     </div>
   </dialog>
 

@@ -34,7 +34,7 @@ main = hakyll $ do
                         <> siteContext
             makeItem ("" :: String)
                 >>= loadAndApplyTemplate "templates/archive.html" context
-                >>= loadAndApplyTemplate "templates/default.html" context
+                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts context)
                 >>= relativizeUrls
 
     match publishedPosts $ do
@@ -43,7 +43,7 @@ main = hakyll $ do
             postCompiler
                 >>= saveSnapshot "content"
                 >>= loadAndApplyTemplate "templates/post.html" (postContext tags)
-                >>= loadAndApplyTemplate "templates/default.html" (postContext tags)
+                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts (postContext tags))
                 >>= relativizeUrls
 
     match "about.markdown" $ do
@@ -51,7 +51,7 @@ main = hakyll $ do
         compile $
             pandocCompiler
                 >>= loadAndApplyTemplate "templates/page.html" siteContext
-                >>= loadAndApplyTemplate "templates/default.html" siteContext
+                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts siteContext)
                 >>= relativizeUrls
 
     match "inspiration.markdown" $ do
@@ -59,14 +59,14 @@ main = hakyll $ do
         compile $
             pandocCompiler
                 >>= loadAndApplyTemplate "templates/inspiration.html" siteContext
-                >>= loadAndApplyTemplate "templates/default.html" siteContext
+                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts siteContext)
                 >>= relativizeUrls
 
     match "404.html" $ do
         route idRoute
         compile $
             getResourceBody
-                >>= loadAndApplyTemplate "templates/default.html" siteContext
+                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts siteContext)
                 >>= relativizeUrls
 
     match "index.html" $ do
@@ -78,7 +78,7 @@ main = hakyll $ do
                         <> siteContext
             getResourceBody
                 >>= applyAsTemplate context
-                >>= loadAndApplyTemplate "templates/default.html" context
+                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts context)
                 >>= relativizeUrls
 
     create ["feed.xml"] $ do
@@ -142,6 +142,11 @@ siteContext =
         <> constField "siteDescription" "Software, types, functional programming, and the ideas around them."
         <> defaultContext
 
+defaultPageContext :: Pattern -> Context String -> Context String
+defaultPageContext posts pageContext =
+    listField "commandPosts" defaultContext (recentFirst =<< loadAllSnapshots posts "content")
+        <> pageContext
+
 feedConfiguration :: FeedConfiguration
 feedConfiguration =
     FeedConfiguration
@@ -151,4 +156,3 @@ feedConfiguration =
         , feedAuthorEmail = ""
         , feedRoot = "https://chrisgrounds.github.io"
         }
-
