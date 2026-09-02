@@ -13,6 +13,9 @@
   --code: #0d1117;
   --max-width: 72rem;
   --reading-width: 46rem;
+  --section-padding: 3rem;
+  --content-padding: 2rem;
+  --row-padding: 1.25rem;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-synthesis: none;
 }
@@ -272,7 +275,7 @@ a:hover {
 
 .hero {
   max-width: 59rem;
-  padding: clamp(4rem, 9vw, 7rem) 0;
+  padding: var(--section-padding) 0;
 }
 
 .eyebrow {
@@ -336,7 +339,7 @@ a:hover {
   grid-template-columns: minmax(9rem, 0.75fr) minmax(0, 2.4fr) auto;
   gap: clamp(1.2rem, 4vw, 4rem);
   align-items: start;
-  padding: clamp(1.1rem, 2.5vw, 1.6rem) 0;
+  padding: var(--row-padding) 0;
 }
 
 .post-card__meta,
@@ -377,7 +380,7 @@ a:hover {
 }
 
 .article {
-  padding: clamp(5rem, 11vw, 8rem) 0;
+  padding: var(--section-padding) 0;
 }
 
 .article__header,
@@ -388,7 +391,7 @@ a:hover {
 }
 
 .article__header {
-  padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  padding-bottom: var(--content-padding);
 }
 
 .article__header h1,
@@ -402,7 +405,7 @@ a:hover {
 }
 
 .prose {
-  padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  padding-top: var(--content-padding);
   font-family: Iowan Old Style, Baskerville, "Times New Roman", serif;
   font-size: clamp(1.1rem, 2vw, 1.25rem);
   line-height: 1.8;
@@ -413,7 +416,7 @@ a:hover {
 }
 
 .article--page {
-  padding: clamp(3rem, 7vw, 5rem) 0;
+  padding: var(--section-padding) 0;
 }
 
 .article--page .prose h2 {
@@ -570,7 +573,7 @@ a:hover {
 
 .archive,
 .error-page {
-  padding: clamp(5rem, 11vw, 8rem) 0;
+  padding: var(--section-padding) 0;
 }
 
 .archive__header {
@@ -604,10 +607,14 @@ a:hover {
 }
 
 :root[data-theme="unicorn"] .skip-link,
-:root[data-theme="unicorn"] .site-mark__glyph,
 :root[data-theme="unicorn"] .button {
   color: #1a1033;
   background: linear-gradient(135deg, #ff5da2, #ffd166, #6ee7b7, #60a5fa, #a78bfa);
+}
+
+:root[data-theme="unicorn"] .site-mark__glyph {
+  color: #211b2a;
+  background: linear-gradient(135deg, #d99ab3, #dbc08a, #9fcbb7, #91b7d2, #b09bc9);
 }
 
 :root[data-theme="unicorn"] .button:hover {
@@ -618,10 +625,8 @@ a:hover {
 .site-footer {
   display: flex;
   justify-content: space-between;
-  margin-top: 6rem;
-  padding: 2rem 0 3rem;
+  padding: 1rem;
   color: var(--muted);
-  border-top: 1px solid var(--line);
   font-size: 0.78rem;
 }
 
@@ -630,6 +635,11 @@ a:hover {
 }
 
 @media (max-width: 760px) {
+  :root {
+    --section-padding: 3rem;
+    --content-padding: 1.5rem;
+  }
+
   .site-header {
     min-height: 5rem;
   }
@@ -761,4 +771,3 @@ a:hover {
     transition: none !important;
   }
 }
-

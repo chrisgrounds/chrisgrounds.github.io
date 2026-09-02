@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Switch2] Rust on the Frontend at Switch2"
+title: "Rust on the Frontend at Switch2"
 date: 2026-08-14
 published: true
 tags: ["rust", "frontend", "leptos"]
