@@ -11,6 +11,7 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="alternate" type="application/rss+xml" title="$siteTitle$ RSS" href="/feed.xml">
+  <script src="/js/wander.js" defer></script>
   <script>
     (function () {
       var THEMES = ["dark", "light", "unicorn"];
@@ -51,6 +52,7 @@
           run: function () { setTheme(theme); }
         };
       }).concat([
+        { id: "wander", group: "Explore", label: "Wander through the constellation", run: function () { document.dispatchEvent(new CustomEvent("wander:open")); } },
         { id: "go-writing", group: "Go to", label: "Writing", run: function () { window.location.href = "/"; } },
         { id: "go-inspiration", group: "Go to", label: "Inspiration", run: function () { window.location.href = "/inspiration/"; } },
         { id: "go-about", group: "Go to", label: "About", run: function () { window.location.href = "/about/"; } },
@@ -425,9 +427,33 @@
       <ul id="command-palette-list" class="command-palette__list" role="listbox"></ul>
       <div id="command-palette-articles" hidden>
         $for(commandPosts)$
-          <a href="$url$">$title$</a>
+          <a href="$url$" data-wander-date="$wanderDate$" data-wander-tags="$wanderTags$">$title$</a>
         $endfor$
       </div>
+    </div>
+  </dialog>
+
+  <dialog id="wander-dialog" class="wander" aria-labelledby="wander-title" aria-describedby="wander-instructions">
+    <div class="wander__shell">
+      <header class="wander__header">
+        <div>
+          <p class="eyebrow">Wander mode</p>
+          <h2 id="wander-title">A constellation of ideas</h2>
+        </div>
+        <button type="button" id="wander-close" class="wander__close" aria-label="Close Wander mode">Close <span aria-hidden="true">×</span></button>
+      </header>
+
+      <div class="wander__stage">
+        <svg id="wander-map" class="wander__map" viewBox="0 0 1000 620" role="group" aria-label="Interactive map of articles"></svg>
+      </div>
+
+      <footer class="wander__footer">
+        <div id="wander-status" class="wander__status" role="status" aria-live="polite"></div>
+        <div class="wander__actions">
+          <p id="wander-instructions">Use arrow keys to drift · Enter to read · Escape to leave</p>
+          <a id="wander-open" class="wander__open" href="#">Read article <span aria-hidden="true">→</span></a>
+        </div>
+      </footer>
     </div>
   </dialog>
 

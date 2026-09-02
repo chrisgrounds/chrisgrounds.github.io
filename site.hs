@@ -20,6 +20,10 @@ main = hakyll $ do
         route idRoute
         compile compressCssCompiler
 
+    match "js/*" $ do
+        route idRoute
+        compile copyFileCompiler
+
     tags <- buildTags publishedPosts (fromCapture "tags/*.html")
 
     tagsRules tags $ \tag pattern -> do
@@ -144,8 +148,14 @@ siteContext =
 
 defaultPageContext :: Pattern -> Context String -> Context String
 defaultPageContext posts pageContext =
-    listField "commandPosts" defaultContext (recentFirst =<< loadAllSnapshots posts "content")
+    listField "commandPosts" wanderPostContext (recentFirst =<< loadAllSnapshots posts "content")
         <> pageContext
+
+wanderPostContext :: Context String
+wanderPostContext =
+    dateField "wanderDate" "%Y-%m-%d"
+        <> field "wanderTags" (fmap (intercalate "|") . getTags . itemIdentifier)
+        <> defaultContext
 
 feedConfiguration :: FeedConfiguration
 feedConfiguration =
