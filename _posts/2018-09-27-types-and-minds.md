@@ -2,7 +2,7 @@
 layout: post
 title: Types and Minds
 date: 2018-09-27
-published: true
+published: false
 ---
 
 <p>Various philosophers (see Chomsky, Fodor, McGinn) have expressed the view that science and human knowledge are limited because human minds/brains are limited. There will just always be things that we cannot know because of the species we are. This view has received some criticism, notably from the philosopher Daniel Dennett. Recapping the logic if this position, Dennett says:</p>
