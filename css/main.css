@@ -603,7 +603,7 @@ a:hover {
 .article__header h1,
 .archive__header h1,
 .error-page h1 {
-  font-size: clamp(2.8rem, 7vw, 5.7rem);
+  font-size: clamp(3rem, 5vw, 5rem)
 }
 
 .article__meta {
