@@ -4,7 +4,9 @@
   var SVG_NS = "http://www.w3.org/2000/svg";
   var dialog;
   var map;
-  var status;
+  var statusTitle;
+  var statusDetails;
+  var statusRelation;
   var openLink;
   var posts = [];
   var edges = [];
@@ -68,7 +70,7 @@
         var tags = sharedTags(posts[i], posts[j]);
         if (!tags.length) continue;
         var weight = tags.length;
-        edges.push({ from: i, to: j, weight: weight, tags: tags });
+        edges.push({ from: i, to: j, weight: weight });
         posts[i].degree += weight;
         posts[j].degree += weight;
       }
@@ -225,17 +227,9 @@
 
   function updateStatus(previous) {
     var post = posts[selectedIndex];
-    status.innerHTML = "";
-    var title = document.createElement("h3");
-    title.textContent = post.title;
-    var details = document.createElement("p");
-    details.textContent = formatDate(post.date) + (post.tags.length ? " · " + post.tags.join(" · ") : "");
-    var relation = document.createElement("p");
-    relation.className = "wander__relation";
-    relation.textContent = relationText(previous, selectedIndex);
-    status.appendChild(title);
-    status.appendChild(details);
-    status.appendChild(relation);
+    statusTitle.textContent = post.title;
+    statusDetails.textContent = formatDate(post.date) + (post.tags.length ? " · " + post.tags.join(" · ") : "");
+    statusRelation.textContent = relationText(previous, selectedIndex);
     openLink.setAttribute("href", post.url);
   }
 
@@ -340,9 +334,11 @@
   function initialise() {
     dialog = document.getElementById("wander-dialog");
     map = document.getElementById("wander-map");
-    status = document.getElementById("wander-status");
+    statusTitle = document.getElementById("wander-status-title");
+    statusDetails = document.getElementById("wander-status-details");
+    statusRelation = document.getElementById("wander-status-relation");
     openLink = document.getElementById("wander-open");
-    if (!dialog || !map || !status || !openLink) return;
+    if (!dialog || !map || !statusTitle || !statusDetails || !statusRelation || !openLink) return;
     readPosts();
     document.addEventListener("wander:open", openWander);
     document.getElementById("wander-close").addEventListener("click", closeWander);

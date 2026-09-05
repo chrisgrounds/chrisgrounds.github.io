@@ -204,14 +204,18 @@ a:hover {
   border-color: var(--muted);
 }
 
-#command-palette {
-  width: min(90vw, 34rem);
+#command-palette,
+.wander {
   padding: 0;
   color: var(--text);
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 0.6rem;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.35);
+}
+
+#command-palette {
+  width: min(90vw, 34rem);
 }
 
 #command-palette::backdrop {
@@ -270,13 +274,7 @@ a:hover {
   height: min(calc(100vh - 2rem), 54rem);
   max-width: none;
   max-height: none;
-  padding: 0;
   overflow: hidden;
-  color: var(--text);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 0.6rem;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.35);
 }
 
 .wander::backdrop {
@@ -468,8 +466,8 @@ a:hover {
   font-size: var(--text-xs);
 }
 
-.wander__relation {
-  color: var(--accent) !important;
+.wander__status .wander__relation {
+  color: var(--accent);
 }
 
 .wander__actions {
@@ -939,19 +937,12 @@ a:hover {
   display: grid;
   width: 2.4rem;
   height: 2.4rem;
-  color: var(--muted);
-  background: var(--surface-raised);
-  border: 1px solid var(--line);
+  color: var(--on-accent);
+  background: var(--accent);
+  border: 1px solid var(--accent);
   border-radius: 0.4rem;
   place-items: center;
   font-size: 1.3rem;
-  transition: color 150ms ease, background 150ms ease, border-color 150ms ease, transform 150ms ease;
-}
-
-.konami-progress__glyph.is-filled {
-  color: var(--on-accent);
-  background: var(--accent);
-  border-color: var(--accent);
   transform: scale(1.08);
 }
 
