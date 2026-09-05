@@ -42,9 +42,9 @@ fn update_grade(student: &mut Student, new_grade: Grade) {
 }
 ```
 
-Now there is no possible way we can accidentally give the student a grade of 200 because it doesn't exist as an option. There's just no defensive code to write.
+Now there is no possible way we can accidentally give the student a grade of 200 because it doesn't exist as an option. There's just no defensive code to write. However, one downside of this approach comes from wanting to extend the `Grade` type - if, for example, you decide you actually want 20 grades instead of 10. Additionally you would also need to implement functions that you probably take for granted with number types such as addition and subtraction. 
 
-The second option is to wrap the `u8` in a newtype smart-constructor,
+The middle-ground approach is to instead wrap the `u8` in a newtype smart-constructor,
 
 ```rust
 struct Grade(u8);
@@ -52,8 +52,8 @@ struct OutOfBounds;
 
 impl Grade {
   fn try_new(grade: u8) -> Result<Self, OutOfBounds> {
-    if !(1..=10).contains(&new_grade) {
-      return Err(OutOfBounds));
+    if !(1..=10).contains(&grade) {
+      return Err(OutOfBounds);
     }
 
     Ok(Self(grade))
