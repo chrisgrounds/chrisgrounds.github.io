@@ -404,7 +404,7 @@ a:hover {
 .prose {
   padding-top: clamp(1.5rem, 4vw, 2.5rem);
   font-family: Iowan Old Style, Baskerville, "Times New Roman", serif;
-  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-size: 18px;
   line-height: 1.8;
 }
 
