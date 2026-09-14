@@ -20,6 +20,10 @@ main = hakyll $ do
         route idRoute
         compile compressCssCompiler
 
+    match "js/*" $ do
+        route idRoute
+        compile copyFileCompiler
+
     tags <- buildTags publishedPosts (fromCapture "tags/*.html")
 
     tagsRules tags $ \tag pattern -> do
@@ -34,7 +38,7 @@ main = hakyll $ do
                         <> siteContext
             makeItem ("" :: String)
                 >>= loadAndApplyTemplate "templates/archive.html" context
-                >>= loadAndApplyTemplate "templates/default.html" context
+                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts context)
                 >>= relativizeUrls
 
     match publishedPosts $ do
@@ -43,7 +47,7 @@ main = hakyll $ do
             postCompiler
                 >>= saveSnapshot "content"
                 >>= loadAndApplyTemplate "templates/post.html" (postContext tags)
-                >>= loadAndApplyTemplate "templates/default.html" (postContext tags)
+                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts (postContext tags))
                 >>= relativizeUrls
 
     match "about.markdown" $ do
@@ -51,7 +55,7 @@ main = hakyll $ do
         compile $
             pandocCompiler
                 >>= loadAndApplyTemplate "templates/page.html" siteContext
-                >>= loadAndApplyTemplate "templates/default.html" siteContext
+                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts siteContext)
                 >>= relativizeUrls
 
     match "inspiration.markdown" $ do
@@ -59,14 +63,14 @@ main = hakyll $ do
         compile $
             pandocCompiler
                 >>= loadAndApplyTemplate "templates/inspiration.html" siteContext
-                >>= loadAndApplyTemplate "templates/default.html" siteContext
+                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts siteContext)
                 >>= relativizeUrls
 
     match "404.html" $ do
         route idRoute
         compile $
             getResourceBody
-                >>= loadAndApplyTemplate "templates/default.html" siteContext
+                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts siteContext)
                 >>= relativizeUrls
 
     match "index.html" $ do
@@ -78,7 +82,7 @@ main = hakyll $ do
                         <> siteContext
             getResourceBody
                 >>= applyAsTemplate context
-                >>= loadAndApplyTemplate "templates/default.html" context
+                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts context)
                 >>= relativizeUrls
 
     create ["feed.xml"] $ do
@@ -142,6 +146,17 @@ siteContext =
         <> constField "siteDescription" "Software, types, functional programming, and the ideas around them."
         <> defaultContext
 
+defaultPageContext :: Pattern -> Context String -> Context String
+defaultPageContext posts pageContext =
+    listField "commandPosts" wanderPostContext (recentFirst =<< loadAllSnapshots posts "content")
+        <> pageContext
+
+wanderPostContext :: Context String
+wanderPostContext =
+    dateField "wanderDate" "%Y-%m-%d"
+        <> field "wanderTags" (fmap (intercalate "|") . getTags . itemIdentifier)
+        <> defaultContext
+
 feedConfiguration :: FeedConfiguration
 feedConfiguration =
     FeedConfiguration
@@ -151,4 +166,3 @@ feedConfiguration =
         , feedAuthorEmail = ""
         , feedRoot = "https://chrisgrounds.github.io"
         }
-
