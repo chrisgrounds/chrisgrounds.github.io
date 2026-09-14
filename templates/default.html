@@ -25,7 +25,7 @@
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
-  <header class="site-header">
+  <header class="site-header flex-between">
     <a class="site-mark" href="/" aria-label="$siteTitle$ home">
       <span class="site-mark__glyph" aria-hidden="true">λ</span>
       <span>$siteTitle$</span>
@@ -53,7 +53,7 @@
           <path d="M9 18a3 3 0 0 1 6 0" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"></path>
         </svg>
       </button>
-      <button type="button" id="command-palette-trigger" class="cmdk-trigger" aria-label="Open command palette">⌘K</button>
+      <button type="button" id="command-palette-trigger" class="cmdk-trigger button-outline" aria-label="Open command palette">⌘K</button>
     </nav>
   </header>
 
@@ -71,25 +71,25 @@
 
   <dialog id="wander-dialog" class="wander" aria-labelledby="wander-title" aria-describedby="wander-instructions">
     <div class="wander__shell">
-      <header class="wander__header">
+      <header class="wander__header flex-between">
         <div>
           <p class="eyebrow">Wander mode</p>
           <h2 id="wander-title">A constellation of ideas</h2>
         </div>
-        <button type="button" id="wander-close" class="wander__close" aria-label="Close Wander mode">Close <span aria-hidden="true">×</span></button>
+        <button type="button" id="wander-close" class="wander__close button-outline" aria-label="Close Wander mode">Close <span aria-hidden="true">×</span></button>
       </header>
 
       <div class="wander__stage">
         <svg id="wander-map" class="wander__map" viewBox="0 0 1000 620" role="group" aria-label="Interactive map of articles"></svg>
       </div>
 
-      <footer class="wander__footer">
+      <footer class="wander__footer flex-between">
         <div id="wander-status" class="wander__status" role="status" aria-live="polite">
           <h3 id="wander-status-title"></h3>
           <p id="wander-status-details"></p>
           <p id="wander-status-relation" class="wander__relation"></p>
         </div>
-        <div class="wander__actions">
+        <div class="wander__actions flex-between">
           <p id="wander-instructions">Use arrow keys to drift · Enter to read · Escape to leave</p>
           <a id="wander-open" class="wander__open" href="#">Read article <span aria-hidden="true">→</span></a>
         </div>
@@ -103,6 +103,7 @@
 
   <footer class="site-footer">
     <p>Built with <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</p>
+    <p><a href="/feed.xml">RSS</a></p>
   </footer>
 </body>
 </html>

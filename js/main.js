@@ -61,7 +61,7 @@
       item.id = "command-palette-option-" + command.id;
       item.setAttribute("role", "option");
       item.setAttribute("aria-selected", index === activeIndex ? "true" : "false");
-      item.className = "command-palette__item" + (index === activeIndex ? " is-active" : "");
+      item.className = "command-palette__item flex-between" + (index === activeIndex ? " is-active" : "");
 
       var label = document.createElement("span");
       label.textContent = command.label;
