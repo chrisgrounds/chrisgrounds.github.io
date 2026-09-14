@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-GB" data-theme="unicorn">
+<html lang="en-GB" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
     (function () {
       var colors = { dark: "#0a0c10", light: "#f7f6f2", unicorn: "#ffe4f3" };
       var stored = localStorage.getItem("theme");
-      var theme = Object.prototype.hasOwnProperty.call(colors, stored) ? stored : "unicorn";
+      var theme = Object.prototype.hasOwnProperty.call(colors, stored) ? stored : "light";
       document.documentElement.setAttribute("data-theme", theme);
       document.querySelector('meta[name="theme-color"]').setAttribute("content", colors[theme]);
     })();
