@@ -6,15 +6,22 @@ published: false
 tags: ["types", "domain modelling", "fp"]
 ---
 
-# Work In Progress
+One way of thinking about software is to imagine that programs are made up of structure, content, and transformations. Content is stuff like `strings` and `numbers` - in general "values". Structure is non-valueful stuff that contains content - things like `lists`, `arrays`, `futures`, `streams`, `results`, etc. And transformations are functions.
 
-One way of thinking about software is to imagine that programs are made up of structure, content, and transformations. Content is stuff like strings, numbers, and just general values of things. You can think of content as domain objects. Structure is non-valueful stuff that contains content - for example things like lists, arrays, futures, streams, results, etc. And transformations are functions.
+There are only a small number of ways we can combine these three things together. For example, functions can take content and produce more content. Or they can produce structure. Or they can remove structure and just leave us with content. Functions themselves can be wrapped in structure (a list of functions). 
 
-In what follows, let's denote content with lowercase letters like `a`, `b`, etc, and as the list is the canonical example of structure, so let's steal its syntax to denote structure. So we will denote structure by wrapping content in a set of brackets `[]`. (For example, a list of strings would be denoted as `[a]`.) Finally, we will denote functions with arrows `->`, such that `a -> b` is a function which takes an `a` and returns a `b`. 
+In what follows, let's denote content with lowercase letters like `a`, `b`, etc, and as the list is the canonical example of structure, so let's steal its syntax to denote structure. So we will denote structure by wrapping content in a set of brackets `[]`. (For example, structure-full `a` would be denoted as `[a]`.) Finally, we will denote functions with arrows `->`, such that `a -> b` is a function which takes an `a` and returns a `b`.
 
-Now let's look at some interesting patterns for composing these three objects.
+So when we think about the possible combinations of how we can combine structure, content, and transformations, we have: 
 
-## Lifting into structure, aka why functors are banal
+1. `a -> b` (transform content to content)
+2. `[a] -> b` (unwrap content from structure)
+3. `a -> [b]` (wrap content in structure)
+4. `[a] -> [b]` (transform content in structure)
+
+In what follows, I'll talk about some of the interesting and common applications of these combinations. 
+
+## Lifting into structure, aka the common functor
 
 Suppose you have some structure, say a list of strings (`[string]`) and the function `string -> string` (i.e. take a string and returns a string, something like `get_first_character` or `reverse`), then you have the problem of how to use your function. You can't pass your function the list of strings because the function doesn't accept a list, it only accepts _content_, not structure. 
 
@@ -82,4 +89,4 @@ Fun fact: if your function itself is wrapped up inside some structure then you�
 
 ## Addendum: Functors and monads are (almost) everywhere you look
 
-In JS, promises are monads if you squint a little/lot. In Promise(1), 1 is the content and Promise is the structure. When you use then() you’re using the equivalent of bind. However, something I’ve crucially not mentioned: monads are lawful. And without turning this into an essay, take my word that JS promises do not satisfy the monad laws. But from the point of view of their signatures they come close. 
+In JS, promises are monads if you squint a little/lot. In Promise(1), 1 is the content and Promise is the structure. When you use then() you’re using the equivalent of bind. However, something I’ve crucially not mentioned: monads are lawful. And without turning this into an essay, take my word that JS promises do not satisfy the monad laws. But from the point of view of their signatures they come close.

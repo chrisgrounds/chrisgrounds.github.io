@@ -3,7 +3,7 @@ layout: post
 title: Verifying Writing
 date: 2026-09-14
 published: true
-tags: ["rust", "types"]
+tags: ["writing", "llms"]
 ---
 
 After reading [Bryan Cantrill's blog on reading](https://bcantrill.dtrace.org/2026/09/05/the-revolt-of-the-reader/) and then reading the linked [Cynthia Dunlop report on AI-written blog posts](https://writethatblog.substack.com/p/dev-reaction-to-ai-blog-posts) I've instituted a new policy on my blog, which is to add a pangram verified link to my blogs going forward to verify that my writing is not AI-assisted or AI-generated. 
