@@ -4,6 +4,9 @@
     <div class="article__meta">
       <time datetime="$date$">$date$</time>
       $if(tags)$<span aria-hidden="true">/</span><span>$tags$</span>$endif$
+      $if(pangram_url)$
+      <a class="article__pangram" href="$pangram_url$"><span aria-hidden="true">✍️</span>Verified as human written - check with Pangram <span aria-hidden="true">↗</span></a>
+      $endif$
     </div>
   </header>
 
@@ -15,4 +18,3 @@
     <a href="/">← All writing</a>
   </footer>
 </article>
-

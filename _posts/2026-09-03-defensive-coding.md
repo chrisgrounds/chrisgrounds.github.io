@@ -3,6 +3,7 @@ layout: post
 title: "The Code Smell of LLM Defensive Coding"
 date: 2026-09-03
 published: true
+pangram_url: "https://www.pangram.com/history/af881f2e-d07a-4c45-9211-20e0b3af4ea8?ucc=z4e6u5vg1aN"
 tags: ["rust", "types"]
 ---
 

@@ -564,7 +564,26 @@ a:hover {
 }
 
 .article__meta {
+  align-items: center;
   margin-top: 1.8rem;
+}
+
+.article__pangram {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.2em 0.65em;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--accent);
+  font-size: var(--text-xs);
+  text-decoration: none;
+  text-transform: none;
+}
+
+.article__pangram:hover {
+  text-decoration: underline;
 }
 
 .prose {
@@ -574,7 +593,7 @@ a:hover {
 }
 
 .page-content {
-  padding-top: 64px;
+  padding-top: 48px;
 }
 
 .article--page .prose h2 {
@@ -789,10 +808,6 @@ a:hover {
 @media (max-width: 760px) {
   :root {
     --content-gap: 3rem;
-  }
-
-  .page-content {
-    padding-top: 48px;
   }
 
   .site-header {
