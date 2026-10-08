@@ -12,13 +12,11 @@ Let me give an example.
 
 ## Hey Google, what is this function?
 
-If I asked most software engineers what function the following type signature encodes, they probably wouldn't know. Most functional programmers, having been versed in this way of thinking about code probably would. And if I ask an LLM like gpt4.5, then it also knows the answer: 
-
 ```haskell
 forall a. a -> a
 ```
 
-Have a think about what this function could possibly encode. There is only one possibility and for those not versed in this type of syntax it says that this function takes any type of thing and returns that very same type of thing. Well, this is the identity function. There's really nothing else that can satisfy this type signature - as the LLM clearly states in its response:
+Let's ask gpt4.5 what function could instantiate this type,
 
 ```
 id :: a -> a
