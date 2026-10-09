@@ -135,31 +135,8 @@
     });
   }
 
-  function addGradient(defs) {
-    var gradient = svgElement("linearGradient", {
-      id: "wander-unicorn-gradient",
-      x1: "0%",
-      y1: "0%",
-      x2: "100%",
-      y2: "100%"
-    });
-    [
-      ["0%", "#d99ab3"],
-      ["25%", "#dbc08a"],
-      ["50%", "#9fcbb7"],
-      ["75%", "#91b7d2"],
-      ["100%", "#b09bc9"]
-    ].forEach(function (stop) {
-      gradient.appendChild(svgElement("stop", { offset: stop[0], "stop-color": stop[1] }));
-    });
-    defs.appendChild(gradient);
-  }
-
   function renderMap() {
     map.innerHTML = "";
-    var defs = svgElement("defs");
-    addGradient(defs);
-    map.appendChild(defs);
 
     var edgeLayer = svgElement("g", { class: "wander__edges", "aria-hidden": "true" });
     edgeElements = edges.map(function (edge) {
