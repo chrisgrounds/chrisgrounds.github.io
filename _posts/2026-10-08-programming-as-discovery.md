@@ -3,6 +3,7 @@ layout: post
 title: Programming as Discovery
 date: 2026-10-08
 published: true
+pangram_url: https://www.pangram.com/history/66b9d8c2-ccbd-4740-abe1-7b99a601f2e8?ucc=z4e6u5vg1aN&utm_source=pangram_share&utm_medium=copy_link
 tags: ["programming", "software engineering", "ai"]
 ---
 
