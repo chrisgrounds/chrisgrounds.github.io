@@ -4,6 +4,8 @@ title: Inspiration
 
 Blogs, talks, and videos that have shaped how I think about software.
 
+_Work in progress..._
+
 ## Blogs
 
 <a id="beating-the-averages" href="#beating-the-averages" class="item-anchor">#</a> **[Beating The Averages](https://paulgraham.com/avg.html)** by Paul Graham\
@@ -19,4 +21,3 @@ Great video on how functional programming leads to simple and testable architect
 
 <a id="domain-modelling-made-functional" href="#domain-modelling-made-functional" class="item-anchor">#</a> **[Domain Modelling Made Functional](https://www.youtube.com/watch?v=2JB1_e5wZmU)** by Scott Wlaschin\
 A fantastic video on type-driven development and the intersection of types and domain modelling.
-
