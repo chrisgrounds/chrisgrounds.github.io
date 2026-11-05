@@ -14,6 +14,9 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
+env:
+  GHC_VERSION: "9.6.7"
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,26 +24,34 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # ghcup installs GHC under /usr/local/.ghcup on hosted runners. Restoring
+      # the install lets setup find it instead of reinstalling (~3 min).
+      - name: Cache GHC
+        uses: actions/cache@v4
+        with:
+          path: /usr/local/.ghcup/ghc/${{ env.GHC_VERSION }}
+          key: ${{ runner.os }}-ghc-${{ env.GHC_VERSION }}
+
       - name: Set up Haskell
+        id: setup
         uses: haskell-actions/setup@v2
         with:
-          ghc-version: "9.6.7"
+          ghc-version: ${{ env.GHC_VERSION }}
           cabal-version: "3.14.2.0"
 
       - name: Cache Cabal packages
         uses: actions/cache@v4
         with:
           path: |
-            ~/.cabal/store
+            ${{ steps.setup.outputs.cabal-store }}
             dist-newstyle
-          key: ${{ runner.os }}-cabal-${{ hashFiles('**/*.cabal', 'cabal.project') }}
+          key: ${{ runner.os }}-ghc-${{ env.GHC_VERSION }}-cabal-${{ hashFiles('**/*.cabal', 'cabal.project') }}
           restore-keys: |
+            ${{ runner.os }}-ghc-${{ env.GHC_VERSION }}-cabal-
             ${{ runner.os }}-cabal-
 
       - name: Build site generator
-        run: |
-          cabal update
-          cabal build -j2
+        run: cabal build -j
 
       - name: Build site
         run: cabal run site -- build
