@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Rust on the Frontend at Switch2"
 date: 2026-08-14
 status: published

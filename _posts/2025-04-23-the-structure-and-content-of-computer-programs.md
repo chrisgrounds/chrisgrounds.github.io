@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The Structure and Content of Computer Programs"
 date: 2025-04-23
 status: draft

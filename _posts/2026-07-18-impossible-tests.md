@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Impossible Tests"
 date: 2026-06-08
 status: published

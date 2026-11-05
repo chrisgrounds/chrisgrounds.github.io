@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Types and Minds
 date: 2018-09-27
 status: draft

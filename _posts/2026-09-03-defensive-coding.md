@@ -1,5 +1,4 @@
 ---
-layout: post
 title: The Code Smell of LLM Defensive Coding
 date: 2026-09-03
 status: published

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Two Types of TDD"
 date: 2025-04-26
 status: published
