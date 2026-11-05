@@ -16,6 +16,6 @@ Universally-agreed is the fact that as we stop writing code, we start to lose ou
 
 I don't need to wax lyrical about the advantages of LLMs. They are extremely fast knowledge-retrieval systems and extremely good at pattern-matching. To me that sounds like they should be very good at reviewing existing code, debugging it, offering suggestions, etc.
 
-So, to get the best of both worlds, instead of agents writing and humans reviewing, we should flip it and have humans writing and agents reviewing.
+So, to get the best of both worlds, instead of agents writing and humans reviewing, should we flip it and have humans writing and agents reviewing?
 
 ![Human vs agent matrix](/assets/human-agent-matrix.svg)
