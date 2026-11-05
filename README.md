@@ -45,7 +45,7 @@ Posts live in `_posts/` and use YAML front matter:
 ---
 title: "A post title"
 date: 2026-06-20
-published: true
+status: published
 tags: ["haskell", "types"]
 ---
 ```
@@ -53,7 +53,7 @@ tags: ["haskell", "types"]
 Post filenames must follow `YYYY-MM-DD-slug.md`. Their published URLs retain
 the existing Jekyll-compatible shape: `/YYYY/MM/DD/slug.html`.
 
-Set `published: false` to keep a draft out of the site, tag archives, and RSS
+Set `status: draft` to keep a draft out of the site, tag archives, and RSS
 feed.
 
 ## Deployment

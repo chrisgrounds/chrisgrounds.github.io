@@ -2,7 +2,7 @@
 layout: post
 title: "A Steelman Anti-TDD Argument"
 date: 2025-04-24
-published: true
+status: published
 tags: ["tdd", "testing"]
 ---
 

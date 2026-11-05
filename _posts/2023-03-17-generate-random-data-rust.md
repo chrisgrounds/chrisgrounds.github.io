@@ -2,7 +2,7 @@
 layout: post
 title: "Generate Random Data in Rust"
 date: 2023-03-17
-published: true
+status: published
 tags: ["rust", "random"]
 ---
 
