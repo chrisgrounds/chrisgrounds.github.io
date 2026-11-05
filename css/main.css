@@ -762,6 +762,22 @@ a:hover {
   height: auto;
 }
 
+.prose figure {
+  margin: 0 0 1.45em;
+}
+
+.prose figure img {
+  display: block;
+}
+
+.prose figcaption {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-style: italic;
+}
+
 .prose hr {
   margin: 3rem 0;
   border: 0;
