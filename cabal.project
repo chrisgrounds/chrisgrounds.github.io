@@ -1,2 +1,5 @@
 packages: .
 
+-- Pin the Hackage snapshot so builds resolve the same dependency versions
+-- (and hit the CI cache). Bump deliberately to pick up newer packages.
+index-state: 2026-11-05T09:35:00Z
