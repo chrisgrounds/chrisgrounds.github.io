@@ -2,7 +2,7 @@
 title: "Humans Write, Agents Review"
 date: 2026-11-03
 status: draft
-tags: ["programming", "fp", "software design", "types", "tdd", "type-driven-development"]
+tags: ["programming", "ai"]
 ---
 
 Software is solved, but review is not. At least that's the impression you'll get scrolling through the depths of software-engineering forums, in which software engineers are attempting to automate the review part of the SDLC. Human review is slow, and it is especially onerous for LLM-generated code. And in a world where LLMs can one-shot most problems, is there actually any need for human review and oversight, so the argument goes? So we seem to be moving to a world where agents write code and agents review code, if review happens at all.
