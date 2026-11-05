@@ -2,7 +2,7 @@
 layout: post
 title: "Why the Funny Names?"
 date: 2025-08-13
-published: true
+status: published
 tags: ["language", "fp"]
 ---
 

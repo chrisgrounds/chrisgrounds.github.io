@@ -10,7 +10,7 @@ import Text.Pandoc.Walk (walk)
 
 main :: IO ()
 main = hakyll $ do
-    publishedPosts <- publishedPattern
+    (publishedPosts, draftPosts) <- accessiblePostsPattern
 
     match "assets/**" $ do
         route idRoute
@@ -41,13 +41,13 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts context)
                 >>= relativizeUrls
 
-    match publishedPosts $ do
+    match (publishedPosts .||. draftPosts) $ do
         route postRoute
         compile $
             postCompiler
                 >>= saveSnapshot "content"
                 >>= loadAndApplyTemplate "templates/post.html" (postContext tags)
-                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts (postContext tags))
+                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext (publishedPosts .||. draftPosts) (postContext tags))
                 >>= relativizeUrls
 
     match "about.markdown" $ do
@@ -98,7 +98,22 @@ main = hakyll $ do
 -- @id@; this appends an anchor pointing at that @id@.
 postCompiler :: Compiler (Item String)
 postCompiler =
-    pandocCompilerWithTransform defaultHakyllReaderOptions defaultHakyllWriterOptions linkHeadings
+    getResourceBody
+        >>= withItemBody (pure . expandTldr)
+        >>= renderPandocWithTransform defaultHakyllReaderOptions defaultHakyllWriterOptions linkHeadings
+
+-- | Rewrites @<tldr>@ … @</tldr>@ into a @tldr@ div before Pandoc sees it.
+-- Pandoc treats unknown tags as inline HTML, which would swallow the block's
+-- Markdown into one paragraph; a div with blank lines around its contents keeps
+-- lists and paragraphs inside the summary intact.
+expandTldr :: String -> String
+expandTldr = unlines . map expand . lines
+  where
+    expand line = case trimWhitespace line of
+        "<tldr>" -> "<div class=\"tldr\">\n"
+        "</tldr>" -> "\n</div>"
+        _ -> line
+    trimWhitespace = reverse . dropWhile (== ' ') . reverse . dropWhile (== ' ')
 
 linkHeadings :: Pandoc -> Pandoc
 linkHeadings = walk addAnchor
@@ -110,15 +125,19 @@ linkHeadings = walk addAnchor
     anchor ident =
         Link ("", ["heading-anchor"], []) [Str "#"] ("#" <> ident, "")
 
-publishedPattern :: Rules Pattern
-publishedPattern = do
+accessiblePostsPattern :: Rules (Pattern, Pattern)
+accessiblePostsPattern = do
     ids <- getMatches "_posts/*.md"
     published <- filterM isPublished ids
-    pure (fromList published)
+    draft <- filterM isDraft ids
+    pure (fromList published, fromList draft)
   where
     isPublished identifier = do
         metadata <- getMetadata identifier
-        pure (lookupString "published" metadata /= Just "false")
+        pure (lookupString "status" metadata == Just "published")
+    isDraft identifier = do
+        metadata <- getMetadata identifier
+        pure (lookupString "status" metadata == Just "draft")
 
 postRoute :: Routes
 postRoute = customRoute $ \identifier ->

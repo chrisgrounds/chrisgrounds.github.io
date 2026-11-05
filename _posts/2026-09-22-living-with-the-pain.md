@@ -2,7 +2,7 @@
 layout: post
 title: Living with the Pain
 date: 2026-09-14
-published: false
+status: draft
 tags: ["writing", "llms"]
 ---
 

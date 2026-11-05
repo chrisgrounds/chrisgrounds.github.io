@@ -2,7 +2,7 @@
 layout: post
 title: Verifying Writing
 date: 2026-09-14
-published: true
+status: published
 pangram_url: "https://www.pangram.com/history/a1e9de04-0dd3-4316-9d17-868c9b6db9ae?ucc=z4e6u5vg1aN"
 tags: ["writing", "llms"]
 ---

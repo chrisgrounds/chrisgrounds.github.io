@@ -2,7 +2,7 @@
 layout: post
 title: Programming Beauty
 date: 2018-09-27
-published: false
+status: draft
 ---
 
 What makes a good program?

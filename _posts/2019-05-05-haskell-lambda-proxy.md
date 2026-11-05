@@ -2,7 +2,7 @@
 layout: post
 title: "Build a HTTP Proxy in Haskell on AWS Lambda"
 date: 2019-05-05
-published: true
+status: published
 tags: ["haskell", "aws", "lambda"]
 ---
 
