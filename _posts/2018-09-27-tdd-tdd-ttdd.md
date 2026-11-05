@@ -2,7 +2,7 @@
 layout: post
 title: TDD + TDD = TTDD
 date: 2018-09-27
-published: true
+status: published
 ---
 
 The mantra of Test Driven Development is *Red, Green, Refactor*.

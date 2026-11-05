@@ -2,7 +2,7 @@
 layout: post
 title: "Coding without implementation"
 date: 2025-05-31
-published: true
+status: published
 tags: ["fp", "types", "llms", "ai", "haskell"]
 ---
 
