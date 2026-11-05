@@ -2,7 +2,7 @@
 layout: post
 title: "Two Types of TDD"
 date: 2025-04-26
-published: true
+status: published
 tags: ["tdd", "testing"]
 ---
 
@@ -40,4 +40,3 @@ On the subject of tests, you can think of types as being exhaustive test-cases, 
 ## Appendix
 
 [1] https://tomasp.net/blog/type-first-development.aspx
-

@@ -2,7 +2,7 @@
 layout: post
 title: Stochastic Parrots
 date: 2026-09-14
-published: false
+status: draft
 pangram_url: ""
 tags: ["writing", "llms"]
 ---

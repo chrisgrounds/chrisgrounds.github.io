@@ -2,7 +2,7 @@
 layout: post
 title: "Compose for Speed"
 date: 2018-05-16
-published: true
+status: published
 tags: ["fp", "javascript"]
 ---
 

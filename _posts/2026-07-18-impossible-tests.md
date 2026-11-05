@@ -2,7 +2,7 @@
 layout: post
 title: "Impossible Tests"
 date: 2026-06-08
-published: true
+status: published
 tags: ["fp", "types", "tests", "haskell"]
 ---
 
