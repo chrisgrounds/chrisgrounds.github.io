@@ -129,9 +129,9 @@ This maintains the same API and benefits as the previous approach, but allows us
 
 ## The Axis of Dependent Types
 
-What if we have requirements which are more difficult to encode in our Haskell/Rust type-systems? For example, we want to model whether someone can buy wine. We need to verify their age and move the system into `Allowed` or `Disallowed` states based on their age. Can we still apply Curry-Howard to get proof-by-construction?
+What if we have requirements which are more difficult to encode in our Haskell/Rust type-systems? For example, we want to model a system where over 60s can get railcards. We need to verify their age and move the system into `Allowed` or `Disallowed` states based on that value. Can we still apply Curry-Howard to get proof-by-construction?
 
-![A wine finite state machine](/assets/wine-fsm.svg)
+![A railcard finite state machine](/assets/railcard-fsm.svg)
 
 Well, yes we can. But we need something more powerful than standard-Haskell and standard-Rust. We are now approaching dependent types. To understand dependent types, I find it helps to see where they fit in relation to other aspects of our type-systems, because it can be easy to be overwhelmed by them.
 
