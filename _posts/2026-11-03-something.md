@@ -35,9 +35,7 @@ And because of the Curry-Howard isomorphism, this also applies to programming. A
 
 > for each way to simplify a proof there is a corresponding way to evaluate a program
 
-That is to say that the act of evaluating a program is equivalent to simplifying a proof.
-
-I've most definitely not done the idea justice, but I'm not attempting to here. For a more detailed look at the Curry-Howard isomorphism, definitely check out Wadler's paper.
+That is to say that the act of evaluating a program is equivalent to simplifying a proof. I've most definitely not done the idea justice, but I'm not attempting to here. For a more detailed look at the Curry-Howard isomorphism, definitely check out Wadler's paper.
 
 ## State Machines
 
