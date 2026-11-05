@@ -24,7 +24,7 @@ main = hakyll $ do
         route idRoute
         compile copyFileCompiler
 
-    tags <- buildTags (publishedPosts .||. draftPosts) (fromCapture "tags/*.html")
+    tags <- buildTags publishedPosts (fromCapture "tags/*.html")
 
     tagsRules tags $ \tag pattern -> do
         let title = "Writing tagged “" <> tag <> "”"
