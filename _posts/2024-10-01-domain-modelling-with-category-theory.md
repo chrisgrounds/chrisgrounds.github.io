@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Domain Modelling with Category Theory"
 date: 2024-10-01
 status: published

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: TDD + TDD = TTDD
 date: 2018-09-27
 status: published

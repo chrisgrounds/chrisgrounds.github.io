@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Programming Beauty
 date: 2018-09-27
 status: draft

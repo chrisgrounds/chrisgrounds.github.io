@@ -8,7 +8,8 @@ with [Hakyll](https://jaspervdj.be/hakyll/).
 - GHC 9.6 or newer
 - Cabal 3.10 or newer
 
-The easiest way to install both is [GHCup](https://www.haskell.org/ghcup/).
+Either run `nix develop` to get the same toolchain as CI (GHC 9.6.7), or install
+both with [GHCup](https://www.haskell.org/ghcup/).
 
 ## Development
 
@@ -50,11 +51,22 @@ tags: ["haskell", "types"]
 ---
 ```
 
-Post filenames must follow `YYYY-MM-DD-slug.md`. Their published URLs retain
-the existing Jekyll-compatible shape: `/YYYY/MM/DD/slug.html`.
+Post filenames must follow `YYYY-MM-DD-slug.md`, and posts are served at
+`/YYYY/MM/DD/slug.html`.
 
-Set `status: draft` to keep a draft out of the site, tag archives, and RSS
-feed.
+`status` is required and must be `published` or `draft`. Drafts are built at
+their URL but are not listed on the home page, archive, tag pages, or RSS feed.
+Posts with any other `status`, or none, are not built at all.
+
+To open a post with a summary box, wrap Markdown in `<tldr>` tags, each on its
+own line:
+
+```md
+<tldr>
+1. The first point
+2. The second point
+</tldr>
+```
 
 ## Deployment
 

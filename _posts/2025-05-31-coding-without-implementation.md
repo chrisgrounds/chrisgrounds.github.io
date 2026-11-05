@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Coding without implementation"
 date: 2025-05-31
 status: published

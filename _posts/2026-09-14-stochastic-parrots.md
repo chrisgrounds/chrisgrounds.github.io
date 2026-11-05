@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Stochastic Parrots
 date: 2026-09-14
 status: draft

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Verifying Writing
 date: 2026-09-14
 status: published

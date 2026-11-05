@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Compose for Speed"
 date: 2018-05-16
 status: published

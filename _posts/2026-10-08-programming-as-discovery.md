@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Programming as Discovery
 date: 2026-10-08
 status: published

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Why the Funny Names?"
 date: 2025-08-13
 status: published

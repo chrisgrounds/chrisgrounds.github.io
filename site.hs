@@ -47,7 +47,7 @@ main = hakyll $ do
             postCompiler
                 >>= saveSnapshot "content"
                 >>= loadAndApplyTemplate "templates/post.html" (postContext tags)
-                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext (publishedPosts .||. draftPosts) (postContext tags))
+                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts (postContext tags))
                 >>= relativizeUrls
 
     match "about.markdown" $ do
