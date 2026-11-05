@@ -51,20 +51,115 @@ Going back to the initial opening paragraphs on TLA+, thinking about software en
 
 In order to leverage the Curry-Howard isomorphism, what we need to be doing is not just creating state machines, but creating state machines at the type-level. Once we create them at the type level, then we get our proof of correctness.
 
-(There are a couple caveats that need to be made. The first is that there are different levels to which we can do this depending on what we are quantifying over (more on that later), and the second is that there is a minimum level of expressiveness that we need. So this is just not going to work in unsound languages like TypeScript and - for obvious reasons - dynamic languages like JS, Python, etc.)
+(There are a couple caveats that need to be made. The first is that there are different levels to which we can do this depending on what we are quantifying over (more on that later), and the second is that there is a minimum level of expressiveness that we need. So this is just not going to work in unsound languages like TypeScript and - for obvious reasons - dynamic languages like JS, Python, etc, because they cannot express very much.)
 
+Let's look at a really simple example to illustrate how we can do this. Consider a door, which can be in two states - open or closed. You can't open an already open door, nor can you close a closed door. You can open a closed door and close an open door. So we have the following states and transitions between those states,
 
+![A door finite state machine](/assets/door-fsm.svg)
 
+We can easily encode this in a type-system, as follows:
 
+```rust
+struct Open;
 
-"Propositions as Types was first formulated for intuitionistic logic. It is a perfect fit, because in the intuitionist interpretation the formula A∨B is provable exactly when one exhibits either a proof of Aor a proof of B, so the type corresponding to disjunction is a disjoint sum"
+struct Closed;
 
-second-order quantification over polymorphism
+impl Closed {
+  fn open(self) -> Open;
+}
 
-first-order quantification requires dependent types, as we are quantifying over _values_.
+impl Open {
+  fn close(self) -> Closed;
+}
 
+fn main () {
+  let door = Open;
 
+  // this is fine
+  door.close().open().close().open();
 
+  // these won't compile
+  door.open();
+  door.close().close();
+}
+```
 
+What's nice about using Rust here is that doors are resources and if you want to express _that_ fact in the type-system, then linear/affine types are a good option. So we can see in the `open` and `close` functions that we are taking ownership of the door. Also what is great to see here is that we literally cannot call `close` on an already closed door. `close` is only available when we have an `Open` door. 
 
-All we have needed for this is a type-system that supports algebraic data types and functions.
+Let's consider a case with 4 states. Suppose we are building an invoice system and we want to say an invoice can be either drafted, issued, paid, or overdue. The finite state machine is as follows: 
+
+![An invoice finite state machine](/assets/invoice-fsm.svg)
+
+There are a couple different ways we can express this. As we say in the Rust example above, we can just use straight-forward product types and functions. There are (at least) two other approaches I think worth knowing about. The first is to use phantom types. This is especially useful when we want to have a single product type instead of multiple for each state of the machine - say because we want to share data between each of the states. Phantom types are little more awkward in Rust, so I'll use Haskell here,
+
+```hs
+data Draft
+data Issued
+data Paid
+data Overdue
+
+data Invoice state = Invoice {
+  invoiceId :: InvoiceId
+}
+
+publish :: Invoice Draft -> Invoice Issued
+pay :: Invoice Issued -> Invoice Paid
+overdue :: Invoice Issued -> Invoice Paid
+```
+
+Here we create a `Invoice` type which has a `state` parameter which is unused. This is a phantom type. The way it helps us is each function can take an `Invoice state` and we don't have to create multiple types for each state.
+
+Very similar to the Rust example we can see we have enforced the transitions at the type-level - it is impossible to call overdue on an already paid invoice, it is impossible to publish an already issued invoice, and the only way to pay an invoice is to have one issued first.
+
+The third way of interest we can encode the state-machine into the types is to use a Haskell extension called `DataKinds`, 
+
+```hs
+{-# LANGUAGE DataKinds #-}
+
+data Status = Draft | Issued | Paid | Overdue
+
+data Invoice (s :: Status) = ...
+
+publish :: Invoice 'Draft -> Invoice 'Issued
+pay :: Invoice 'Issued -> Invoice 'Paid
+overdue :: Invoice 'Issued -> Invoice 'Paid
+```
+
+This maintains the same API and benefits as the previous approach, but allows us to keep each state variant stored in the `Status` sum-type.
+
+## The Axis of Dependent Types
+
+What if we have requirements which are more difficult to encode in our Haskell/Rust type-systems? For example, we want to model whether someone can buy wine. We need to verify their age and move the system into `Allowed` or `Disallowed` states based on their age. Can we still apply Curry-Howard to get proof-by-construction?
+
+![A wine finite state machine](/assets/wine-fsm.svg)
+
+Well, yes we can. But we need something more powerful than standard-Haskell and standard-Rust. We are now approaching dependent types. To understand dependent types, I find it helps to see where they fit in relation to other aspects of our type-systems, because it can be easy to be overwhelmed by them.
+
+Going back to the section on constructivism, we saw that we can take a very simple logic with a very few number of connectors and turn that into a type of algebraic data types and functions a mapping from propositional logic, namely the logic of propositions, to a relatively simple type system. But there are logics which quantify over propositions and in the land of programming languages this is all polymorphism is. For example, in Haskell the function,
+
+```hs
+reverse :: [a] -> [a]
+```
+
+is a function which takes a list of any kind of type and it returns another list of any kind of type. So here the function is polymorphic over that type and it can apply to anything that can go inside a list. And in fact, Haskell hides the quantifier, but implicitly this function is,
+
+```hs
+reverse :: forall a. [a] -> [a]
+```
+
+But we can also quantify over _values_ rather than over types. And when we do this we are expressing first-order logic. And this is what dependent types are doing for us.
+
+| logic    | types |
+| -------- | ------- |
+| propositional logic | algebraic types |
+| first-order logic   | dependent types |
+| second-order logic  | polymorphism |
+| linear logic  | linear types |
+| S5 modal logic | spatially-distributed computing (e.g. ML5 lang) |
+| ...  | ... |
+
+Now, providing your business logic can be expressed in either propositional logic or second order logic, you can use a language like Haskell - and to varying degrees Rust. If you want to express first-order logic, then you need something stronger. You need either to enable many more extensions in Haskell to approximate dependent types, or you need a fully-fledged dependently typed language like Lean4, Idris, etc.
+
+## Conclusion
+
+With just these small examples, I hope you can see how easy it is to encode (business) logic into a type-system. All we've needed for the most part is straight-forward types and functions. I think it would be a very interesting project to work out how much business logic can be expressed as propositional logic and so only need algebraic types and functions to express in the type system. I suspect it's a very large amount.
