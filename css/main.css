@@ -517,8 +517,8 @@ a:hover {
 
 .post-card {
   display: grid;
-  grid-template-columns: minmax(9rem, 0.75fr) minmax(0, 2.4fr);
-  gap: clamp(1.2rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.55rem;
   align-items: start;
   padding: var(--row-padding) 0;
 }
@@ -570,6 +570,10 @@ a:hover {
 .article__meta {
   align-items: center;
   margin-top: 1.8rem;
+}
+
+.article__date {
+  margin-bottom: 0.8rem;
 }
 
 .article__pangram {
@@ -969,14 +973,6 @@ a:hover {
 
   .nav-github {
     display: none;
-  }
-
-  .post-card {
-    grid-template-columns: 1fr;
-  }
-
-  .post-card__meta {
-    grid-column: 1 / -1;
   }
 
   .site-footer {

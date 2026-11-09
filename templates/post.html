@@ -1,9 +1,10 @@
 <article class="article page-section">
   <header class="article__header">
+    <div class="article__date post-card__meta"><time datetime="$date$">$date$</time></div>
     <h1 class="page-heading">$title$</h1>
     <div class="article__meta">
-      <time datetime="$date$">$date$</time>
-      $if(tags)$<span aria-hidden="true">/</span><span>$tags$</span>$endif$
+      <span>$wordCount$ words</span>
+      <span aria-hidden="true">/</span><span>$readingTime$ min read</span>
       $if(pangram_url)$
       <a class="article__pangram" href="$pangram_url$"><span aria-hidden="true">✍️</span>Verified as human written - check with Pangram <span aria-hidden="true">↗</span></a>
       $endif$

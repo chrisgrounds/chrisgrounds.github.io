@@ -2,6 +2,7 @@
 
 import Control.Monad (filterM)
 import Data.Bits (xor)
+import Data.Char (isAlphaNum)
 import Data.List (foldl', intercalate)
 import qualified Data.Text as T
 import Data.Word (Word64)
@@ -162,7 +163,18 @@ postContext :: Tags -> Context String
 postContext tags =
     dateField "date" "%B %-d, %Y"
         <> tagsField "tags" tags
+        <> field "wordCount" (fmap show . postWordCount)
+        <> field "readingTime" (\item -> do
+            count <- postWordCount item
+            pure $ show $ max 1 ((count + 199) `div` 200))
         <> siteContext
+
+-- Count the rendered post before templates add navigation and metadata.
+-- Ignore punctuation-only tokens, including the heading permalink markers.
+postWordCount :: Item String -> Compiler Int
+postWordCount item = do
+    content <- loadSnapshotBody (itemIdentifier item) "content"
+    pure $ length $ filter (any isAlphaNum) $ words $ stripTags content
 
 feedContext :: Tags -> Context String
 feedContext tags =
