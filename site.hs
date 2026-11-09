@@ -75,10 +75,10 @@ main = hakyll $ do
 
     match "404.html" $ do
         route idRoute
+        -- Keep root-relative URLs: the 404 is served at arbitrary missing paths.
         compile $
             getResourceBody
                 >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts siteContext)
-                >>= relativizeUrls
 
     match "index.html" $ do
         route idRoute

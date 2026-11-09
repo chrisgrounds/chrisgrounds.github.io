@@ -2,8 +2,27 @@
 title: Page not found
 ---
 
-<section class="error-page page-section">
-  <h1 class="page-heading">Compile error: this page did not type-check.</h1>
-  <p>The address may be wrong, or the page may have moved.</p>
-  <a class="button" href="/">Return to writing</a>
+<section class="error-page" aria-labelledby="error-heading">
+  <div class="error-page__copy">
+    <p class="eyebrow">404 · Page not found</p>
+    <h1 class="page-heading" id="error-heading">Even good types<br>get lost.</h1>
+    <p class="error-page__description">This page didn’t type-check. The address may be wrong, or the page may have moved. There’s still plenty to explore.</p>
+    <div class="error-page__actions">
+      <a class="button" href="/">Back to writing <span aria-hidden="true">↗</span></a>
+      <a class="error-page__secondary" href="/about/">About me <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+
+  <div class="error-page__illustration" aria-hidden="true">
+    <div class="error-page__specimen">
+      <span class="error-page__annotation">An unexpected absence</span>
+      <span class="error-page__number">4<span>0</span>4</span>
+      <span class="error-page__coordinate">λ / nowhere</span>
+    </div>
+    <div class="error-page__diagnostic">
+      <span class="error-page__prompt">ghci&gt;</span> findPage requestedPath<br>
+      <span class="error-page__result">Nothing</span>
+      <span class="error-page__comment">-- let’s try another route.</span>
+    </div>
+  </div>
 </section>
