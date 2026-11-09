@@ -1,13 +1,13 @@
 ---
-title: "Something to do with types?"
+title: "Types, Logic, Business Requirements"
 date: 2026-11-03
 status: draft
 tags: ["programming", "fp", "software design", "types", "tdd", "type-driven-development"]
 ---
 
 <tldr>
-1. State machines are very useful ways of representing business logic and requirements
-2. If your business logic is expressible in a logic, then it can be encoded in types, by the Curry-Howard isomorphism
+1. If your business logic is expressible in a logic, then it can be encoded in types, by the Curry-Howard isomorphism
+2. State machines are very useful ways of representing business logic and requirements
 3. Type-level state machines (aka typestate) are a very good way of proving correctness of business logic and requirements
 </tldr>
 
