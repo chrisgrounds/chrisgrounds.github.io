@@ -2,7 +2,7 @@
 title: "Types, Logic, Business Requirements"
 date: 2026-11-03
 status: draft
-tags: ["programming", "fp", "software design", "types", "tdd", "type-driven-development"]
+tags: ["programming", "fp", "software design", "types", "type driven development"]
 ---
 
 <tldr>
