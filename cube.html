@@ -85,7 +85,7 @@ cube: true
           <p>Terms can depend on terms: a function takes a value and returns a value. Its argument and result types are fixed.</p>
           <dl class="cube__context">
             <dt>Logic</dt>
-            <dd><strong>Propositional logic</strong><span>The implicational fragment: A → B reads as “A implies B”.</span></dd>
+            <dd><strong>Propositional logic</strong><span>The implicational fragment: A → B reads as “A implies B”. The formula below says implications chain.</span><code class="cube__formula">(A → B) → (B → C) → A → C</code></dd>
             <dt>Languages</dt>
             <dd>
               <ul class="cube__languages" aria-label="Language support">
@@ -97,6 +97,11 @@ cube: true
                 <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
               </ul>
               <p class="cube__language-note">All six support simply typed functions.</p>
+              <figure class="cube__example">
+                <figcaption>Example in Haskell</figcaption>
+                <pre><code>compose :: (Int -&gt; Bool) -&gt; (Bool -&gt; String) -&gt; Int -&gt; String
+compose f g x = g (f x)</code></pre>
+              </figure>
             </dd>
           </dl>
           <ul class="cube__features"><li>Polymorphism <span>No</span></li><li>Type operators <span>No</span></li><li>Dependent types <span>No</span></li></ul>
@@ -107,7 +112,7 @@ cube: true
           <p>Terms can also depend on types. Abstract over a type to write one function that works for every choice of that type.</p>
           <dl class="cube__context">
             <dt>Logic</dt>
-            <dd><strong>Second-order propositional logic</strong><span>Quantify over propositions, as in ∀ A. A → A.</span></dd>
+            <dd><strong>Second-order propositional logic</strong><span>Quantify over propositions.</span><code class="cube__formula">∀A. ∀B. A → B → A</code></dd>
             <dt>Languages</dt>
             <dd>
               <ul class="cube__languages" aria-label="Language support">
@@ -119,6 +124,11 @@ cube: true
                 <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
               </ul>
               <p class="cube__language-note">Ticks indicate parametric polymorphism; generic functions are not necessarily full, impredicative System F.</p>
+              <figure class="cube__example">
+                <figcaption>Example in Haskell</figcaption>
+                <pre><code>const :: forall a b. a -&gt; b -&gt; a
+const x _ = x</code></pre>
+              </figure>
             </dd>
           </dl>
           <ul class="cube__features"><li>Polymorphism <span class="cube__yes">Yes</span></li><li>Type operators <span>No</span></li><li>Dependent types <span>No</span></li></ul>
@@ -129,7 +139,7 @@ cube: true
           <p>Types can depend on types. A type-level function takes a type and constructs another type.</p>
           <dl class="cube__context">
             <dt>Logic</dt>
-            <dd><strong>Weak higher-order propositional logic</strong><span>Build operators on propositions, without quantifying over propositions in proofs.</span></dd>
+            <dd><strong>Weak higher-order propositional logic</strong><span>Build operators on propositions, without quantifying over propositions in proofs.</span><code class="cube__formula">Self := λA. A → A,  so  Self(P) is P → P</code></dd>
             <dt>Languages</dt>
             <dd>
               <ul class="cube__languages" aria-label="Language support">
@@ -141,6 +151,13 @@ cube: true
                 <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
               </ul>
               <p class="cube__language-note">Here type operators require general higher-kinded abstraction. TypeScript type aliases and Rust generic associated types provide only part of that capability.</p>
+              <figure class="cube__example">
+                <figcaption>Example in Haskell</figcaption>
+                <pre><code>type Dup a = (a, a)
+
+first :: Dup Int -&gt; Int
+first (x, _) = x</code></pre>
+              </figure>
             </dd>
           </dl>
           <ul class="cube__features"><li>Polymorphism <span>No</span></li><li>Type operators <span class="cube__yes">Yes</span></li><li>Dependent types <span>No</span></li></ul>
@@ -151,7 +168,7 @@ cube: true
           <p>A type can depend on a value. A dependent function’s result type may mention the argument it receives.</p>
           <dl class="cube__context">
             <dt>Logic</dt>
-            <dd><strong>First-order predicate logic</strong><span>Implication and universal quantification over individuals; propositions may depend on those individuals.</span></dd>
+            <dd><strong>First-order predicate logic</strong><span>Implication and universal quantification over individuals; propositions may depend on those individuals.</span><code class="cube__formula">∀x. (P(x) → Q(x)) → P(x) → Q(x)</code></dd>
             <dt>Languages</dt>
             <dd>
               <ul class="cube__languages" aria-label="Language support">
@@ -163,6 +180,11 @@ cube: true
                 <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
               </ul>
               <p class="cube__language-note">Ticks require general dependent functions. Rust const generics, TypeScript literal types, and Haskell type-level encodings do not meet that criterion.</p>
+              <figure class="cube__example">
+                <figcaption>Example in Lean</figcaption>
+                <pre><code>def last : (n : Nat) → Fin (n + 1) :=
+  fun n =&gt; ⟨n, Nat.lt_succ_self n⟩</code></pre>
+              </figure>
             </dd>
           </dl>
           <ul class="cube__features"><li>Polymorphism <span>No</span></li><li>Type operators <span>No</span></li><li>Dependent types <span class="cube__yes">Yes</span></li></ul>
@@ -173,7 +195,7 @@ cube: true
           <p>Combine polymorphism with type operators. Functions can abstract over type constructors as well as ordinary types.</p>
           <dl class="cube__context">
             <dt>Logic</dt>
-            <dd><strong>Higher-order propositional logic</strong><span>Construct proposition operators and quantify over them.</span></dd>
+            <dd><strong>Higher-order propositional logic</strong><span>Construct proposition operators and quantify over them.</span><code class="cube__formula">∀F. ∀A. F(A) → F(A)</code></dd>
             <dt>Languages</dt>
             <dd>
               <ul class="cube__languages" aria-label="Language support">
@@ -185,6 +207,13 @@ cube: true
                 <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
               </ul>
               <p class="cube__language-note">Haskell supports higher-kinded polymorphism. TypeScript and Rust need encodings for general abstraction over type constructors.</p>
+              <figure class="cube__example">
+                <figcaption>Example in Haskell</figcaption>
+                <pre><code>newtype Compose f g a = Compose (f (g a))
+
+decompose :: forall f g a. Compose f g a -&gt; f (g a)
+decompose (Compose x) = x</code></pre>
+              </figure>
             </dd>
           </dl>
           <ul class="cube__features"><li>Polymorphism <span class="cube__yes">Yes</span></li><li>Type operators <span class="cube__yes">Yes</span></li><li>Dependent types <span>No</span></li></ul>
@@ -195,7 +224,7 @@ cube: true
           <p>Abstract over types and let types depend on values. Neither feature requires type-level functions from types to types.</p>
           <dl class="cube__context">
             <dt>Logic</dt>
-            <dd><strong>Second-order predicate logic</strong><span>Quantify over individuals and predicates on them.</span></dd>
+            <dd><strong>Second-order predicate logic</strong><span>Quantify over individuals and predicates on them.</span><code class="cube__formula">x = y  :=  ∀P. P(x) → P(y)</code></dd>
             <dt>Languages</dt>
             <dd>
               <ul class="cube__languages" aria-label="Language support">
@@ -207,6 +236,12 @@ cube: true
                 <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
               </ul>
               <p class="cube__language-note">Rocq, Idris, and Lean combine polymorphism with general dependent functions.</p>
+              <figure class="cube__example">
+                <figcaption>Example in Lean</figcaption>
+                <pre><code>theorem leibniz_refl {α : Type} (x : α) :
+    ∀ P : α → Prop, P x → P x :=
+  fun _ h =&gt; h</code></pre>
+              </figure>
             </dd>
           </dl>
           <ul class="cube__features"><li>Polymorphism <span class="cube__yes">Yes</span></li><li>Type operators <span>No</span></li><li>Dependent types <span class="cube__yes">Yes</span></li></ul>
@@ -217,7 +252,7 @@ cube: true
           <p>Types can depend on both types and values. This corner combines dependent types with type operators, without polymorphism.</p>
           <dl class="cube__context">
             <dt>Logic</dt>
-            <dd><strong>Weak higher-order predicate logic</strong><span>Build higher-order predicate operators and quantify over individuals, without polymorphic quantification.</span></dd>
+            <dd><strong>Weak higher-order predicate logic</strong><span>Build higher-order predicate operators and quantify over individuals, without polymorphic quantification.</span><code class="cube__formula">Sym := λR. ∀x. ∀y. R(x, y) → R(y, x)</code></dd>
             <dt>Languages</dt>
             <dd>
               <ul class="cube__languages" aria-label="Language support">
@@ -229,6 +264,14 @@ cube: true
                 <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
               </ul>
               <p class="cube__language-note">Rocq, Idris, and Lean combine type operators with general dependent functions.</p>
+              <figure class="cube__example">
+                <figcaption>Example in Lean</figcaption>
+                <pre><code>def Sym (R : Nat → Nat → Prop) : Prop :=
+  ∀ x y, R x y → R y x
+
+theorem eq_sym' : Sym (· = ·) :=
+  fun _ _ h =&gt; h.symm</code></pre>
+              </figure>
             </dd>
           </dl>
           <ul class="cube__features"><li>Polymorphism <span>No</span></li><li>Type operators <span class="cube__yes">Yes</span></li><li>Dependent types <span class="cube__yes">Yes</span></li></ul>
@@ -239,7 +282,7 @@ cube: true
           <p>The far corner brings together polymorphism, type operators, and dependent types. Every path from λ→ adds the same three capabilities.</p>
           <dl class="cube__context">
             <dt>Logic</dt>
-            <dd><strong>Higher-order predicate logic</strong><span>Combine quantification over individuals, predicates, and higher-order predicate operators.</span></dd>
+            <dd><strong>Higher-order predicate logic</strong><span>Combine quantification over individuals, predicates, and higher-order predicate operators.</span><code class="cube__formula">∀R. Sym(R) → ∀x. ∀y. R(x, y) → R(y, x)</code></dd>
             <dt>Languages</dt>
             <dd>
               <ul class="cube__languages" aria-label="Language support">
@@ -251,6 +294,15 @@ cube: true
                 <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
               </ul>
               <p class="cube__language-note">Rocq, Idris, and Lean support all three capabilities. Their universe and quantification rules differ from the original calculus.</p>
+              <figure class="cube__example">
+                <figcaption>Example in Lean</figcaption>
+                <pre><code>def Sym {α : Type} (R : α → α → Prop) : Prop :=
+  ∀ x y, R x y → R y x
+
+theorem sym_apply {α : Type} (R : α → α → Prop)
+    (h : Sym R) (x y : α) : R x y → R y x :=
+  h x y</code></pre>
+              </figure>
             </dd>
           </dl>
           <ul class="cube__features"><li>Polymorphism <span class="cube__yes">Yes</span></li><li>Type operators <span class="cube__yes">Yes</span></li><li>Dependent types <span class="cube__yes">Yes</span></li></ul>

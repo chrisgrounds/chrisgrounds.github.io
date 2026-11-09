@@ -327,3 +327,45 @@
   .cube__explorer { display: block; }
   .cube__annotations { border: 0; }
 }
+
+.cube__formula {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  color: var(--accent-strong);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  white-space: pre-wrap;
+}
+
+.cube__example {
+  margin: 1rem 0 0;
+}
+
+.cube__example figcaption {
+  margin-bottom: 0.4rem;
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cube__example pre {
+  margin: 0;
+  padding: 0.8rem 0.9rem;
+  overflow-x: auto;
+  background: var(--code);
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+}
+
+.cube__example code {
+  color: #d6dae0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
