@@ -5,8 +5,8 @@ cube: true
 
 <article class="cube-page">
   <header class="cube-page__header">
-    <h1 class="page-heading">The lambda cube</h1>
-    <p class="cube-page__intro">Eight type systems. Three independent ideas. A map of what happens when we let terms and types depend on one another.</p>
+    <h1 class="page-heading">The interactive lambda cube</h1>
+    <p class="cube-page__intro">Explore the cube to find out what happens when we let terms and types depend on one another.</p>
   </header>
 
   <figure class="cube" aria-labelledby="cube-title">
@@ -313,12 +313,13 @@ theorem sym_apply {α : Type} (R : α → α → Prop)
 
   <div class="cube-page__after prose">
     <h2>Reading the logic and language labels</h2>
-    <p>Under Curry–Howard, types act as propositions and terms as proofs. The logic names here refer to intuitionistic systems, with implication and the quantifiers available at each corner. “Weak higher-order” means operators are available without the polymorphic quantification added by the upward edge. See the <a href="https://imada.sdu.dk/~lcf/pubs/tfc.pdf">logic cube in <cite>λ-calculus and beyond</cite>, §4.3</a>.</p>
+    <p>Under Curry–Howard, types act as propositions and terms as proofs. The logic names here refer to intuitionistic systems, with implication and the quantifiers available at each corner. “Weak higher-order” means operators are available without the polymorphic quantification added by the upward edge.</p>
     <p>✓ means practical support for the corner’s capabilities, possibly within a richer language; ✗ means those capabilities are not fully available natively. This is a feature comparison, not a claim that a language implements the exact calculus or its logic. Polymorphism includes ordinary generics; type operators require general higher-kinded abstraction; dependent types require general dependent functions. Recursion, effects, and universe rules are outside this checklist.</p>
-    <p>In particular, <a href="https://github.com/microsoft/TypeScript/issues/1213">TypeScript’s higher-kinded types proposal</a> and <a href="https://rust-lang.github.io/rfcs/1598-generic_associated_types.html">Rust’s generic associated types design</a> explain the type-operator limitations. <a href="https://doc.rust-lang.org/reference/items/generics.html">Rust const generics</a> support restricted value parameters, rather than general dependent functions.</p>
-    <h2>Three ways to go further</h2>
-    <p>Start at λ→, where functions take values. Travel upwards for polymorphism, diagonally for type operators, or to the right for dependent types. These are independent extensions, so the eight corners represent all their combinations.</p>
+    <h2>How to navigate the cube</h2>
+    <p>Start at λ→, where functions take values. Travel upwards for polymorphism, diagonally for type operators, or to the right for dependent types.</p>
     <p>Haskell’s polymorphism and higher-kinded types make System Fω a useful point of reference, though a full programming language has many features beyond this cube. The dependent-types direction asks a further question: what if a type could mention a value?</p>
-    <p class="cube-page__footnote">Background: <a href="https://www.cs.uoregon.edu/research/summerschool/summer23/_lectures/SG_OPLSS2023_3_handout.pdf">Silvia Ghilezan’s introduction to Barendregt’s lambda cube</a>.</p>
+    <h2>References</h2>
+    <a href="https://www.cs.uoregon.edu/research/summerschool/summer23/_lectures/SG_OPLSS2023_3_handout.pdf">Silvia Ghilezan’s introduction to Barendregt’s lambda cube</a>
+    <a href="https://imada.sdu.dk/~lcf/pubs/tfc.pdf"><cite>λ-calculus and beyond</cite>, §4.3</a>
   </div>
 </article>
