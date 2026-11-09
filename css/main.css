@@ -650,11 +650,6 @@ a:hover {
   margin: 0 0 1.45em;
 }
 
-.prose p {
-  text-align: justify;
-  text-justify: inter-word;
-}
-
 .prose .item-anchor {
   margin-right: 0.35em;
   color: var(--muted);
