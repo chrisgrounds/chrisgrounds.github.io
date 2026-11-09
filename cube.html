@@ -1,0 +1,272 @@
+---
+title: The lambda cube
+cube: true
+---
+
+<article class="cube-page">
+  <header class="cube-page__header">
+    <h1 class="page-heading">The lambda cube</h1>
+    <p class="cube-page__intro">Eight type systems. Three independent ideas. A map of what happens when we let terms and types depend on one another.</p>
+  </header>
+
+  <figure class="cube" aria-labelledby="cube-title">
+    <div class="cube__topline">
+      <span id="cube-title">Barendregt’s λ-cube</span>
+    </div>
+    <div class="cube__explorer">
+      <div class="cube__visual">
+        <fieldset class="cube__diagram">
+          <legend class="cube__sr-only">Choose a type system. Use the arrow keys to move between systems.</legend>
+          <svg class="cube__svg" viewBox="0 0 640 440" aria-hidden="true" focusable="false">
+            <defs>
+              <marker id="cube-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="context-stroke" stroke-width="1.5"/></marker>
+            </defs>
+            <path class="cube__face" d="M120 360 L390 360 L520 250 L520 40 L250 40 L120 150 Z"/>
+            <g class="cube__edges" marker-mid="url(#cube-arrow)">
+              <path class="cube__edge cube__edge--operators cube__edge--back" d="M120 360 L185 305 L250 250"/>
+              <path class="cube__edge cube__edge--dependent cube__edge--back" d="M250 250 L385 250 L520 250"/>
+              <path class="cube__edge cube__edge--poly cube__edge--back" d="M250 250 L250 145 L250 40"/>
+              <path class="cube__edge cube__edge--dependent" d="M120 360 L255 360 L390 360"/>
+              <path class="cube__edge cube__edge--dependent" d="M120 150 L255 150 L390 150"/>
+              <path class="cube__edge cube__edge--dependent" d="M250 40 L385 40 L520 40"/>
+              <path class="cube__edge cube__edge--poly" d="M120 360 L120 255 L120 150"/>
+              <path class="cube__edge cube__edge--poly" d="M390 360 L390 255 L390 150"/>
+              <path class="cube__edge cube__edge--poly" d="M520 250 L520 145 L520 40"/>
+              <path class="cube__edge cube__edge--operators" d="M120 150 L185 95 L250 40"/>
+              <path class="cube__edge cube__edge--operators" d="M390 360 L455 305 L520 250"/>
+              <path class="cube__edge cube__edge--operators" d="M390 150 L455 95 L520 40"/>
+            </g>
+            <g class="cube__axis-labels">
+              <text class="cube__poly-ink" x="91" y="267" transform="rotate(-90 91 267)">POLYMORPHISM</text>
+              <text class="cube__dependent-ink" x="255" y="408" text-anchor="middle">DEPENDENT TYPES</text>
+              <text class="cube__operators-ink" x="462" y="336" transform="rotate(-40.24 462 336)">TYPE OPERATORS</text>
+            </g>
+          </svg>
+          <label class="cube__node" style="--x:18.75%;--y:81.818%" title="Simply typed lambda calculus">
+            <input type="radio" name="cube-system" value="simple" aria-label="λ→: Simply typed lambda calculus" aria-controls="cube-simple" checked>
+            <span>λ→</span>
+          </label>
+          <label class="cube__node" style="--x:18.75%;--y:34.091%" title="System F: polymorphism">
+            <input type="radio" name="cube-system" value="f" aria-label="λ2: System F" aria-controls="cube-f">
+            <span>λ2</span>
+          </label>
+          <label class="cube__node" style="--x:39.0625%;--y:56.818%" title="Type operators">
+            <input type="radio" name="cube-system" value="omega" aria-label="λ omega underlined: Type operators" aria-controls="cube-omega">
+            <span>λ<span class="cube__underlined">ω</span></span>
+          </label>
+          <label class="cube__node" style="--x:60.9375%;--y:81.818%" title="Dependent types">
+            <input type="radio" name="cube-system" value="p" aria-label="λP: Dependent types" aria-controls="cube-p">
+            <span>λP</span>
+          </label>
+          <label class="cube__node" style="--x:39.0625%;--y:9.091%" title="System Fω: polymorphism and type operators">
+            <input type="radio" name="cube-system" value="fomega" aria-label="λω: System F omega" aria-controls="cube-fomega">
+            <span>λω</span>
+          </label>
+          <label class="cube__node" style="--x:60.9375%;--y:34.091%" title="Polymorphism and dependent types">
+            <input type="radio" name="cube-system" value="p2" aria-label="λP2: Polymorphism and dependent types" aria-controls="cube-p2">
+            <span>λP2</span>
+          </label>
+          <label class="cube__node" style="--x:81.25%;--y:56.818%" title="Dependent types and type operators">
+            <input type="radio" name="cube-system" value="pomega" aria-label="λP omega underlined: Dependent types and type operators" aria-controls="cube-pomega">
+            <span>λP<span class="cube__underlined">ω</span></span>
+          </label>
+          <label class="cube__node" style="--x:81.25%;--y:9.091%" title="Calculus of Constructions: all three extensions">
+            <input type="radio" name="cube-system" value="c" aria-label="λC: Calculus of Constructions" aria-controls="cube-c">
+            <span>λC</span>
+          </label>
+        </fieldset>
+        <p class="cube__hint">Each arrow adds one kind of dependency.</p>
+      </div>
+
+      <div class="cube__annotations" aria-live="polite" aria-atomic="true">
+        <section class="cube__panel" id="cube-simple">
+          <p class="cube__eyebrow">The starting point</p>
+          <h2><span class="cube__symbol">λ→</span> Simply typed<br>lambda calculus</h2>
+          <p>Terms can depend on terms: a function takes a value and returns a value. Its argument and result types are fixed.</p>
+          <dl class="cube__context">
+            <dt>Logic</dt>
+            <dd><strong>Propositional logic</strong><span>The implicational fragment: A → B reads as “A implies B”.</span></dd>
+            <dt>Languages</dt>
+            <dd>
+              <ul class="cube__languages" aria-label="Language support">
+                <li><a href="https://www.typescriptlang.org/docs/handbook/2/generics.html">TypeScript</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://simon.peytonjones.org/system-fc/">Haskell</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://doc.rust-lang.org/reference/items/generics.html">Rust</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://rocq-prover.org/doc/V9.2.0/refman/language/core/index.html">Rocq</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://idris2.readthedocs.io/en/latest/tutorial/typesfuns.html">Idris</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+              </ul>
+              <p class="cube__language-note">All six support simply typed functions.</p>
+            </dd>
+          </dl>
+          <ul class="cube__features"><li>Polymorphism <span>No</span></li><li>Type operators <span>No</span></li><li>Dependent types <span>No</span></li></ul>
+        </section>
+        <section class="cube__panel" id="cube-f">
+          <p class="cube__eyebrow">Add polymorphism</p>
+          <h2><span class="cube__symbol">λ2</span> System F</h2>
+          <p>Terms can also depend on types. Abstract over a type to write one function that works for every choice of that type.</p>
+          <dl class="cube__context">
+            <dt>Logic</dt>
+            <dd><strong>Second-order propositional logic</strong><span>Quantify over propositions, as in ∀ A. A → A.</span></dd>
+            <dt>Languages</dt>
+            <dd>
+              <ul class="cube__languages" aria-label="Language support">
+                <li><a href="https://www.typescriptlang.org/docs/handbook/2/generics.html">TypeScript</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://simon.peytonjones.org/system-fc/">Haskell</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://doc.rust-lang.org/reference/items/generics.html">Rust</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://rocq-prover.org/doc/V9.2.0/refman/language/core/index.html">Rocq</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://idris2.readthedocs.io/en/latest/tutorial/typesfuns.html">Idris</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+              </ul>
+              <p class="cube__language-note">Ticks indicate parametric polymorphism; generic functions are not necessarily full, impredicative System F.</p>
+            </dd>
+          </dl>
+          <ul class="cube__features"><li>Polymorphism <span class="cube__yes">Yes</span></li><li>Type operators <span>No</span></li><li>Dependent types <span>No</span></li></ul>
+        </section>
+        <section class="cube__panel" id="cube-omega">
+          <p class="cube__eyebrow">Add type operators</p>
+          <h2><span class="cube__symbol">λ<span class="cube__underlined">ω</span></span> Types from types</h2>
+          <p>Types can depend on types. A type-level function takes a type and constructs another type.</p>
+          <dl class="cube__context">
+            <dt>Logic</dt>
+            <dd><strong>Weak higher-order propositional logic</strong><span>Build operators on propositions, without quantifying over propositions in proofs.</span></dd>
+            <dt>Languages</dt>
+            <dd>
+              <ul class="cube__languages" aria-label="Language support">
+                <li><a href="https://www.typescriptlang.org/docs/handbook/2/generics.html">TypeScript</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://simon.peytonjones.org/system-fc/">Haskell</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://doc.rust-lang.org/reference/items/generics.html">Rust</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://rocq-prover.org/doc/V9.2.0/refman/language/core/index.html">Rocq</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://idris2.readthedocs.io/en/latest/tutorial/typesfuns.html">Idris</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+              </ul>
+              <p class="cube__language-note">Here type operators require general higher-kinded abstraction. TypeScript type aliases and Rust generic associated types provide only part of that capability.</p>
+            </dd>
+          </dl>
+          <ul class="cube__features"><li>Polymorphism <span>No</span></li><li>Type operators <span class="cube__yes">Yes</span></li><li>Dependent types <span>No</span></li></ul>
+        </section>
+        <section class="cube__panel" id="cube-p">
+          <p class="cube__eyebrow">Add dependent types</p>
+          <h2><span class="cube__symbol">λP</span> Types from terms</h2>
+          <p>A type can depend on a value. A dependent function’s result type may mention the argument it receives.</p>
+          <dl class="cube__context">
+            <dt>Logic</dt>
+            <dd><strong>First-order predicate logic</strong><span>Implication and universal quantification over individuals; propositions may depend on those individuals.</span></dd>
+            <dt>Languages</dt>
+            <dd>
+              <ul class="cube__languages" aria-label="Language support">
+                <li><a href="https://www.typescriptlang.org/docs/handbook/2/generics.html">TypeScript</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://simon.peytonjones.org/system-fc/">Haskell</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://doc.rust-lang.org/reference/items/generics.html">Rust</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://rocq-prover.org/doc/V9.2.0/refman/language/core/index.html">Rocq</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://idris2.readthedocs.io/en/latest/tutorial/typesfuns.html">Idris</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+              </ul>
+              <p class="cube__language-note">Ticks require general dependent functions. Rust const generics, TypeScript literal types, and Haskell type-level encodings do not meet that criterion.</p>
+            </dd>
+          </dl>
+          <ul class="cube__features"><li>Polymorphism <span>No</span></li><li>Type operators <span>No</span></li><li>Dependent types <span class="cube__yes">Yes</span></li></ul>
+        </section>
+        <section class="cube__panel" id="cube-fomega">
+          <p class="cube__eyebrow">Combine two extensions</p>
+          <h2><span class="cube__symbol">λω</span> System Fω</h2>
+          <p>Combine polymorphism with type operators. Functions can abstract over type constructors as well as ordinary types.</p>
+          <dl class="cube__context">
+            <dt>Logic</dt>
+            <dd><strong>Higher-order propositional logic</strong><span>Construct proposition operators and quantify over them.</span></dd>
+            <dt>Languages</dt>
+            <dd>
+              <ul class="cube__languages" aria-label="Language support">
+                <li><a href="https://www.typescriptlang.org/docs/handbook/2/generics.html">TypeScript</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://simon.peytonjones.org/system-fc/">Haskell</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://doc.rust-lang.org/reference/items/generics.html">Rust</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://rocq-prover.org/doc/V9.2.0/refman/language/core/index.html">Rocq</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://idris2.readthedocs.io/en/latest/tutorial/typesfuns.html">Idris</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+              </ul>
+              <p class="cube__language-note">Haskell supports higher-kinded polymorphism. TypeScript and Rust need encodings for general abstraction over type constructors.</p>
+            </dd>
+          </dl>
+          <ul class="cube__features"><li>Polymorphism <span class="cube__yes">Yes</span></li><li>Type operators <span class="cube__yes">Yes</span></li><li>Dependent types <span>No</span></li></ul>
+        </section>
+        <section class="cube__panel" id="cube-p2">
+          <p class="cube__eyebrow">Combine two extensions</p>
+          <h2><span class="cube__symbol">λP2</span> Polymorphism<br>meets dependency</h2>
+          <p>Abstract over types and let types depend on values. Neither feature requires type-level functions from types to types.</p>
+          <dl class="cube__context">
+            <dt>Logic</dt>
+            <dd><strong>Second-order predicate logic</strong><span>Quantify over individuals and predicates on them.</span></dd>
+            <dt>Languages</dt>
+            <dd>
+              <ul class="cube__languages" aria-label="Language support">
+                <li><a href="https://www.typescriptlang.org/docs/handbook/2/generics.html">TypeScript</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://simon.peytonjones.org/system-fc/">Haskell</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://doc.rust-lang.org/reference/items/generics.html">Rust</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://rocq-prover.org/doc/V9.2.0/refman/language/core/index.html">Rocq</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://idris2.readthedocs.io/en/latest/tutorial/typesfuns.html">Idris</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+              </ul>
+              <p class="cube__language-note">Rocq, Idris, and Lean combine polymorphism with general dependent functions.</p>
+            </dd>
+          </dl>
+          <ul class="cube__features"><li>Polymorphism <span class="cube__yes">Yes</span></li><li>Type operators <span>No</span></li><li>Dependent types <span class="cube__yes">Yes</span></li></ul>
+        </section>
+        <section class="cube__panel" id="cube-pomega">
+          <p class="cube__eyebrow">Combine two extensions</p>
+          <h2><span class="cube__symbol">λP<span class="cube__underlined">ω</span></span> Two ways to<br>construct types</h2>
+          <p>Types can depend on both types and values. This corner combines dependent types with type operators, without polymorphism.</p>
+          <dl class="cube__context">
+            <dt>Logic</dt>
+            <dd><strong>Weak higher-order predicate logic</strong><span>Build higher-order predicate operators and quantify over individuals, without polymorphic quantification.</span></dd>
+            <dt>Languages</dt>
+            <dd>
+              <ul class="cube__languages" aria-label="Language support">
+                <li><a href="https://www.typescriptlang.org/docs/handbook/2/generics.html">TypeScript</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://simon.peytonjones.org/system-fc/">Haskell</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://doc.rust-lang.org/reference/items/generics.html">Rust</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://rocq-prover.org/doc/V9.2.0/refman/language/core/index.html">Rocq</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://idris2.readthedocs.io/en/latest/tutorial/typesfuns.html">Idris</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+              </ul>
+              <p class="cube__language-note">Rocq, Idris, and Lean combine type operators with general dependent functions.</p>
+            </dd>
+          </dl>
+          <ul class="cube__features"><li>Polymorphism <span>No</span></li><li>Type operators <span class="cube__yes">Yes</span></li><li>Dependent types <span class="cube__yes">Yes</span></li></ul>
+        </section>
+        <section class="cube__panel" id="cube-c">
+          <p class="cube__eyebrow">All three extensions</p>
+          <h2><span class="cube__symbol">λC</span> Calculus of<br>Constructions</h2>
+          <p>The far corner brings together polymorphism, type operators, and dependent types. Every path from λ→ adds the same three capabilities.</p>
+          <dl class="cube__context">
+            <dt>Logic</dt>
+            <dd><strong>Higher-order predicate logic</strong><span>Combine quantification over individuals, predicates, and higher-order predicate operators.</span></dd>
+            <dt>Languages</dt>
+            <dd>
+              <ul class="cube__languages" aria-label="Language support">
+                <li><a href="https://www.typescriptlang.org/docs/handbook/2/generics.html">TypeScript</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://simon.peytonjones.org/system-fc/">Haskell</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://doc.rust-lang.org/reference/items/generics.html">Rust</a><span class="cube__support cube__support--no"><span aria-hidden="true">✗</span><span class="cube__sr-only">Not fully supported</span></span></li>
+                <li><a href="https://rocq-prover.org/doc/V9.2.0/refman/language/core/index.html">Rocq</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://idris2.readthedocs.io/en/latest/tutorial/typesfuns.html">Idris</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+                <li><a href="https://lean-lang.org/doc/reference/latest/The-Type-System/">Lean</a><span class="cube__support cube__support--yes"><span aria-hidden="true">✓</span><span class="cube__sr-only">Supported</span></span></li>
+              </ul>
+              <p class="cube__language-note">Rocq, Idris, and Lean support all three capabilities. Their universe and quantification rules differ from the original calculus.</p>
+            </dd>
+          </dl>
+          <ul class="cube__features"><li>Polymorphism <span class="cube__yes">Yes</span></li><li>Type operators <span class="cube__yes">Yes</span></li><li>Dependent types <span class="cube__yes">Yes</span></li></ul>
+        </section>
+      </div>
+    </div>
+  </figure>
+
+  <div class="cube-page__after prose">
+    <h2>Reading the logic and language labels</h2>
+    <p>Under Curry–Howard, types act as propositions and terms as proofs. The logic names here refer to intuitionistic systems, with implication and the quantifiers available at each corner. “Weak higher-order” means operators are available without the polymorphic quantification added by the upward edge. See the <a href="https://imada.sdu.dk/~lcf/pubs/tfc.pdf">logic cube in <cite>λ-calculus and beyond</cite>, §4.3</a>.</p>
+    <p>✓ means practical support for the corner’s capabilities, possibly within a richer language; ✗ means those capabilities are not fully available natively. This is a feature comparison, not a claim that a language implements the exact calculus or its logic. Polymorphism includes ordinary generics; type operators require general higher-kinded abstraction; dependent types require general dependent functions. Recursion, effects, and universe rules are outside this checklist.</p>
+    <p>In particular, <a href="https://github.com/microsoft/TypeScript/issues/1213">TypeScript’s higher-kinded types proposal</a> and <a href="https://rust-lang.github.io/rfcs/1598-generic_associated_types.html">Rust’s generic associated types design</a> explain the type-operator limitations. <a href="https://doc.rust-lang.org/reference/items/generics.html">Rust const generics</a> support restricted value parameters, rather than general dependent functions.</p>
+    <h2>Three ways to go further</h2>
+    <p>Start at λ→, where functions take values. Travel upwards for polymorphism, diagonally for type operators, or to the right for dependent types. These are independent extensions, so the eight corners represent all their combinations.</p>
+    <p>Haskell’s polymorphism and higher-kinded types make System Fω a useful point of reference, though a full programming language has many features beyond this cube. The dependent-types direction asks a further question: what if a type could mention a value?</p>
+    <p class="cube-page__footnote">Background: <a href="https://www.cs.uoregon.edu/research/summerschool/summer23/_lectures/SG_OPLSS2023_3_handout.pdf">Silvia Ghilezan’s introduction to Barendregt’s lambda cube</a>.</p>
+  </div>
+</article>

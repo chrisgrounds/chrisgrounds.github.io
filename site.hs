@@ -58,6 +58,13 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts siteContext)
                 >>= relativizeUrls
 
+    match "cube.html" $ do
+        route $ constRoute "cube/index.html"
+        compile $
+            getResourceBody
+                >>= loadAndApplyTemplate "templates/default.html" (defaultPageContext publishedPosts siteContext)
+                >>= relativizeUrls
+
     match "inspiration.markdown" $ do
         route $ constRoute "inspiration/index.html"
         compile $
