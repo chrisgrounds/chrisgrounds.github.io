@@ -157,14 +157,14 @@ reverse :: forall a. [a] -> [a]
 
 In other words, polymorphic functions are *quantifying over types*. But we can also quantify over _values_ rather than over types - and in doing so we can make types _depend_ on values. And when we do this we are expressing first-order predicate logic. And this is what dependent types are doing for us.
 
-| logic    | types |
-| -------- | ------- |
+| logic               | types |
+| --------            | ------- |
 | propositional logic | algebraic types |
 | first-order logic   | dependent types |
 | second-order logic  | polymorphism |
-| linear logic  | linear types |
-| S5 modal logic | spatially-distributed computing (e.g. ML5 lang) |
-| ...  | ... |
+| linear logic        | linear types |
+| S5 modal logic      | spatially-distributed computing (e.g. ML5 lang) |
+| ...                 | ... |
 
 Now, providing your business logic can be expressed in either propositional logic or second order logic, you can use a language like Haskell - and to varying degrees Rust. If you want to express first-order logic, then you need something stronger. You need either to enable many more extensions in Haskell to approximate dependent types, or you need a fully-fledged dependently typed language like Lean4, Idris, etc.
 
