@@ -6,9 +6,9 @@ tags: ["programming", "fp", "software design", "types", "tdd", "type-driven-deve
 ---
 
 <tldr>
-1. If your business logic is expressible in a logic, then it can be encoded in types, by the Curry-Howard isomorphism
+1. Business requirements can be expressed as logical propositions, and by the Curry–Howard isomorphism many of these propositions can be represented as types whose inhabitants constitute proofs
 2. State machines are very useful ways of representing business logic and requirements
-3. Type-level state machines (aka typestate) are a very good way of proving correctness of business logic and requirements
+3. Type-level state machines (aka typestate) are a very good way of proving correctness of business logic, requirements, and transitions
 </tldr>
 
 The first few sections give an introduction to Curry-Howard and state machines, so feel free to skip if you're already familiar with them.
@@ -17,7 +17,7 @@ The first few sections give an introduction to Curry-Howard and state machines, 
 
 Formal verification (FV) has been gaining a lot of traction lately, mainly driven by the desire to add more correctness and confidence in the output of more hands-off agentic engineering practices. I think FV has a lot of value, but one of the risks with it is the risk of drift. At least when using tools like TLA+, for example, where the domain is formally expressed in a language that is not the language of implementation. The risk quickly becomes that the formally-verified spec "drifts" away from the actual coding implementation - in the same way that comments drift from implementation.
 
-The other approach taken has been to write theorems in proof-assistant languages like Lean 4. This solves the drift risk because the code that is proven is the implementation code. Anthropic have [written quite a bit about their forays into Lean4 formally-verified code](https://www.anthropic.com/research/provable-inference).
+The other approach taken has been to write theorems in proof-assistant languages like Lean 4. This solves the drift risk when we also use Lean to write the implementation code, because the code that is proven _is_ the implementation code. Anthropic have [written quite a bit about their forays into Lean4 formally-verified code](https://www.anthropic.com/research/provable-inference).
 
 But there is also a way in which we can prove our code is correct without writing separate formal specifications or proofs. But first we need to understand two ideas: Curry-Howard & State Machines.
 
@@ -45,9 +45,7 @@ What's important about state machines is that although they are very simple they
 
 Going back to the initial opening paragraphs on TLA+, thinking about software engineering and how a big part of the challenge is around turning requirements into formal specification, it seems to me that we can leverage Curry-Howard and state machines to take requirements and turn them into both executable code and a proof of that executable code. The first step is to turn our requirements into a state machine, and I think firstly that a large part of software can be represented as a state machine. Secondly, that requirements and business logic are usually just transitions between different states.
 
-In order to leverage the Curry-Howard isomorphism, what we need to be doing is not just creating state machines, but creating state machines at the type-level. Once we create them at the type level, then we get our proof of correctness.
-
-(There are a couple caveats that need to be made. The first is that there are different levels to which we can do this depending on what we are quantifying over (more on that later), and the second is that there is a minimum level of expressiveness that we need. So this is going to be difficult in languages like TypeScript (because the type-system is unsound (so we cannot trust the type-checking)) and - for obvious reasons - dynamic languages like JS, Python, etc, because they cannot express very much at compile-time).
+In order to leverage the Curry-Howard isomorphism, what we need to be doing is not just creating state machines, but creating state machines at the type-level. Once we create them at the type-level, then we get our proof of correctness.
 
 Let's look at a really simple example to illustrate how we can do this. Consider a door, which can be in two states - open or closed. You can't open an already open door, nor can you close a closed door. You can open a closed door and close an open door. So we have the following states and transitions between those states,
 
@@ -100,7 +98,7 @@ data Invoice state = Invoice {
 
 publish :: Invoice Draft -> Invoice Issued
 pay :: Invoice Issued -> Invoice Paid
-overdue :: Invoice Issued -> Invoice Paid
+overdue :: Invoice Issued -> Invoice Overdue
 ```
 
 Here we create a `Invoice` type which has a `state` parameter which is unused. This is a phantom type. The way it helps us is each function can take an `Invoice state` and we don't have to create multiple types for each state.
@@ -133,7 +131,7 @@ What if we have requirements which are more difficult to encode in our Haskell/R
 Well, yes we can. Our initial approach might be to move the age check into the runtime and then parse the result into an `Allowed` or `Disallowed` state. Then to ensure our code is working as expected, we would need to test the runtime check. For example,
 
 ```hs
-parseAge :: Int -> Either Allowed Disallowed
+parseAge :: Int -> Either Disallowed Allowed
 parseAge age
   | age >= 60 = Right Allowed
   | otherwise = Left Disallowed
@@ -141,19 +139,23 @@ parseAge age
 
 But if we wanted to move this age check into the type-system, we need something more powerful than standard-Haskell and standard-Rust. We need _types that depend on values_. To understand dependent types, I find it helps to see where they fit in relation to other aspects of our type-systems, because it can be easy to be overwhelmed by them.
 
-Going back to the section on constructivism, we saw that we can take a very simple logic with a very few number of connectors and turn that into a type of algebraic data types and functions a mapping from propositional logic, namely the logic of propositions, to a relatively simple type system. But there are logics which quantify over propositions and in the land of programming languages this is all polymorphism is. For example, in Haskell the function,
+Going back to the section on constructivism, we saw that we can take a very simple logic with a very few number of connectors and turn that into a type of algebraic data types and functions a mapping from propositional logic, namely the logic of propositions, to a relatively simple type system. But there are logics which quantify over propositions and in the land of programming languages this is all polymorphism is. For example, in Haskell/Rust the function,
 
 ```hs
 reverse :: [a] -> [a]
 ```
 
-is a function which takes a list of any kind of type and it returns another list of any kind of type. So here the function is polymorphic over that type and it can apply to anything that can go inside a list. And in fact, Haskell hides the quantifier, but implicitly this function is,
+```rust
+fn reverse<T>(a: Vec<T>) -> Vec<T>
+```
+
+is a function which takes a list of any type and it returns another list of that same type. The function is polymorphic over that type and it can apply to anything that can go inside a list. And in fact, Haskell hides the quantifier, but implicitly this function is,
 
 ```hs
 reverse :: forall a. [a] -> [a]
 ```
 
-But we can also quantify over _values_ rather than over types - and in doing so we can make types _depend_ on values. And when we do this we are expressing first-order predicate logic. And this is what dependent types are doing for us.
+In other words, polymorphic functions are *quantifying over types*. But we can also quantify over _values_ rather than over types - and in doing so we can make types _depend_ on values. And when we do this we are expressing first-order predicate logic. And this is what dependent types are doing for us.
 
 | logic    | types |
 | -------- | ------- |

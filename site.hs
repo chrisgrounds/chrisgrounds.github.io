@@ -1,9 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 import Control.Monad (filterM)
-import Data.List (intercalate)
+import Data.Bits (xor)
+import Data.List (foldl', intercalate)
 import qualified Data.Text as T
+import Data.Word (Word64)
 import Hakyll
+import Numeric (showHex)
 import System.FilePath (dropExtension, takeFileName, (</>), (<.>))
 import Text.Pandoc.Definition (Block (Header), Inline (Link, Str), Pandoc)
 import Text.Pandoc.Walk (walk)
@@ -168,9 +171,19 @@ feedContext tags =
 
 siteContext :: Context String
 siteContext =
-    constField "siteTitle" "Chris Grounds"
+    field "mainCssUrl" (\_ -> do
+        css <- loadBody "css/main.css"
+        pure $ "/css/main.css?v=" <> contentFingerprint css)
+        <> constField "siteTitle" "Chris Grounds"
         <> constField "siteDescription" "Software, types, functional programming, and the ideas around them."
         <> defaultContext
+
+-- | Version the stylesheet by its contents so cached CSS cannot outlive edits.
+contentFingerprint :: String -> String
+contentFingerprint content = showHex (foldl' step offset content) ""
+  where
+    offset = 14695981039346656037 :: Word64
+    step hash char = (hash `xor` fromIntegral (fromEnum char)) * 1099511628211
 
 defaultPageContext :: Pattern -> Context String -> Context String
 defaultPageContext posts pageContext =
