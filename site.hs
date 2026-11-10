@@ -178,7 +178,9 @@ postWordCount item = do
 
 feedContext :: Tags -> Context String
 feedContext tags =
-    bodyField "description"
+    -- Titles go into the feed verbatim, so a bare '&' produces invalid XML.
+    field "title" (\item -> escapeHtml <$> getMetadataField' (itemIdentifier item) "title")
+        <> bodyField "description"
         <> postContext tags
 
 siteContext :: Context String
