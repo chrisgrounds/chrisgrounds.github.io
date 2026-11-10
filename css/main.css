@@ -790,6 +790,19 @@ a:hover {
 
 .prose .footnote {
   scroll-margin-top: 2rem;
+  color: var(--muted);
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+.prose .footnote p {
+  margin: 0 0 0.9em;
+  padding-left: 2em;
+  text-indent: -2em;
+}
+
+.prose .footnote code {
+  text-indent: 0;
 }
 
 .prose .footnote:target {
@@ -804,7 +817,11 @@ a:hover {
 }
 
 .prose .footnote-back {
+  display: inline-block;
+  min-width: 2em;
   font-family: var(--font-sans);
+  font-size: 0.9em;
+  text-indent: 0;
   text-decoration: none;
 }
 

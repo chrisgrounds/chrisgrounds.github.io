@@ -13,7 +13,7 @@ import Data.Word (Word64)
 import Hakyll
 import Numeric (showHex)
 import System.FilePath (dropExtension, takeFileName, (</>), (<.>))
-import Text.Pandoc.Definition (Block (Div, Header, Para, Plain), Inline (Link, Str), Pandoc (Pandoc))
+import Text.Pandoc.Definition (Block (Div, Header, Para, Plain), Inline (LineBreak, Link, SoftBreak, Str), Pandoc (Pandoc))
 import Text.Pandoc.Walk (walk, walkM)
 
 main :: IO ()
@@ -144,11 +144,13 @@ linkHeadings = walk addAnchor
 -- text, and start a top-level paragraph with @[1]@ (usually under an Appendix)
 -- to define it. Each reference links down to its definition, and the
 -- definition's marker links back up to the first reference. Numbers without a
--- definition are left as plain text, and code is never touched.
+-- definition are left as plain text, and code is never touched. Definitions on
+-- consecutive lines, with no blank line between them, are still separate.
 linkFootnotes :: Pandoc -> Pandoc
-linkFootnotes (Pandoc meta blocks) =
+linkFootnotes (Pandoc meta authored) =
     Pandoc meta (evalState (traverse footnoteBlock blocks) Set.empty)
   where
+    blocks = concatMap splitDefinitions authored
     defined = Set.fromList (mapMaybe definitionNumber blocks)
 
     footnoteBlock :: Block -> State (Set T.Text) Block
@@ -179,16 +181,37 @@ linkFootnotes (Pandoc meta blocks) =
 
     marker n = "[" <> n <> "]"
 
+-- | Markdown joins consecutive lines into one paragraph, so a run of
+-- definitions written line by line arrives as a single paragraph. Split it
+-- wherever a new line starts with a footnote marker.
+splitDefinitions :: Block -> [Block]
+splitDefinitions block@(Para inlines)
+    | Just _ <- definitionNumber block = map Para (go [] inlines)
+  where
+    go current (lineEnd : rest@(Str text : _))
+        | isLineEnd lineEnd
+        , Just _ <- markerNumber text =
+            reverse current : go [] rest
+    go current (inline : rest) = go (inline : current) rest
+    go current [] = [reverse current]
+
+    isLineEnd SoftBreak = True
+    isLineEnd LineBreak = True
+    isLineEnd _ = False
+splitDefinitions block = [block]
+
 -- | The footnote number a definition paragraph starts with, if it is one.
 definitionNumber :: Block -> Maybe T.Text
 definitionNumber block = case block of
-    Para (Str text : _) -> footnoteNumber text
-    Plain (Str text : _) -> footnoteNumber text
+    Para (Str text : _) -> markerNumber text
+    Plain (Str text : _) -> markerNumber text
     _ -> Nothing
-  where
-    footnoteNumber text = case splitReferences text of
-        [Right n] -> Just n
-        _ -> Nothing
+
+-- | The number in text that is exactly a footnote marker, such as @[1]@.
+markerNumber :: T.Text -> Maybe T.Text
+markerNumber text = case splitReferences text of
+    [Right n] -> Just n
+    _ -> Nothing
 
 -- | Splits text such as @runs[1]:@ into the plain text and footnote numbers.
 splitReferences :: T.Text -> [Either T.Text T.Text]
