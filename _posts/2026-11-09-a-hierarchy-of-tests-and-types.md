@@ -2,6 +2,7 @@
 title: "A Hierarchy of Tests & Types"
 date: 2026-11-09
 status: published
+pangram_url: https://www.pangram.com/history/87f8ea5b-f57c-4c82-b795-f8fe96505916?ucc=z4e6u5vg1aN&utm_source=pangram_share&utm_medium=copy_link
 tags: ["types", "tests"]
 ---
 
