@@ -767,10 +767,12 @@ a:hover {
 
 .prose figure img {
   display: block;
+  margin: 0 auto;
 }
 
 .prose figcaption {
   margin-top: 0.6rem;
+  text-align: center;
   color: var(--muted);
   font-family: var(--font-sans);
   font-size: var(--text-sm);
