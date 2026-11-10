@@ -11,7 +11,7 @@ Firstly, what does a test do? In essence, it takes a *system under test*, feeds 
 
 We can abstract this idea by saying a test takes a (pure or impure) function and checks the output, for some given input, is as expected. Unit tests generally take pure functions as their "system" and end-to-end tests take impure functions (i.e. systems with side-effects). And in a certain sense, the test is generating a "witness" for whatever claim is being tested.
 
-Types, on the other hand, can feel much more inert. However, this couldn't be further from the truth. Types express logical propositions, and as such, when we create a function or value that inhabits a type, we are also providing a witness for that logical proposition. The test's witness is `assert(1, 1) => true` and the type's witness is `f :: Int -> Int; f n = n`.
+Types, on the other hand, can feel much more inert. However, this couldn't be further from the truth. Types express logical propositions, and as such, when we create a function or value that inhabits a type, we are also providing a witness for that logical proposition. The test's witness is `assert(1, 1) => true` and the type `f :: Int -> Int` has a witness in `f n = n`.
 
 So types and tests seem to be doing a very similar job. They both take a claim of sorts and provide a witness for that claim, where the witness in some sense proves the claim. However, there are two main differences: (a) types provide a witness at compile time whereas tests provide a witness at runtime, and (b) the level of quantification, where tests - generally speaking - only test one thing, whereas types are much more far-reaching in scope.
 
