@@ -40,5 +40,5 @@ So if we plot the two out together, then we have a ladder of sorts starting from
 ## Footnotes
 
 [1] In constructive mathematics a proof is something you have to "construct" rather than deduce. Building a function that type-checks constructs a proof for that type/proposition.
-[2] Languages like Rust use structs for product types. Product types are so-called because the number of their inhabitants is the product of their types and the pairwise type combinator is often denoted with an `X` to symbolise this. For example, the number of possible members of the product type containing an two `i8`s is `2^8 * 2^8 = 2^16 = 65.5k`. A sum type is so-named because the cardinality is the sum of the types involved - so a sum type of two `i8`s would be `2^8 + 2^8 = 512`.
+[2] Languages like Rust use structs for product types. Product types are so-called because the number of their inhabitants is the product of their types and the pairwise type combinator is often denoted with an `X` to symbolise this. For example, the number of possible members of the product type containing two `i8`s is `2^8 * 2^8 = 2^16 = 65.5k`. A sum type is so-named because the cardinality is the sum of the types involved - so a sum type of two `i8`s would be `2^8 + 2^8 = 512`.
 [3] The cube and type-system to logic images are from [λ-calculus and beyond](https://imada.sdu.dk/u/lcf/pubs/tfc.pdf)
