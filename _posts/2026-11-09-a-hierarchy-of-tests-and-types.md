@@ -27,9 +27,9 @@ Moving up from propositional logic, there are type-systems that correspond to di
 
 Aside from polymorphism we also have types which can depend on other types (called "type-operators"), and types which can depend on terms. An example of the former is Haskell's higher-kinded types and an example of the later is Idris' dependent types. Furthermore, we can combine each of these three properties - polymorphism, type-operators, dependent types - to form a cube, where each vertex of the cube corresponds to a particular logic. 
 
-![The Lambda Cube](./assets/lambda-cube.png)
+![The Lambda Cube](/assets/lambda-cube.png)
 
-![Lambda Cube Logical Equivalences](./assets/lambda-cube-equivalences.png)
+![Lambda Cube Logical Equivalences](/assets/lambda-cube-equivalences.png)
 
 *See [my cube page here for an interactive lambda cube](/cube).*
 
