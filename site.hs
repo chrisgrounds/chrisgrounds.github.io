@@ -283,7 +283,7 @@ siteContext =
         css <- loadBody "css/main.css"
         pure $ "/css/main.css?v=" <> contentFingerprint css)
         <> constField "siteTitle" "Chris Grounds"
-        <> constField "siteDescription" "Software, types, functional programming, and the ideas around them."
+        <> constField "siteDescription" "Software, types, and functional programming"
         <> defaultContext
 
 -- | Version the stylesheet by its contents so cached CSS cannot outlive edits.
@@ -308,7 +308,7 @@ feedConfiguration :: FeedConfiguration
 feedConfiguration =
     FeedConfiguration
         { feedTitle = "Chris Grounds"
-        , feedDescription = "Software, types, functional programming, and the ideas around them."
+        , feedDescription = "Software, types, and functional programming"
         , feedAuthorName = "Chris Grounds"
         , feedAuthorEmail = ""
         , feedRoot = "https://chrisgrounds.github.io"
