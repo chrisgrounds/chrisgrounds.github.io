@@ -2,7 +2,7 @@
 title: "A Hierarchy of Tests & Types"
 date: 2026-11-09
 status: published
-tags: []
+tags: ["types", "tests"]
 ---
 
 Something I see people get hung up on quite often is the relationship between types and tests. In this post, I'd like to explicitly draw out a hierarchy of types and tests.
