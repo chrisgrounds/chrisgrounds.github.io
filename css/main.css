@@ -779,6 +779,35 @@ a:hover {
   font-style: italic;
 }
 
+.prose .footnote-ref {
+  margin-left: 0.1em;
+  font-family: var(--font-sans);
+  font-size: 0.7em;
+  line-height: 0;
+  vertical-align: super;
+  text-decoration: none;
+}
+
+.prose .footnote {
+  scroll-margin-top: 2rem;
+}
+
+.prose .footnote:target {
+  border-radius: 4px;
+  outline: 1px solid var(--accent-underline);
+  outline-offset: 0.4em;
+}
+
+.prose .footnote-back,
+.prose .footnote-ref[id] {
+  scroll-margin-top: 30vh;
+}
+
+.prose .footnote-back {
+  font-family: var(--font-sans);
+  text-decoration: none;
+}
+
 .prose hr {
   margin: 3rem 0;
   border: 0;

@@ -1,16 +1,20 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 import Control.Monad (filterM)
+import Control.Monad.Trans.State.Strict (State, evalState, gets, modify')
 import Data.Bits (xor)
-import Data.Char (isAlphaNum)
+import Data.Char (isAlphaNum, isDigit)
 import Data.List (foldl', intercalate)
+import Data.Maybe (mapMaybe)
+import Data.Set (Set)
+import qualified Data.Set as Set
 import qualified Data.Text as T
 import Data.Word (Word64)
 import Hakyll
 import Numeric (showHex)
 import System.FilePath (dropExtension, takeFileName, (</>), (<.>))
-import Text.Pandoc.Definition (Block (Header), Inline (Link, Str), Pandoc)
-import Text.Pandoc.Walk (walk)
+import Text.Pandoc.Definition (Block (Div, Header, Para, Plain), Inline (Link, Str), Pandoc (Pandoc))
+import Text.Pandoc.Walk (walk, walkM)
 
 main :: IO ()
 main = hakyll $ do
@@ -111,7 +115,7 @@ postCompiler :: Compiler (Item String)
 postCompiler =
     getResourceBody
         >>= withItemBody (pure . expandTldr)
-        >>= renderPandocWithTransform defaultHakyllReaderOptions defaultHakyllWriterOptions linkHeadings
+        >>= renderPandocWithTransform defaultHakyllReaderOptions defaultHakyllWriterOptions (linkFootnotes . linkHeadings)
 
 -- | Rewrites @<tldr>@ … @</tldr>@ into a @tldr@ div before Pandoc sees it.
 -- Pandoc treats unknown tags as inline HTML, which would swallow the block's
@@ -135,6 +139,73 @@ linkHeadings = walk addAnchor
 
     anchor ident =
         Link ("", ["heading-anchor"], []) [Str "#"] ("#" <> ident, "")
+
+-- | Footnotes in the plain style the posts already use: write @[1]@ in the
+-- text, and start a top-level paragraph with @[1]@ (usually under an Appendix)
+-- to define it. Each reference links down to its definition, and the
+-- definition's marker links back up to the first reference. Numbers without a
+-- definition are left as plain text, and code is never touched.
+linkFootnotes :: Pandoc -> Pandoc
+linkFootnotes (Pandoc meta blocks) =
+    Pandoc meta (evalState (traverse footnoteBlock blocks) Set.empty)
+  where
+    defined = Set.fromList (mapMaybe definitionNumber blocks)
+
+    footnoteBlock :: Block -> State (Set T.Text) Block
+    footnoteBlock block = case (block, definitionNumber block) of
+        (Para (_ : rest), Just n) -> definition n Para <$> walkM linkReferences rest
+        (Plain (_ : rest), Just n) -> definition n Plain <$> walkM linkReferences rest
+        _ -> walkM linkReferences block
+
+    definition n wrap rest =
+        Div ("fn-" <> n, ["footnote"], [])
+            [wrap (Link ("", ["footnote-back"], [("aria-label", "Back to reference")]) [Str (marker n)] ("#fnref-" <> n, "") : rest)]
+
+    linkReferences :: [Inline] -> State (Set T.Text) [Inline]
+    linkReferences = fmap concat . traverse linkInline
+
+    linkInline (Str text) = traverse piece (splitReferences text)
+    linkInline inline = pure [inline]
+
+    piece (Left text) = pure (Str text)
+    piece (Right n)
+        | n `Set.member` defined = do
+            seen <- gets (Set.member n)
+            modify' (Set.insert n)
+            -- Only the first reference carries the id the back-link targets.
+            let ident = if seen then "" else "fnref-" <> n
+            pure (Link (ident, ["footnote-ref"], []) [Str (marker n)] ("#fn-" <> n, ""))
+        | otherwise = pure (Str (marker n))
+
+    marker n = "[" <> n <> "]"
+
+-- | The footnote number a definition paragraph starts with, if it is one.
+definitionNumber :: Block -> Maybe T.Text
+definitionNumber block = case block of
+    Para (Str text : _) -> footnoteNumber text
+    Plain (Str text : _) -> footnoteNumber text
+    _ -> Nothing
+  where
+    footnoteNumber text = case splitReferences text of
+        [Right n] -> Just n
+        _ -> Nothing
+
+-- | Splits text such as @runs[1]:@ into the plain text and footnote numbers.
+splitReferences :: T.Text -> [Either T.Text T.Text]
+splitReferences text
+    | T.null text = []
+    | otherwise = case T.breakOn "[" text of
+        (before, rest)
+            | T.null rest -> [Left before]
+            | (digits, after) <- T.span isDigit (T.drop 1 rest)
+            , not (T.null digits)
+            , Just remaining <- T.stripPrefix "]" after ->
+                leading before ++ Right digits : splitReferences remaining
+            | otherwise -> case splitReferences (T.drop 1 rest) of
+                Left next : more -> Left (before <> "[" <> next) : more
+                more -> Left (before <> "[") : more
+  where
+    leading t = [Left t | not (T.null t)]
 
 accessiblePostsPattern :: Rules (Pattern, Pattern)
 accessiblePostsPattern = do
