@@ -5,7 +5,7 @@ status: published
 tags: []
 ---
 
-Something I've seen people say a lot lately is that agentic-engineering is another layer of abstraction, in the same way we have abstracted over binary to create assembly, and then abstracted over assembly to create C, etc. I think this completely misses the point of abstraction and what's going on when we abstract over something. Without pulling out the Oxford English Dictionary, I want to show what I mean with a few examples.
+Something I've seen a lot lately is the idea that prompting LLMs is another layer of abstraction, in the same way we have abstracted over binary to create assembly, and then abstracted over assembly to create C, etc. I think this completely misses the point of abstraction and what's going on when we abstract over something. Without pulling out the Oxford English Dictionary, I want to show what I mean with a few examples.
 
 Say you've got the equations,
 
@@ -16,7 +16,7 @@ Say you've got the equations,
 etc
 ```
 
-And you want to abstract this idea of squaring numbers. You would start by renaming the constants with variables,
+And you want to abstract this idea of squaring numbers. You might start by renaming the constants with variables,
 
 ```
 n + n = n * 2
@@ -40,7 +40,7 @@ There is another commonality here which you can abstract over, which makes you i
 n^2 = n^2
 ```
 
-Without this level of abstraction, our examples would soon get unwieldy before long. For example, writing out 16^2 with addition as in the first example would take up the entire width of the page - "16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16".
+Without this level of abstraction, our examples would soon become unwieldy. For example, writing out *16^2* with addition as in the first example would take up the entire width of the page - *16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16*.
 
 So abstraction is doing a very important job for us. When we abstract we are taking an idea, removing the specifics of it, and generalising it in a way that holds true across the entire domain of examples. It's not the case that `n^n` is only sometimes true and if we look hard enough we'll find examples which don't fit this abstraction.[1]
 
