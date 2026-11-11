@@ -40,7 +40,7 @@ There is another commonality here which you can abstract over, which makes you i
 n^2 = n^2
 ```
 
-Without this level of abstraction, our examples would soon become unwieldy. For example, writing out *16^2* with addition as in the first example would take up the entire width of the page - *16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16*.
+Without this level of abstraction, our examples would soon become unwieldy. For example, writing out *16^2* with addition would take up the entire width of the page - *16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16*.
 
 So abstraction is doing a very important job for us. When we abstract we are taking an idea, removing the specifics of it, and generalising it in a way that holds true across the entire domain of examples. It's not the case that `n^n` is only sometimes true and if we look hard enough we'll find examples which don't fit this abstraction.[1]
 
