@@ -364,7 +364,7 @@
 }
 
 .cube__example code {
-  color: #d6dae0;
+  color: var(--code-text);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   line-height: 1.55;
