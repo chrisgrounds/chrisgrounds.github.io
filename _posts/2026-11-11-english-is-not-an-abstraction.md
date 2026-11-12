@@ -31,7 +31,7 @@ Or to put this more concisely,
 n + n + ... + n = n * n = n^2
 ```
 
-where *n* on the left-hand side is occuring *n*-times. 
+where *n* on the left-hand side is occurring *n*-times. 
 
 Without this level of abstraction, our examples would soon become unwieldy. For example, writing out *16^2* with addition would take up the entire width of the page - *16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16*.
 
