@@ -37,7 +37,7 @@ where *n* on the left-hand side is occurring *n*-times. You know that _n * n_ is
 n * n = n^2
 ```
 
-This is much more *concise* and *general* than the initial examples. And without this level of abstraction, our examples would soon become unwieldy. For example, writing out *16^2* with nothing but addition would take up the entire width of the page - *16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16*.
+This is much more *concise* and *general* than the initial examples. And without this level of abstraction, our examples would soon become unwieldy. For example, writing out *32^2* with nothing but addition would take up a lot of space - *32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32*.
 
 So abstraction is doing a very important job for us. When we abstract we are taking an idea, removing the specifics of it, and generalising it in a way that keeps the core idea intact across a whole domain.[1]
 
