@@ -2,6 +2,7 @@
 title: "English Is Not An Abstraction"
 date: 2026-11-11
 status: published
+pangram_url: https://www.pangram.com/history/63765513-dd0a-46c7-b678-2dccddacbe2c?ucc=z4e6u5vg1aN&utm_source=pangram_share&utm_medium=copy_link
 tags: []
 ---
 
