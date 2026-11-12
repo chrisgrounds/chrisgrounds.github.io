@@ -25,7 +25,7 @@ n + n + n + n = n * 4
 etc
 ```
 
-Then you notice a pattern. The number of *n*s on the left corresponds to the number on the right. 5 *n*s and you be multiplying *n* by 5. You might express this more formally as,
+Then you notice a pattern. The number of *n*s on the left corresponds to the number on the right. 5 *n*s and you'll multiply *n* by 5. 7 *n*s you'll multiply *n* by 7. And n *n*s and you'll multiply *n* by *n*. You might express this more formally as,
 
 ```
 n + n + ... + n = n * n
