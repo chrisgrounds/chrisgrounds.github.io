@@ -5,9 +5,9 @@ status: published
 tags: []
 ---
 
-Something I've seen a lot lately is the idea that prompting LLMs is another layer of abstraction, in the same way we have abstracted over binary to create assembly, and then abstracted over assembly to create C, etc. I think this completely misses the point of abstraction and what's going on when we abstract over something. Without pulling out the Oxford English Dictionary, I want to show what I mean with a few examples.
+Something I've seen a lot lately is the idea that prompting LLMs is another layer of abstraction, in the same way we have abstracted over binary to create assembly, and then abstracted over assembly to create C, etc. I think this misses the point of abstraction and what's going on when we abstract over something. To abstract is to "pull/draw away from" and generalise. When we prompt an LLM with English (and other natural languages) we are delegating rather than abstracting. An easy way to see this is to ask whether outsourcing in the past was considered an abstraction. It obviously wasn't.
 
-Say you've got the equations,
+But let's consider an example to see what abstraction is acutally doing. Say you've got the equations,
 
 ```
 2 + 2 = 4
@@ -41,7 +41,7 @@ This is much more *concise* and *general* than the initial examples. And without
 
 So abstraction is doing a very important job for us. When we abstract we are taking an idea, removing the specifics of it, and generalising it in a way that keeps the core idea intact across a whole domain.[1]
 
-English, and other natural languages, do a bad job of this. Natural language by its nature is ambiguous and generally not a good tool for abstraction. This is why mathematics and formalism is used so extensively in mathematics, physics, biology, chemistry, engineering, programming, etc, as they provide better tools for expressing and articulating abstractions. And consequently why I think prompting LLMs with natural langauge is not some new level of abstraction we've discovered.
+English, and other natural languages, do a bad job of this. Natural language by its nature is ambiguous and generally not a good tool for abstraction. This is why mathematics and formalism is used so extensively in mathematics, physics, biology, chemistry, engineering, programming, etc, as they provide better tools for expressing and articulating abstractions. And consequently why I think prompting LLMs with natural langauge is not some new level of abstraction we've discovered, rather it is delegation.
 
 ## Footnotes 
 
