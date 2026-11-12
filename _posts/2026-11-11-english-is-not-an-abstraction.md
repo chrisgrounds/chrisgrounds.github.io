@@ -25,27 +25,20 @@ n + n + n + n = n * 4
 etc
 ```
 
-You then notice that you can also square things if you put the "*" on the left-hand side,
+Or to put this more concisely,
 
 ```
-n * 2 = n * 2
-n * 3 = n * 3
-n * 4 = n * 4
-etc
+n + n + ... + n = n * n = n^2
 ```
 
-There is another commonality here which you can abstract over, which makes you indifferent to whether you're using addition or multiplication to express the squaring - namely,
-
-```
-n^2 = n^2
-```
+where *n* on the left-hand side is occuring *n*-times. 
 
 Without this level of abstraction, our examples would soon become unwieldy. For example, writing out *16^2* with addition would take up the entire width of the page - *16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16 + 16*.
 
-So abstraction is doing a very important job for us. When we abstract we are taking an idea, removing the specifics of it, and generalising it in a way that holds true across the entire domain of examples. It's not the case that `n^n` is only sometimes true and if we look hard enough we'll find examples which don't fit this abstraction.[1]
+So abstraction is doing a very important job for us. When we abstract we are taking an idea, removing the specifics of it, and generalising it in a way that keeps the core idea intact across a whole domain.[1]
 
-But this is precisely what happens when we use English to prompt LLMs. Natural language by its nature is ambiguous and not a good tool for abstraction - which is why mathematics uses... mathematics and not English.
+But this is precisely what happens when we use English to prompt LLMs. Natural language by its nature is ambiguous and generally not a good tool for abstraction. This is why mathematics and formalism is used so extensively in mathematics, physics, and programming, as they provide better tools for expressing and articulating abstractions.
 
 ## Footnotes 
 
-[1] This is why leaky abstractions are particularly ergregious, as they violate one of the main benefits of abstraction.
+[1] Abstractions come in different kinds. Mathematical abstractions are often precise and sound, whereas software-engineering abstractions can often be "leaky".
