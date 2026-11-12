@@ -41,7 +41,7 @@ This is much more *concise* and *general* than the initial examples. And without
 
 So abstraction is doing a very important job for us. When we abstract we are taking an idea, removing the specifics of it, and generalising it in a way that keeps the core idea intact across a whole domain.[1]
 
-But this is precisely what happens when we use English to prompt LLMs. Natural language by its nature is ambiguous and generally not a good tool for abstraction. This is why mathematics and formalism is used so extensively in mathematics, physics, biology, chemistry, engineering, programming, etc, as they provide better tools for expressing and articulating abstractions.
+English, and other natural languages, do a bad job of this. Natural language by its nature is ambiguous and generally not a good tool for abstraction. This is why mathematics and formalism is used so extensively in mathematics, physics, biology, chemistry, engineering, programming, etc, as they provide better tools for expressing and articulating abstractions. And consequently why I think prompting LLMs with natural langauge is not some new level of abstraction we've discovered.
 
 ## Footnotes 
 
