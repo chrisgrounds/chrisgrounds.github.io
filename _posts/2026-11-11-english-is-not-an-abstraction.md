@@ -5,7 +5,7 @@ status: published
 tags: []
 ---
 
-Something I've seen a lot lately is the idea that prompting LLMs is another layer of abstraction, in the same way we have abstracted over binary to create assembly, and then abstracted over assembly to create C, etc. I think this misses the point of abstraction and what's going on when we abstract over something. To abstract is to "pull/draw away from" and generalise. When we prompt an LLM with English (and other natural languages) we are delegating rather than abstracting. An easy way to see this is to ask whether outsourcing in the past was considered an abstraction. It obviously wasn't.
+Something I've seen a lot lately is the idea that prompting LLMs is another layer of abstraction, in the same way we have abstracted over binary to create assembly, and then abstracted over assembly to create C, etc. I think this misses the point of abstraction and what's going on when we abstract over something. To abstract is to ["pull/draw away from"](https://www.etymonline.com/word/abstract) and generalise. When we prompt an LLM with English (and other natural languages) we are delegating rather than abstracting. An easy way to see this is to ask whether outsourcing in the past was considered an abstraction. It obviously wasn't.
 
 But let's consider an example to see what abstraction is acutally doing. Say you've got the equations,
 
