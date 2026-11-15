@@ -1,7 +1,7 @@
 ---
 title: "Types, Logic, Business Requirements"
 date: 2026-11-03
-status: draft
+status: published
 tags: ["programming", "fp", "software design", "types", "type driven development"]
 ---
 
@@ -139,7 +139,7 @@ parseAge age
 
 But if we wanted to move this age check into the type-system, we need something more powerful than standard-Haskell and standard-Rust. We need _types that depend on values_. To understand dependent types, I find it helps to see where they fit in relation to other aspects of our type-systems, because it can be easy to be overwhelmed by them.
 
-Going back to the section on constructivism, we saw that we can take a very simple logic with a very few number of connectors and turn that into a type of algebraic data types and functions a mapping from propositional logic, namely the logic of propositions, to a relatively simple type system. But there are logics which quantify over propositions and in the land of programming languages this is all polymorphism is. For example, in Haskell/Rust the function,
+Going back to the section on constructivism, we saw that we can take a very simple logic with a small number of connectors and turn that into a type with just algebraic data types and functions. This gives us a mapping from propositional logic - the logic of propositions - to a relatively simple type system. But there are logics which quantify *over* propositions and in the land of programming languages this is all polymorphism is. For example, in Haskell/Rust the function,
 
 ```hs
 reverse :: [a] -> [a]
@@ -155,7 +155,7 @@ is a function which takes a list of any type and it returns another list of that
 reverse :: forall a. [a] -> [a]
 ```
 
-In other words, polymorphic functions are *quantifying over types*. But we can also quantify over _values_ rather than over types - and in doing so we can make types _depend_ on values. And when we do this we are expressing first-order predicate logic. And this is what dependent types are doing for us.
+In other words, polymorphic functions are *quantifying over types*. But we can also quantify over *values* rather than over types - and in doing so we can make types *depend* on values. And when we do this we are expressing first-order predicate logic. And this is what dependent types are doing for us.
 
 | logic               | types |
 | --------            | ------- |
@@ -166,7 +166,16 @@ In other words, polymorphic functions are *quantifying over types*. But we can a
 | S5 modal logic      | spatially-distributed computing (e.g. ML5 lang) |
 | ...                 | ... |
 
-Now, providing your business logic can be expressed in either propositional logic or second order logic, you can use a language like Haskell - and to varying degrees Rust. If you want to express first-order logic, then you need something stronger. You need either to enable many more extensions in Haskell to approximate dependent types, or you need a fully-fledged dependently typed language like Lean4, Idris, etc.
+Now, providing your business logic can be expressed in either propositional logic or second order logic, you can use a language like Haskell - and to varying degrees Rust. If you want to express first-order logic, then you need something stronger. You need either to enable some extensions in Haskell to approximate (a subset of) dependent types, or you need a fully-fledged dependently typed language like Lean4, Idris, Roq, etc.
+
+Going back to our `parseAge` function, we can use dependent types to encode the conditional state transition. Using a language like Idris, that might look something like,
+
+```idris
+data Allowed : Nat -> Type where
+  MkAllowed : LTE 60 age -> Allowed age
+```
+
+The idea here is that the `Allowed` type constructor depends on the `age` value. And we have established our invariant, as the `MkAllowed` constructor requires a proof that 60 is less than `age`. Then we know at any point in our program that if we have `Allowed age` that the age is guaranteed to be equal to or above 60. No need for tests and no need for any if-statements or runtime checks.
 
 ## Conclusion
 
