@@ -11,8 +11,6 @@ tags: ["programming", "fp", "software design", "types", "type driven development
 3. Type-level state machines (aka typestate) are a very good way of proving correctness of business logic, requirements, and transitions
 </tldr>
 
-The first few sections give an introduction to Curry-Howard and state machines, so feel free to skip if you're already familiar with them.
-
 ## Introduction
 
 Formal verification (FV) has been gaining a lot of traction lately, mainly driven by the desire to add more correctness and confidence in the output of more hands-off agentic engineering practices. I think FV has a lot of value, but one of the risks with it is the risk of drift. At least when using tools like TLA+, for example, where the domain is formally expressed in a language that is not the language of implementation. The risk quickly becomes that the formally-verified spec "drifts" away from the actual coding implementation - in the same way that comments drift from implementation.
