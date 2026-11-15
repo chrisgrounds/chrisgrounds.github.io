@@ -6,7 +6,7 @@ tags: ["programming", "fp", "software design", "types", "type driven development
 ---
 
 <tldr>
-1. Business requirements can be expressed as logical propositions, and by the Curry–Howard isomorphism many of these propositions can be represented as types whose inhabitants constitute proofs
+1. Business requirements can be expressed as logical propositions, and by the Curry–Howard isomorphism these propositions can be represented as types whose inhabitants constitute proofs
 2. State machines are very useful ways of representing business logic and requirements
 3. Type-level state machines (aka typestate) are a very good way of proving correctness of business logic, requirements, and transitions
 </tldr>
@@ -84,7 +84,7 @@ Let's consider a case with 4 states. Suppose we are building an invoice system a
 
 ![An invoice finite state machine](/assets/invoice-fsm.svg)
 
-There are a couple different ways we can express this. As we say in the Rust example above, we can just use straightforward algebraic data types. There are (at least) two other approaches I think worth knowing about. The first is to use phantom types. This is especially useful when we want to have a single product type instead of multiple for each state of the machine - say because we want to share data between each of the states. Phantom types are little more awkward in Rust, so I'll use Haskell here,
+There are a couple different ways we can express this. As we say in the Rust example above, we can just use straightforward algebraic data types. There are (at least) two other approaches I think worth knowing about. The first is to use phantom types. This is especially useful when we want to have a single product type instead of multiple for each state of the machine - say because we want to share data between each of the states. Phantom types are little more awkward in Rust, so I'll use Haskell here,[1]
 
 ```hs
 data Draft
@@ -180,3 +180,7 @@ The idea here is that the `Allowed` type constructor depends on the `age` value.
 ## Conclusion
 
 With just these small examples, I hope you can see how easy it is to encode (business) logic into a type-system. All we've needed for the most part is straight-forward types and functions. I think it would be a very interesting project to work out how much business logic can be expressed as propositional logic and so only need algebraic types and functions to express in the type system. I suspect it's a very large amount.
+
+## Footnotes
+
+[1] In Haskell `data` creates a type, `::` is read "has type of", and `->` is a function type. So `f :: a -> b` should be read "f has type of function of a to b".
